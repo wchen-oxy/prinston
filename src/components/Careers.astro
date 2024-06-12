@@ -1,0 +1,71 @@
+---
+import Button from "./Button.astro";
+import SectionMeta from "./SectionMeta.astro";
+---
+
+<div id="careers">
+  <div id="content">
+    <div id="content-left">
+      <SectionMeta
+        section="Open Positions"
+        title="Join Our Rapidly Expanding Team"
+      />
+      <p id="section-description">
+        Something about what opportunities/why it's a great company top join.
+        For example, this is a fast growing company with year over year growth.
+        We have acquired multiple companies in the span of just a few years to
+        supplement our new ventures.
+      </p>
+      <Button text="See Openings" />
+    </div>
+    <div id="content-right">
+      <img src="/public/Careers.png" />
+      <p>
+        We believe fostering a friendly team environment not only brings out the
+        best in employees but also the best in our performance. At Prinston
+        Pharmaceuticals we truly are in the business together as a family.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  #careers {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: aliceblue;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  #content {
+    display: flex;
+    max-width: calc(100% - 2rem);
+    width: 800px;
+  }
+
+  #content-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  #section-description {
+    margin-bottom: 48px;
+  }
+
+  #content-right {
+    padding: 1rem;
+    width: 50%;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+    p {
+      font-size: 14px;
+      color: rgb(102, 102, 102);
+    }
+  }
+</style>

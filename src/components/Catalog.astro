@@ -1,0 +1,65 @@
+---
+import Button from "./Button.astro";
+import SectionMeta from "./SectionMeta.astro";
+---
+
+<div id="catalog">
+  <div id="content-image">
+    <img src="/public/medicine.jpg" />
+  </div>
+  <div id="content-text">
+    <div class="content-text-container">
+      <SectionMeta
+        section="Our Product Catalog"
+        title="Unmatched Generics Product Availability"
+      />
+      <p id="content-description">
+        We specialize in difficult to make sterile and non-sterile forms. We
+        offer a broad range of generic prescriptions including but not limited
+        to cardiovascular, central nervous system and pain management products.
+      </p>
+      <Button color="#36469c" text="Learn More" url="/products" />
+    </div>
+  </div>
+</div>
+<style>
+  #catalog {
+    display: flex;
+    height: 500px;
+    margin-top: 240px;
+    margin-bottom: 80px;
+  }
+
+  #content-image {
+    padding: 1rem;
+    width: 60%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+
+  #content-text {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+  }
+
+  #content-description {
+    margin-bottom: 48px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+</style>
+
+<script>
+  // const element = document.getElementById("content-primary");
+  // console.log(element);
+</script>

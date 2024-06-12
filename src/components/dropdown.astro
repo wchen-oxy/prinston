@@ -1,0 +1,32 @@
+---
+const { title, menuData } = Astro.props;
+---
+
+<div class="menu-container">
+  <h3>{title}</h3>
+  <div class="dropdown-list">
+    {menuData.map(({ label, url }) => <a href={url}>{label}</a>)}
+  </div>
+</div>
+<style>
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    padding: 1rem;;
+  }
+
+  .dropdown-list {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    font-size: 16px;
+    color: grey;
+  }
+  a {
+    font-size: 18px;
+  }
+</style>
+<script></script>

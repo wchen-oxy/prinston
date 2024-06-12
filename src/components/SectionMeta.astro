@@ -1,0 +1,24 @@
+---
+const { section, title, subHeader} = Astro.props;
+---
+
+<div>
+  <h1>{section}</h1>
+  <h2>{title}</h2>
+  {subHeader && <h5>{subHeader}</h5>}
+</div>
+<style>
+  h1 {
+    color: #36469c;
+    font-size: 16px;
+    margin: 0;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0px;
+  }
+  h5 {
+    color: gray;
+  }
+</style>

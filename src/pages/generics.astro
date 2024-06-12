@@ -1,0 +1,62 @@
+---
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About">
+  <Header />
+  <PageHeader url="/public/scientist-crop.jpg" />
+  <main>
+    <SectionMeta
+      section="Company Profile"
+      title="What Are Generics?"
+      subHeader="The backbone of affordable medicine"
+    />
+    <div id="main-about">
+      <div class="main-column">
+        <p>
+          Generic pharmaceutical drugs are drugs that have the same clinical
+          effect on the body as the brand-name drug they are based upon. They
+          are identical in dosage, safety, effectiveness, strength, stability,
+          quality and usage. This similarity is possible due to the same active
+          ingredient and the rigorous testing that generic drugs go through
+          during the certification process. <br /><br />Generic pharmaceutical
+          drugs differ from the original brand-name drug primarily in production
+          process and in overall cost. They do not have to repeat clinical
+          studies that have been already been conducted by brand-name medicines
+          and do not have the same upfront research costs. Additionally, generic
+          pharmaceuticals can be formulated in a different, more affordable
+          method than the brand-name drug. <br /><br />Generic pharmaceutical
+          drugs are critical to lowering the prices and availability of crucial
+          medicines to consumers. Without generic pharmaceutical drugs, many
+          would lose access to important medicinal therapies.
+        </p>
+      </div>
+      <div class="main-column">
+        <img src="/public/pills2.jpg" />
+      </div>
+    </div>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: 4rem auto auto auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+  #main-about {
+    display: flex;
+  }
+  .main-column {
+    width: 50%;
+    img {
+      padding-left: 3rem;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+</style>

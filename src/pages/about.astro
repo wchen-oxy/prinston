@@ -1,0 +1,57 @@
+---
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About">
+  <Header />
+  <PageHeader url="/public/hero2.jpg" />
+  <main>
+    <SectionMeta
+      section="Company Profile"
+      title="About Prinston Pharmaceutical"
+      subHeader="Serving the community since 2010"
+    />
+    <div id="main-about">
+      <div class="main-column">
+        <p>
+          Prinston Pharmaceutical was incorporated in 2010 with the mission to
+          provide customers with high quality, affordable and innovative generic
+          pharmaceutical drugs. <br />
+          <br /> We offer cardiovascular, central neurological system, anti inflammation
+          and other medicines.
+          <br /><br />To accomplish its mission, Prinston Pharmaceutical makes
+          use of several subsidiaries. Prinston Pharmaceutical develops and
+          markets its generic pharmaceutical drugs through Solco Healthcare.
+          Drug products are manufactured in its Charlotte, NC facility or in
+          facilities overseas.
+        </p>
+      </div>
+      <div class="main-column">
+        <img src="/public/medicine.jpg" />
+      </div>
+    </div>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: 1rem auto auto auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+  #main-about {
+    display: flex;
+  }
+  .main-column {
+    width: 50%;
+    img {
+      padding-left: 4rem;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+import Dropdown from "./dropdown.astro";
+
+const textLinks: { label: string; href: string }[] = [
+  // { label: "About", href: "/about" },
+  // { label: "Products", href: "/products/" },
+  { label: "CMO Services", href: "/cmo/" },
+  { label: "Careers", href: "/careers/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+const aboutLinks: { label: string; url: string }[] = [
+  { label: "Company Profile", url: "/about" },
+  { label: "Leadership", url: "/leadership" },
+  { label: "Research and Development", url: "/research" },
+  { label: "American Manufacturing", url: "/manufacturing" },
+  { label: "How We Give Back", url: "/giving-back" },
+];
+
+const productLinks: { label: string; url: string }[] = [
+  { label: "What are Generic Medicines", url: "/generics" },
+  { label: "Generic Medicine Regulations", url: "/regulations" },
+  { label: "Product List", url: "/products" },
+];
+---
+
+<nav>
+  <div class="nav-left">
+    <a href="/"> <img src="/public/logo.png" alt="logo" /></a>
+   
+  </div>
+  <div class="nav-right">
+    <ul class="nav-items">
+      <li>
+        <button id="button-about">About</button>
+        <div id="about-dropdown">
+          <Dropdown title="Pharmaceuticals" menuData={aboutLinks} />
+        </div>
+      </li>
+      <li>
+        <button id="button-product">Products</button>
+        <div id="product-dropdown">
+          <Dropdown title="About Us" menuData={productLinks} />
+        </div>
+      </li>
+    </ul>
+    <ul class="nav-items">
+      {
+        textLinks.map(({ label, href }) => (
+          <li>
+            <a
+              aria-current={Astro.url.pathname === href}
+              class:list={[
+                "link",
+                {
+                  active:
+                    Astro.url.pathname === href ||
+                    (href !== "/" && Astro.url.pathname.startsWith(href)),
+                },
+              ]}
+              href={href}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<style>
+  nav {
+    background-color: white;
+    /* width: 100%; */
+    /* height: 80px; */
+    display: flex;
+    padding: 1rem 2rem 1rem 2rem;
+    justify-content: space-between;
+    ul {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  img {
+    height: 60px;
+  }
+
+  .nav-left {
+    /* margin-left: 60px; */
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: flex;
+  }
+
+  .nav-items {
+    margin: 0;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  #about-dropdown {
+    display: none;
+  }
+  #product-dropdown {
+    display: none;
+  }
+</style>
+<script>
+  const aboutButton = document.getElementById("button-about");
+  const productButton = document.getElementById("button-product");
+  aboutButton.addEventListener("click", (e) => {
+    const product = document.getElementById("product-dropdown");
+    const about = document.getElementById("about-dropdown");
+    if (about.style.display === "") about.style.display = "flex";
+    else if (about.style.display === "flex") about.style.display = "";
+    product.style.display = "";
+  });
+  productButton.addEventListener("click", (e) => {
+    const product = document.getElementById("product-dropdown");
+    const about = document.getElementById("about-dropdown");
+    if (product.style.display === "") product.style.display = "flex";
+    else if (product.style.display === "flex") product.style.display = "";
+    about.style.display = "";
+  });
+</script>

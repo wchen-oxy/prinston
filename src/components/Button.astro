@@ -1,0 +1,23 @@
+---
+const { text, url, color } = Astro.props;
+---
+
+<div id="button">
+  <a href={url}>{text}</a>
+</div>
+
+<style define:vars={{ color }}>
+  #button {
+    display: flex;
+    height: 25px;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    width: fit-content;
+    border: solid;
+    border-color: var(--color);
+    a {
+      color: var(--color);
+      font-size: 16px;
+      z-index: 1;
+    }
+  }
+</style>

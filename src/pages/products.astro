@@ -1,0 +1,188 @@
+---
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+import therapies from "../assets/category";
+import brands from "../assets/brands";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Catalog">
+  <Header />
+  <PageHeader url="/public/pills.jpg" />
+  <main>
+    <SectionMeta section="Product List" title="Our Catalog for Generic Drugs" subheader=">See our catalog of products" />
+    <input id="searchbar" type="text" placeholder="Search By Product Name" />
+    <div id="filter">
+      <div>
+        <label for="therapeutic-category">Therapeutic Category</label>
+        <div>
+          <select id="select-therapy" name="therapeutic-category">
+            {therapies.map((item) => <option value={item}>{item}</option>)}
+          </select>
+          <button id="clear-therapy">Clear</button>
+        </div>
+      </div>
+      <div>
+        <label for="brand-name">Brand Name</label>
+        <div>
+          <select id="select-brand" name="brand-name">
+            {brands.map((item) => <option value={item}>{item}</option>)}
+          </select>
+          <button id="clear-brand">Clear</button>
+        </div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Product Details</th>
+          <th>Therapeutic Category</th>
+          <th>Dosage Form</th>
+          <th>Brand Name</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <tr id={"AMPHETAMINE SUFATE 5MG 100"}>
+          <td>AMPHETAMINE SUFATE 5MG 100</td>
+          <td>
+            <div class="detail-row"><h6>NDC</h6><p>43547-0457-10</p></div>
+            <div class="detail-row"><h6>Quantity</h6><p>100</p></div>
+            <div class="detail-row">
+              <h6>Label</h6><a
+                href={"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89c5b52f-3c2a-41d5-8624-9ee51c512c72"}
+                >Link</a
+              >
+            </div>
+          </td>
+          <td
+            >Narcolepsy/Attention Deficit Disorder with Hyperactivity/Exogenous
+            Obesity</td
+          >
+          <td>Tablet</td>
+          <td>Evekeo</td>
+        </tr>
+        <tr id="BENAZEPRIL HCL 20MG 100">
+          <td>BENAZEPRIL HCL 20MG 100</td>
+          <td>
+            <div class="detail-row"><h6>NDC</h6><p>43547-0337-10</p></div>
+            <div class="detail-row"><h6>Quantity</h6><p>100</p></div>
+            <div class="detail-row">
+              <h6>Label</h6><a
+                href={"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bb91223e-ffa5-4a3a-b191-fe121250c20c"}
+                >Link</a
+              >
+            </div>
+          </td>
+          <td>Hypertension</td>
+          <td>Tablet</td>
+          <td>Lotensin</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  main {
+    margin: 50px auto auto auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+  
+  table {
+    margin-top: 80px;
+    width: 100%;
+
+    h6 {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0;
+      padding-right: 4px;
+    }
+    p {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+  th {
+    padding: 0;
+    text-align: left;
+  }
+  .detail-row {
+    display: flex;
+  }
+  #searchbar {
+    width: 100%;
+  }
+</style>
+<script>
+  const searchbar = document.getElementById("searchbar");
+  const selectTherapy = document.getElementById("select-therapy");
+  const selectBrand = document.getElementById("select-brand");
+  const clearTherapy = document.getElementById("clear-therapy");
+  const clearBrand = document.getElementById("clear-brand");
+  const tableBody = document.getElementById("table-body");
+  const tableRows = document.getElementsByTagName("tr");
+
+  searchbar.addEventListener("input", (e) => {
+    console.log("click!");
+  });
+
+  //   selectTherapy.addEventListener("change", (e) => {
+  //     // console.log(e.target.value);
+  //   });
+  //   selectBrand.addEventListener("change", (e) => {
+  //     // console.log(e.target.value);
+  //   });
+
+  clearTherapy.addEventListener("click", (e) => {
+    const select = document.getElementById("select-therapy");
+    select.value = null;
+    onFilterHandler(e);
+  });
+  clearBrand.addEventListener("click", (e) => {
+    const select = document.getElementById("select-brand");
+    select.value = null;
+    onFilterHandler(e);
+  });
+  const onFilterHandler = (e) => {
+    for (let i = 1; i < tableRows.length; i++) {
+      const row = tableRows[i];
+      const text = row.id;
+      const category = row.cells[2].innerText;
+      const brand = row.cells[4].innerText;
+      const categoryBoolean =
+        selectTherapy.value === "" ? true : category === selectTherapy.value;
+      const brandBoolean =
+        selectBrand.value === "" ? true : brand === selectBrand.value;
+      const categoryFilter = categoryBoolean && brandBoolean;
+      const textMatched = text
+        .toUpperCase()
+        .indexOf(searchbar.value.toUpperCase());
+      if (textMatched > -1 && categoryFilter) {
+        row.style.display = "table-row";
+      } else {
+        row.style.display = "none";
+      }
+      console.log(selectTherapy.value, categoryFilter);
+    }
+  };
+  searchbar.addEventListener("input", onFilterHandler);
+  selectTherapy.addEventListener("change", onFilterHandler);
+  selectBrand.addEventListener("change", onFilterHandler);
+
+  //   for (const row of tableRows) {
+  //     const text = row.id;
+  //     if (text.toUpperCase().indexOf(searchbar.value) > -1) {
+  //       row.style.display = "table-row";
+  //     } else {
+  //       row.style.display = "none";
+  //     }
+  //     console.log(row.id);
+  //   }
+</script>

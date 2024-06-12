@@ -1,0 +1,49 @@
+---
+import SectionMeta from "../SectionMeta.astro";
+import Article from "./Article.astro";
+const tempNews = [
+  {
+    category: "Research",
+    date: "March 8, 2024",
+    title: "New Breakthrough for Manufacturing Process in Biosimilars",
+  },
+  {
+    category: "Research",
+    date: "March 10, 2024",
+    title: "New Innovation in Quality Control",
+  },
+];
+---
+
+<div id="news">
+  <div id="content">
+    <div id="content-titles">
+      <SectionMeta section="Recent Updates" title="News" />
+    </div>
+    <div id="feed">
+      {
+        tempNews.map(({ category, date, title }) => (
+          <Article category={category} date={date} title={title} />
+        ))
+      }
+    </div>
+  </div>
+
+  <style>
+    #news {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: rgb(250, 250, 250);
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    #content {
+      max-width: calc(100% - 2rem);
+      width: 800px;
+    }
+    #feed {
+      display: flex;
+    }
+  </style>
+</div>

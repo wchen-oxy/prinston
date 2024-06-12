@@ -1,0 +1,36 @@
+---
+const { category, date, title } = Astro.props;
+---
+
+<div class="tile">
+  <div class="header">
+    <div class="category"><h4>{category}</h4></div>
+    <div class="date"><h4>{date}</h4></div>
+  </div>
+  <div class="title">
+    {title}
+  </div>
+</div>
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .category {
+    h4 {
+      font-size: 12px;
+      color: rgb(1, 86, 160);
+    }
+  }
+  .date {
+    font-size: 12px;
+  }
+  .tile {
+    padding: 1rem;
+    background-color: white;
+    width: 250px;
+    margin: 48px 48px 48px 0;
+    font-size: 24px;
+    box-shadow: 10px 10px 5px rgb(240, 240, 240);
+  }
+</style>

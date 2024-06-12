@@ -1,0 +1,115 @@
+---
+import Button from "./Button.astro";
+const navLinks: { label: string; ref: string }[] = [
+  { label: "The Prinston Difference", ref: "refDiff" },
+  { label: "Product Catalog", ref: "refProducts" },
+  { label: "News", ref: "refNews" },
+  { label: "Open Positions", ref: "refPositions" },
+];
+---
+
+<div id="hero">
+  <div id="hero-image-container">
+    <div class="hero-columns">
+      <h2>The Community's Partner in Affordable Generics</h2>
+      <h4>
+        Providing high quality, accessible generic pharmaceuticals for decades.
+      </h4>
+      <Button text="Learn More" url="/about" color="white" />
+    </div>
+    <div class="hero-columns"></div>
+  </div>
+  <div id="navigation">
+    {
+      navLinks.map(({ label, ref }) => (
+        <button id={ref} class="navigation-buttons">
+          {label}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  #hero {
+    width: 100%;
+  }
+  #hero-image-container {
+    width: 100%;
+    height: 70vh;
+    background-image: url("/public/hero3.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+  }
+
+  #hero-image {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+
+  #navigation {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .navigation-buttons {
+    background-color: transparent;
+    color: rgba(31, 30, 30, 0.5);
+    border: 1px solid rgba(31, 30, 30, 0.5); /* Change the color as needed */
+    padding: 0.5rem 3rem; /* Adjust padding as desired */
+    cursor: pointer;
+  }
+  .hero-columns {
+    height: 70vh;
+    padding: 4rem;
+    width: 50%;
+    /* background: green; */
+    position: absolute;
+    h2 {
+      font-size: 48px;
+      color: white;
+      line-height: 1;
+    }
+    h4 {
+      color: white;
+      font-size: 18px;
+      font-weight: 100;
+    }
+  }
+
+  .navigation-buttons {
+  }
+</style>
+
+<script>
+  const differences = document.getElementById("refDiff");
+  const products = document.getElementById("refProducts");
+  const news = document.getElementById("refNews");
+  const position = document.getElementById("refPositions");
+  const buttons = [differences, products, news, position];
+  buttons.map((button) => {
+    button.addEventListener("click", (e) => {
+      switch (e.target.id) {
+        case "refDiff":
+          document.getElementById("prinston-difference").scrollIntoView();
+          break;
+        case "refProducts":
+          document.getElementById("catalog").scrollIntoView();
+          break;
+        case "refNews":
+          document.getElementById("news").scrollIntoView();
+          break;
+        case "refPositions":
+          document.getElementById("careers").scrollIntoView();
+          break;
+      }
+    });
+  });
+  // differences.addEventListener("click", (e) => {});
+  console.log(differences);
+</script>

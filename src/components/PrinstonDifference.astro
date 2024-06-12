@@ -1,0 +1,110 @@
+---
+import SectionMeta from "./SectionMeta.astro";
+
+const heroText: { title: string; desc: string }[] = [
+  {
+    title: "Quality",
+    desc: "We follow industry standards.",
+  },
+  {
+    title: "Affordability",
+    desc: `By leveraging our R&D and the capabilities of local and abroad facilities, 
+          we are able to manufacture a large variety of generics at any price.`,
+  },
+  {
+    title: "Reliability",
+    desc: `By leveraging our R&D and the capabilities of local and abroad facilities, 
+          we are able to manufacture a large variety of generics at any price.`,
+  },
+];
+---
+
+<div id="prinston-difference">
+  <div id="content-upper">
+    <SectionMeta
+      section="The Prinston Difference"
+      title="Quality, Affordability and Reliability"
+    />
+    <h3>
+      We're able to leverage our local and international facilities to
+      manufacture affordable and high quality generics at any scale.
+    </h3>
+  </div>
+  <div id="content-lower">
+    <div id="content-text">
+      {
+        heroText.map(({ title, desc }) => (
+          <div class="content-text-container">
+            <p class="content-title">{title}</p>
+            <p class="content-description">{desc}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div id="content-image">
+      <img src="/public/lab.jpg" />
+    </div>
+  </div>
+</div>
+
+<style>
+  h1 {
+    color: #36469c;
+    font-size: 16px;
+    margin: 0;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0px;
+  }
+  h3 {
+    margin: 0px;
+    line-height: 1;
+    font-weight: 100;
+  }
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+  #prinston-difference {
+    margin: 100px 0 100px 0;
+  }
+  #content-upper {
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
+
+  #content-lower {
+    display: flex;
+    height: 500px;
+  }
+
+  #content-image {
+    width: 60%;
+    padding-left: 1rem;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+
+  #content-text {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .content-text-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 auto 0;
+  }
+
+  .content-title {
+    line-height: 1;
+    font-weight: bold;
+  }
+</style>

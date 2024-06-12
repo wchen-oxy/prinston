@@ -1,0 +1,84 @@
+---
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About">
+  <Header />
+  <PageHeader url="/public/hero2.jpg" />
+  <main>
+    <SectionMeta
+      section="Company Profile"
+      title="About Prinston Pharmaceutical"
+      subHeader="Serving the community since 2010"
+    />
+    <div id="main-about">
+      <p>
+        Generic drugs undergo a rigorous approval process by the FDA to ensure
+        the safety of consumers. At Prinston Pharmaceutical, we follow the
+        industry standard by submitting an abbreviated new drug application
+        (ANDA) to the FDA.
+        <br /><br />
+        As part of the ANDA, we provide the following evidence:
+      </p>
+      <ul>
+        <li>The active ingredient is identical to the brand-name drug</li>
+        <li>The generic drug is the same strength as the brand-name drug</li>
+        <li>
+          The medicine form is the same type as the brand-name drug (e.g.,
+          tablet or injectable)
+        </li>
+        <li>
+          The method in which the medicine is administered is identical to the
+          brand-name drug
+        </li>
+        <li>The use indications are identical to the brand-name drug</li>
+        <li>
+          The drug remains stable for at least as long as the brand-name drug
+        </li>
+        <li>
+          The inactive ingredients do not affect the function of the drug and
+          are acceptable by FDA standards
+        </li>
+        <li>
+          The generic drug is manufactured using identical guidelines as the
+          brand-name drug
+        </li>
+        <li>The container for the generic drug follows FDA guidelines</li>
+        <li>
+          The generic drug's label is identical to the brand-name drug's label
+        </li>
+        <li>
+          The generic drug under consideration does not conflict with any
+          existing patents or exclusivities
+        </li>
+      </ul>
+      <p>
+        * If the brand-name drug has multiple uses and any additional use-cases
+        is protected by a patent or exclusivity period, the generic drug may
+        have a different label
+      </p>
+    </div>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+  #main-about {
+    /* display: flex; */
+  }
+  .main-column {
+    width: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+</style>

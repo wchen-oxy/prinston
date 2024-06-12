@@ -1,0 +1,110 @@
+---
+const address = [
+  {
+    location: "Prinston Pharm - HQ",
+    address: "700 Atrium Dr., Somerset, NJ 08873",
+    phone: "(609) 655-1688",
+    email: "customerservice@solcohealthcare.com",
+  },
+  {
+    location: "Prinston Lab - Manufacturing",
+    address: "700 Atrium Dr. Suite A, Somerset, NJ 08873",
+    phone: "(609) 655-1688",
+    email: "customerservice@solcohealthcare.com",
+  },
+  {
+    location: "Solco - Distribution Lab and Manufacturing",
+    address: "700 Atrium Dr. Suite A, Somerset, NJ 08873",
+    phone: "(855)-581-9688",
+    email: "customerservice@solcohealthcare.com",
+  },
+  {
+    location: "Prinston Lab - Manufacturing",
+    address: "700 Atrium Dr. Suite A, Somerset, NJ 08873",
+    phone: "(855)-581-9688",
+    email: "customerservice@solcohealthcare.com",
+  },
+];
+---
+
+<div id="footer">
+  <div id="info">
+    {
+      address.map(({ location, address, phone, email }) => (
+        <div class="info-column">
+          <div class="info-type">
+            <h3>{location}</h3>
+          </div>
+          <div class="info-type">
+            <img src="/public/location.png" />
+            <p>{address}</p>
+          </div>
+          <div class="info-type">
+            <img class="phone" src="/public/phone.png" />
+            <p>{phone}</p>
+          </div>
+          <div class="info-type">
+            <img class="mail" src="/public/mail.png" />
+            <p>{email}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div id="credit">
+    <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon by
+    <a target="_blank" href="https://icons8.com">Icons8</a>
+  </div>
+</div>
+
+<style>
+  #footer {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: #211f71;
+  }
+  #info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    h3 {
+      font-weight: bold;
+      font-size: 12px;
+      color: white;
+    }
+    p {
+      font-weight: 100;
+      font-size: 12px;
+      margin: 0;
+      color: rgb(192, 206, 253);
+    }
+  }
+
+  #credit {
+    display: flex;
+    justify-content: center;
+    color:  #8e8db6;
+    a {
+      color: #8e8db6;
+    }
+  }
+  .info-column {
+  }
+
+  .info-type {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    img {
+      width: 15px;
+      height: 15px;
+      margin-right: 5px;
+    }
+  }
+  .mail,
+  .phone {
+    padding-top: 3px;
+  }
+</style>
