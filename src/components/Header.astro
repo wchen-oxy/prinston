@@ -1,6 +1,6 @@
 ---
 import Dropdown from "./dropdown.astro";
-
+const url = import.meta.env.BASE_URL;
 const textLinks: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
   // { label: "Products", href: "/products/" },
@@ -26,7 +26,9 @@ const productLinks: { label: string; url: string }[] = [
 
 <nav>
   <div class="nav-left">
-    <a href="/"> <img src="/public/logo.png" alt="logo" /></a>
+    <a href="/">
+      <img src={import.meta.env.BASE_URL + "/public/logo.png"} alt="logo" /></a
+    >
   </div>
   <div class="nav-right">
     <ul class="nav-items">
