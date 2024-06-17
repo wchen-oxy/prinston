@@ -4,44 +4,42 @@ const url = import.meta.env.BASE_URL;
 const textLinks: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
   // { label: "Products", href: "/products/" },
-  { label: "CMO Services", href: "/cmo/" },
-  { label: "Careers", href: "/careers/" },
-  { label: "Contact", href: "/contact/" },
+  { label: "CMO Services", href: "/prinston/cmo/" },
+  { label: "Careers", href: "/prinston/careers/" },
+  { label: "Contact", href: "/prinston/contact/" },
 ];
 
 const aboutLinks: { label: string; url: string }[] = [
-  { label: "Company Profile", url: "/about" },
-  { label: "Leadership", url: "/leadership" },
-  { label: "Research and Development", url: "/research" },
-  { label: "American Manufacturing", url: "/manufacturing" },
-  { label: "How We Give Back", url: "/giving-back" },
+  { label: "Company Profile", url: "/prinston/about" },
+  { label: "Leadership", url: "/prinston/leadership" },
+  { label: "Research and Development", url: "/prinston/research" },
+  { label: "American Manufacturing", url: "/prinston/manufacturing" },
+  { label: "How We Give Back", url: "/prinston/giving-back" },
 ];
 
 const productLinks: { label: string; url: string }[] = [
-  { label: "What are Generic Medicines", url: "/generics" },
-  { label: "Generic Medicine Regulations", url: "/regulations" },
-  { label: "Product List", url: "/products" },
+  { label: "What are Generic Medicines", url: "/prinston/generics" },
+  { label: "Generic Medicine Regulations", url: "/prinston/regulations" },
+  { label: "Product List", url: "/prinston/products" },
 ];
 ---
 
 <nav>
   <div class="nav-left">
-    <a href="/">
-      <img src={import.meta.env.BASE_URL + "/public/logo.png"} alt="logo" /></a
-    >
+    <a href="/prinston"> <img src={"/prinston/logo.png"} alt="logo" /></a>
   </div>
   <div class="nav-right">
     <ul class="nav-items">
       <li>
         <button id="button-about">About</button>
         <div id="about-dropdown">
-          <Dropdown title="Pharmaceuticals" menuData={aboutLinks} />
+          <Dropdown title="About Us" menuData={aboutLinks} />
         </div>
       </li>
       <li>
         <button id="button-product">Products</button>
         <div id="product-dropdown">
-          <Dropdown title="About Us" menuData={productLinks} />
+          <Dropdown title="Products" menuData={productLinks} />
         </div>
       </li>
     </ul>
@@ -121,6 +119,7 @@ const productLinks: { label: string; url: string }[] = [
   }
 </style>
 <script>
+  console.log(import.meta.env);
   const aboutButton = document.getElementById("button-about");
   const productButton = document.getElementById("button-product");
   aboutButton.addEventListener("click", (e) => {

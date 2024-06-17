@@ -1,6 +1,9 @@
 ---
+// import { BASE } from "../constants";
 import Button from "./Button.astro";
 import SectionMeta from "./SectionMeta.astro";
+const BASE = '/prinston/';
+const careersImage = BASE + "Careers.png";
 ---
 
 <div id="careers">
@@ -19,7 +22,7 @@ import SectionMeta from "./SectionMeta.astro";
       <Button text="See Openings" />
     </div>
     <div id="content-right">
-      <img src="/public/Careers.png" />
+      <img src={careersImage} />
       <p>
         We believe fostering a friendly team environment not only brings out the
         best in employees but also the best in our performance. At Prinston
