@@ -14,7 +14,8 @@ const { title, menuData } = Astro.props;
     flex-direction: column;
     position: absolute;
     background-color: white;
-    padding: 1rem;;
+    padding: 1rem;
+    z-index: 1;
   }
 
   .dropdown-list {
@@ -26,6 +27,7 @@ const { title, menuData } = Astro.props;
     color: grey;
   }
   a {
+    
     font-size: 18px;
   }
 </style>

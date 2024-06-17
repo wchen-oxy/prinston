@@ -27,7 +27,6 @@ const productLinks: { label: string; url: string }[] = [
 <nav>
   <div class="nav-left">
     <a href="/"> <img src="/public/logo.png" alt="logo" /></a>
-   
   </div>
   <div class="nav-right">
     <ul class="nav-items">
@@ -125,15 +124,32 @@ const productLinks: { label: string; url: string }[] = [
   aboutButton.addEventListener("click", (e) => {
     const product = document.getElementById("product-dropdown");
     const about = document.getElementById("about-dropdown");
-    if (about.style.display === "") about.style.display = "flex";
-    else if (about.style.display === "flex") about.style.display = "";
+    if (about.style.display === "") {
+      about.style.display = "flex";
+    } else if (about.style.display === "flex") about.style.display = "";
     product.style.display = "";
   });
   productButton.addEventListener("click", (e) => {
     const product = document.getElementById("product-dropdown");
     const about = document.getElementById("about-dropdown");
-    if (product.style.display === "") product.style.display = "flex";
-    else if (product.style.display === "flex") product.style.display = "";
+    if (product.style.display === "") {
+      product.style.display = "flex";
+    } else if (product.style.display === "flex") product.style.display = "";
     about.style.display = "";
+  });
+  document.addEventListener("click", (e) => {
+    const product = document.getElementById("product-dropdown");
+    const about = document.getElementById("about-dropdown");
+    const isButtonClick =
+      e.target.id === "button-product" ||
+      e.target.id === "button-about" ||
+      e.target.tagName.toLowerCase() === "a"
+        ? true
+        : false;
+    if (isButtonClick) return;
+    if (product.style.display === "flex" || about.style.display === "flex") {
+      product.style.display = "";
+      about.style.display = "";
+    }
   });
 </script>

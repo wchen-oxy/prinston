@@ -6,13 +6,18 @@ import Layout from "../layouts/Layout.astro";
 import therapies from "../assets/category";
 import brands from "../assets/brands";
 import Footer from "../components/Footer.astro";
+import list from "../assets/data.json";
 ---
 
 <Layout title="Catalog">
   <Header />
   <PageHeader url="/public/pills.jpg" />
   <main>
-    <SectionMeta section="Product List" title="Our Catalog for Generic Drugs" subheader=">See our catalog of products" />
+    <SectionMeta
+      section="Product List"
+      title="Our Catalog for Generic Drugs"
+      subheader=">See our catalog of products"
+    />
     <input id="searchbar" type="text" placeholder="Search By Product Name" />
     <div id="filter">
       <div>
@@ -37,15 +42,41 @@ import Footer from "../components/Footer.astro";
     <table>
       <thead>
         <tr>
-          <th>Product Name</th>
-          <th>Product Details</th>
-          <th>Therapeutic Category</th>
-          <th>Dosage Form</th>
-          <th>Brand Name</th>
+          <th class="name">Product Name</th>
+          <th class="details">Product Details</th>
+          <th class="category">Therapeutic Category</th>
+          <th class="form">Dosage Form</th>
+          <th class="brand">Brand Name</th>
         </tr>
       </thead>
       <tbody id="table-body">
-        <tr id={"AMPHETAMINE SUFATE 5MG 100"}>
+        {
+          list.map((drug) => (
+            <tr id={drug.description}>
+              <td>{drug.description}</td>
+              <td>
+                <div class="detail-row">
+                  <h6>NDC:</h6>
+                  <p>{drug.NDC}</p>
+                </div>
+                <div class="detail-row">
+                  <h6>Quantity:</h6>
+                  <p>{drug.quantity}</p>
+                </div>
+                <div class="detail-row">
+                  <h6>Label:</h6>
+                  <a target="_blank" rel="noopener noreferrer" href={drug.url}>
+                    Link
+                  </a>
+                </div>
+              </td>
+              <td>{drug.category}</td>
+              <td>{drug.form}</td>
+              <td>{drug.brand}</td>
+            </tr>
+          ))
+        }
+        <!-- <tr id={"AMPHETAMINE SUFATE 5MG 100"}>
           <td>AMPHETAMINE SUFATE 5MG 100</td>
           <td>
             <div class="detail-row"><h6>NDC</h6><p>43547-0457-10</p></div>
@@ -79,7 +110,7 @@ import Footer from "../components/Footer.astro";
           <td>Hypertension</td>
           <td>Tablet</td>
           <td>Lotensin</td>
-        </tr>
+        </tr> -->
         <!-- Add more rows as needed -->
       </tbody>
     </table>
@@ -93,14 +124,12 @@ import Footer from "../components/Footer.astro";
     width: 800px;
     max-width: calc(100% - 2rem);
   }
-  
+
   table {
-    margin-top: 80px;
     width: 100%;
 
     h6 {
       font-size: 14px;
-      font-weight: bold;
       margin: 0;
       padding-right: 4px;
     }
@@ -113,12 +142,63 @@ import Footer from "../components/Footer.astro";
     padding: 0;
     text-align: left;
   }
+  th.name {
+    width: 20%;
+  }
+  th.details {
+    width: 20%;
+  }
+  th.category {
+    width: 12%;
+  }
+  th.form {
+    width: 15%;
+  }
+  td {
+    vertical-align: top;
+  }
+  td.detail-row {
+    padding-right: 1rem;
+  }
+  a {
+    font-size: 14px;
+  }
+  tr {
+    height: 100px;
+  }
   .detail-row {
     display: flex;
   }
   #searchbar {
     width: 100%;
+    height: 28px;
+    margin-top: 100px;
+    background-color:  rgb(226, 226, 226);
+    border-width:1px;
   }
+  #searchbar:focus{
+    font-size: 16px;
+  }
+ #searchbar::placeholder {
+     font-size: 16px;
+     margin-top:10px;
+    /* padding-bottom:20px; */
+    /* position: relative;
+    top: 4px; */
+  }
+  input:focus::-webkit-input-placeholder {
+    color: red;
+    position: relative;
+    top: -400px;
+}
+/* {
+    font-size: 24px;
+    line-height: 32px; 
+    color:blue
+    /* padding-bottom:20px; */
+   
+  
+  } */
 </style>
 <script>
   const searchbar = document.getElementById("searchbar");
