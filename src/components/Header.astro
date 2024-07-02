@@ -65,92 +65,280 @@ const productLinks: { label: string; url: string }[] = [
         ))
       }
     </ul>
-  </div>
-</nav>
 
-<style>
-  nav {
-    background-color: white;
-    /* width: 100%; */
-    /* height: 80px; */
-    display: flex;
-    padding: 1rem 2rem 1rem 2rem;
-    justify-content: space-between;
-    ul {
+    <div id="bar-container">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div id="modal">
+    <div id="close-row" class="modal-row">
+      <h4 id="close-icon">&times;</h4>
+    </div>
+    <div class="modal-row">
+      <button id="about-mobile" class="modal-row-button">
+        <h2>About</h2>
+        <img
+          id="about-caret"
+          class="caret"
+          src="/prinston/navigate-down-arrow.png"
+        />
+      </button>
+      <div id="about-row">
+        {
+          aboutLinks.map(({ label, url }) => (
+            <a class="mobile-links" href={url}>
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="modal-row">
+      <button id="product-mobile" class="modal-row-button">
+        <h2>Products</h2>
+        <img
+          id="product-caret"
+          class="caret"
+          src="/prinston/navigate-down-arrow.png"
+        />
+      </button>
+      <div id="product-row">
+        {
+          productLinks.map(({ label, url }) => (
+            <a class="mobile-links" href={url}>
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="modal-row">
+      <a class="mobile-title"><h2>CMO Services</h2></a>
+    </div>
+    <div class="modal-row">
+      <a class="mobile-title"><h2>Careers</h2></a>
+    </div>
+    <div class="modal-row">
+      <a class="mobile-title"><h2>Contact</h2></a>
+    </div>
+  </div>
+
+  <style>
+    nav {
+      background-color: white;
+      /* width: 100%; */
+      /* height: 80px; */
+      display: flex;
+      padding: 1rem 1rem 1rem 1rem;
+      justify-content: space-between;
+    }
+    .nav-items {
       list-style-type: none;
     }
+
+    img {
+      height: 60px;
+    }
+
     a {
       text-decoration: none;
       color: black;
     }
+
     button {
       border: none;
       background-color: transparent;
       font-size: 16px;
       cursor: pointer;
     }
-  }
-
-  img {
-    height: 60px;
-  }
-
-  .nav-left {
-    /* margin-left: 60px; */
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-right {
-    display: flex;
-  }
-
-  .nav-items {
-    margin: 0;
-    gap: 1rem;
-    display: flex;
-    align-items: center;
-  }
-  #about-dropdown {
-    display: none;
-  }
-  #product-dropdown {
-    display: none;
-  }
-</style>
-<script>
-  console.log(import.meta.env);
-  const aboutButton = document.getElementById("button-about");
-  const productButton = document.getElementById("button-product");
-  aboutButton.addEventListener("click", (e) => {
-    const product = document.getElementById("product-dropdown");
-    const about = document.getElementById("about-dropdown");
-    if (about.style.display === "") {
-      about.style.display = "flex";
-    } else if (about.style.display === "flex") about.style.display = "";
-    product.style.display = "";
-  });
-  productButton.addEventListener("click", (e) => {
-    const product = document.getElementById("product-dropdown");
-    const about = document.getElementById("about-dropdown");
-    if (product.style.display === "") {
-      product.style.display = "flex";
-    } else if (product.style.display === "flex") product.style.display = "";
-    about.style.display = "";
-  });
-  document.addEventListener("click", (e) => {
-    const product = document.getElementById("product-dropdown");
-    const about = document.getElementById("about-dropdown");
-    const isButtonClick =
-      e.target.id === "button-product" ||
-      e.target.id === "button-about" ||
-      e.target.tagName.toLowerCase() === "a"
-        ? true
-        : false;
-    if (isButtonClick) return;
-    if (product.style.display === "flex" || about.style.display === "flex") {
-      product.style.display = "";
-      about.style.display = "";
+    .nav-left {
+      /* margin-left: 60px; */
+      display: flex;
+      align-items: center;
     }
-  });
-</script>
+
+    .nav-right {
+      display: flex;
+    }
+
+    .nav-items {
+      margin: 0;
+      gap: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .bar-container {
+      margin: auto;
+      z-index: 3;
+    }
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    .caret {
+      width: 15px;
+      height: 15px;
+    }
+    .modal-row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .mobile-title {
+    }
+    .modal-row-button {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .mobile-links {
+      font-size: 20px;
+      margin: 1rem 0.5rem;
+    }
+
+    #modal {
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: 2;
+      height: 100vh;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    #close-row {
+      align-items: flex-end;
+    }
+
+    #close-icon {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    #about-row {
+      display: none;
+      flex-direction: column;
+    }
+    #product-row {
+      display: none;
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 750px) {
+      .nav-items {
+        display: none;
+      }
+      #bar-container {
+        display: block;
+      }
+    }
+    @media screen and (min-width: 751px) {
+      .nav-items {
+        display: flex;
+      }
+      #bar-container {
+        display: none;
+      }
+    }
+  </style>
+  <script>
+    console.log(import.meta.env);
+    const aboutButton = document.getElementById("button-about");
+    const productButton = document.getElementById("button-product");
+    const productMobile = document.getElementById("product-mobile");
+    const aboutMobile = document.getElementById("about-mobile");
+
+    aboutButton.addEventListener("click", (e) => {
+      const product = document.getElementById("product-dropdown");
+      const about = document.getElementById("about-dropdown");
+      if (about.style.display === "") {
+        about.style.display = "flex";
+      } else if (about.style.display === "flex") about.style.display = "";
+      product.style.display = "";
+    });
+
+    productButton.addEventListener("click", (e) => {
+      const product = document.getElementById("product-dropdown");
+      const about = document.getElementById("about-dropdown");
+      if (product.style.display === "") {
+        product.style.display = "flex";
+      } else if (product.style.display === "flex") product.style.display = "";
+      about.style.display = "";
+    });
+
+    aboutMobile.addEventListener("click", (e) => {
+      const aboutInfo = document.getElementById("about-row");
+      const caret = document.getElementById("about-caret");
+      if (aboutInfo.style.display === "") {
+        aboutInfo.style.display = "flex";
+        caret.style.transform = "rotate(180deg)";
+      } else if (aboutInfo.style.display === "flex") {
+        aboutInfo.style.display = "";
+        caret.style.transform = "rotate(0deg)";
+      }
+    });
+
+    productMobile.addEventListener("click", (e) => {
+      const productInfo = document.getElementById("product-row");
+      const caret = document.getElementById("product-caret");
+      if (productInfo.style.display === "") {
+        productInfo.style.display = "flex";
+        caret.style.transform = "rotate(180deg)";
+      } else if (productInfo.style.display === "flex") {
+        productInfo.style.display = "";
+        caret.style.transform = "rotate(0deg)";
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const product = document.getElementById("product-dropdown");
+      const about = document.getElementById("about-dropdown");
+      const isButtonClick =
+        e.target.id === "button-product" ||
+        e.target.id === "button-about" ||
+        e.target.tagName.toLowerCase() === "a"
+          ? true
+          : false;
+      if (isButtonClick) return;
+      if (product.style.display === "flex" || about.style.display === "flex") {
+        product.style.display = "";
+        about.style.display = "";
+      }
+    });
+
+    // Menu.style.display = "none";
+    function ShowHide(x) {
+      // console.log(x.target.classList.toggle("change"));
+      // x.classList.toggle("change");
+      // const Menu = document.getElementById("Menu");
+      const Modal = document.getElementById("modal");
+      console.log(Modal.style.display === "none" || Modal.style.display === "");
+      if (Modal.style.display === "none" || Modal.style.display === "") {
+        Modal.style.display = "block";
+      } else {
+        Modal.style.display = "none";
+      }
+    }
+    console.log(document.getElementById("bar-container"));
+    document
+      .getElementById("bar-container")
+      .addEventListener("click", (e) => ShowHide(e));
+    document
+      .getElementById("close-icon")
+      .addEventListener("click", (e) => ShowHide(e));
+  </script>
+</nav>
