@@ -2,13 +2,13 @@
 const address = [
   {
     location: "Prinston Pharm - HQ",
-    address: "700 Atrium Dr., Somerset, NJ 08873",
+    address: "700 Atrium Dr, Suite B, Somerset, NJ 08873",
     phone: "(609) 655-1688",
-    email: "customerservice@solcohealthcare.com",
+    email: "contact@prinstonpharm.com",
   },
   {
-    location: "Prinston Lab - Manufacturing",
-    address: "700 Atrium Dr. Suite A, Somerset, NJ 08873",
+    location: "Prinston Labs - Manufacturing",
+    address: "3241 Woodpark Boulevard Charlotte, NC 28206",
     phone: "(609) 655-1688",
     email: "customerservice@solcohealthcare.com",
   },
@@ -19,21 +19,22 @@ const address = [
     email: "customerservice@solcohealthcare.com",
   },
   {
-    location: "Prinston Lab - Manufacturing",
-    address: "700 Atrium Dr. Suite A, Somerset, NJ 08873",
-    phone: "(855)-581-9688",
-    email: "customerservice@solcohealthcare.com",
+    location: "Huahai U.S. Inc.",
+    address: "700 Atrium Dr, Suite C, Somerset, NJ 08873",
+    phone: "(609) 664-2220",
+    email: "effie_luo@huahaipharm.com",
   },
 ];
 ---
 
 <div id="footer">
   <div id="info">
+    <h3 id="info-locations">Our Contact Info</h3>
     {
       address.map(({ location, address, phone, email }) => (
         <div class="info-column">
           <div class="info-type">
-            <h3>{location}</h3>
+            <h3 class="locations">{location}</h3>
           </div>
           <div class="info-type">
             <img src="/prinston/location.png" />
@@ -52,9 +53,14 @@ const address = [
     }
   </div>
   <div id="credit">
-    <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon by
-    <a target="_blank" href="https://icons8.com">Icons8</a>
-    <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by Freepik - Flaticon</a>
+    <span>
+      <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
+      by
+      <a target="_blank" href="https://icons8.com">Icons8</a>
+    </span>
+    <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons"
+      >Arrow icons created by Freepik - Flaticon</a
+    >
   </div>
 </div>
 
@@ -62,22 +68,18 @@ const address = [
   #footer {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     background-color: #211f71;
+    padding-top: 4rem;
+    /* padding-bottom: 4rem; */
   }
   #info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem;
-    h3 {
-      font-weight: bold;
-      font-size: 12px;
-      color: white;
-    }
+    margin-left: 4rem;
     p {
       font-weight: 100;
-      font-size: 12px;
+      font-size: 16px;
       margin: 0;
       color: rgb(192, 206, 253);
     }
@@ -86,26 +88,55 @@ const address = [
   #credit {
     display: flex;
     justify-content: center;
-    color:  #8e8db6;
+    color: #8e8db6;
+    margin-top: 5rem;
     a {
       color: #8e8db6;
     }
   }
-  .info-column {
+
+  #info-locations {
+    font-weight: bold;
+    font-size: 16px;
+    /* font-weight: 100; */
+    color: white;
   }
 
   .info-type {
     display: flex;
     align-items: center;
-    margin-left: 50px;
+
     img {
       width: 15px;
       height: 15px;
       margin-right: 5px;
     }
   }
+
+  .locations {
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 0;
+  }
   .mail,
   .phone {
     padding-top: 3px;
+  }
+
+  @media screen and (max-width: 751px) {
+    #info {
+      margin-left: 0;
+    }
+    #info-locations {
+      padding: 0 1em;
+    }
+    .info-column {
+      padding: 0.1em 1em;
+    }
+    #credit {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>

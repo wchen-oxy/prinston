@@ -1,0 +1,125 @@
+---
+import ContentSection from "../components/ContentSection.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="CMO">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <main>
+    <SectionMeta
+      section="CMO Services"
+      title="From Drug Formulation to Inventory"
+      subHeader="See what we can do for you as a contract manufacturing organization"
+    />
+    <div id="main-about">
+      <div class="main-column">
+        <img id="image-content" src="/prinston/medicine.jpg" />
+        <h4>Manufacturing Technology</h4>
+        <p>
+          Prinston Labs, the manufacturing hub for Prinstom Pharmaceutical,
+          boasts brand name manufacturing tools. Prinston Labs can produce large
+          product batches with the following:
+          <br />
+        </p>
+        <ul>
+          <li>Kikusui and Korsch tablet presses</li>
+          <li>Bosch encapsulation</li>
+          <li>Vector & Glatt fluid bed granulators</li>
+          <li>Optel serialization equipment</li>
+        </ul>
+
+        <!-- <div id="image-section">
+          <div id="image-section-paragraph">
+            <ContentSection
+              header="Quality Control"
+              body=`Our production quality control team has performed 100%
+             on-time stability tests for several decades. To ensure our high quality standards, we continuously invest in the latest
+             lab equipment, data management and collection.`
+            />
+          </div>
+          <img id="image-content" src="/prinston/medicine.jpg" />
+        </div> -->
+        <h4>Quality Control</h4>
+        <p>
+          Our production quality control team has performed 100% on-time
+          stability tests for several decades. To ensure our high quality
+          standards, we continuously invest in the latest lab equipment, data
+          management and collection.
+        </p>
+        <h4>Safety and Hygiene</h4>
+        <p>
+          Safety is our top concern. Our facilities have a recordable incident
+          rate of below 1 and a lost time incident rate of 0.
+        </p>
+        <h4>Regulatory Compliance</h4>
+        <p>
+          Prinston Labs has an excellent record of regulatory compliance.
+          <br /><br />
+          Throughout its operation, Prinston Labs has undergone multiple FDA general
+          and pre-approval inspections without ever recieving a 483 citation. Furthermore,
+          Prinston Labs is under full compliance with all local, state and federal
+          agencies such as the DEA. Prinston Labs has achieved this exemplary record
+          through several means. We use multiple systems such as SAP, Sparta Systems,
+          StarLIMS, Blue Mountain, Master Control, Eduneering, among several others
+          for documentation of batch progresses, laboratory data and inventory.
+        </p>
+        <h4>What We Can Do For You</h4>
+        <p>
+          At Prinston Pharmaceuticals, we pride ourselves on creating tailor
+          made solutions. Our production batches start at a minimum of 85kg up
+          to 1800kg, or as low as 160,000 doses to 20,000,000 doses per batch.
+          Our manufacturing facility of Prinston Labs in Charolotte, North
+          Carolina is conveniently located 10 minutes from Charolotte Douglas
+          International Airport.
+          <br />
+          <br />
+
+          For additional information, please contact:
+          CMOServices@prinstonpharm.com
+        </p>
+      </div>
+      <!-- <div class="main-column">
+        <img src="/prinston/medicine.jpg" />
+      </div> -->
+    </div>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  main {
+    margin: 4rem auto 4rem auto;
+    padding: 1rem;
+    width: 70%;
+    max-width: calc(100% - 2rem);
+  }
+  #main-about {
+    display: flex;
+  }
+  #image-section {
+    display: flex;
+  }
+  #image-content {
+    width: 60%;
+  }
+  #image-section-paragraph {
+    width: 40%;
+    padding-right: 3em;
+  }
+  .main-column {
+    width: 100%;
+    /* img {
+      padding-left: 4rem;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    } */
+  }
+  h4 {
+    margin-bottom: 0;
+  }
+</style>

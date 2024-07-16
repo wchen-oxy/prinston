@@ -1,0 +1,94 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Person from "../components/person.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+
+const people = [
+  {
+    image: "/prinston/temp.webp",
+    url: "/prinston/",
+    name: "Bin He",
+    job: "Chairman and CEO",
+  },
+  {
+    image: "/prinston/chris.png",
+    url: "/prinston/",
+    name: "Chris Keith",
+    job: "Chief Revenue Officer",
+  },
+  {
+    image: "/prinston/gary.png",
+    url: "/prinston/",
+    name: "Gary Xu",
+    job: "Chief Financial Officer",
+  },
+  {
+    image: "/prinston/bob.png",
+    url: "/prinston/",
+    name: "Bob Rodowicz",
+    job: "Vice President of Commercial Strategy and Operations at Solco",
+  },
+  {
+    image: "/prinston/david.png",
+    url: "/prinston/",
+    name: "David Ayres",
+    job: "Vice President of Sales",
+  },
+  {
+    image: "/prinston/hongchun.jpg",
+    url: "/prinston/",
+    name: "Hong Chun Qiu",
+    job: "Head of Research & Development",
+  },
+  {
+    image: "/prinston/lijie.jpg",
+    url: "/prinston/",
+    name: "Lijie Wang",
+    job: "Senior Vice President and Head of Regulatory Affairs and Quality Assurance",
+  },
+  {
+    image: "/prinston/ross.jpg",
+    url: "/prinston/",
+    name: "Ross Loftis",
+    job: "Site Head and Vice President of Manufacturing",
+  },
+  {
+    image: "/prinston/jonathan.webp",
+    url: "/prinston/",
+    name: "Jonathan Jung",
+    job: "General Counsel",
+  },
+];
+---
+
+<Layout title="Leadership">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <main>
+    <SectionMeta section="About Us" title="Meet Our Leadership" subHeader="" />
+    <div id="main-about">
+      {people.map((person) => <Person {...person} />)}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  main {
+    margin: 4rem auto 4rem auto;
+    padding: 1rem;
+    width: 70%;
+    max-width: calc(100% - 2rem);
+  }
+  #main-about {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  h4 {
+    margin-bottom: 0;
+  }
+</style>

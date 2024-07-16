@@ -15,9 +15,11 @@ const navLinks: { label: string; ref: string }[] = [
       <h4>
         Providing high quality, accessible generic pharmaceuticals for decades.
       </h4>
-      <Button text="Learn More" url="/prinston/about" color="white" />
+      <div id="button-column">
+        <Button text="Learn More" url="/prinston/about" color="white" />
+      </div>
     </div>
-    <div class="hero-columns"></div>
+    <div class="hero-columns" id="empty-columns"></div>
   </div>
   <div id="navigation">
     {
@@ -82,6 +84,51 @@ const navLinks: { label: string; ref: string }[] = [
       color: white;
       font-size: 18px;
       font-weight: 100;
+    }
+  }
+
+  @media screen and (min-width: 596px) and (max-width: 1000px) {
+    .hero-columns {
+      width: 75%;
+    }
+  }
+  @media screen and (min-width: 451px) and (max-width: 595px) {
+    .hero-columns {
+      width: auto;
+      h2 {
+        font-size: 42px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    #hero-image-container {
+      /* padding: 1em; */
+    }
+    .hero-columns {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      padding: 0;
+      h2 {
+        font-size: 36px;
+        margin: 0.5em;
+      }
+      h4 {
+        margin: 1em;
+      }
+    }
+
+    #button {
+      margin: 1em;
+    }
+    #button-column {
+      margin-left: 1em;
+    }
+
+    #empty-columns {
+      display: none;
     }
   }
 </style>

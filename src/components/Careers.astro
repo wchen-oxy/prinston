@@ -2,7 +2,7 @@
 // import { BASE } from "../constants";
 import Button from "./Button.astro";
 import SectionMeta from "./SectionMeta.astro";
-const BASE = '/prinston/';
+const BASE = "/prinston/";
 const careersImage = BASE + "Careers.png";
 ---
 
@@ -69,6 +69,14 @@ const careersImage = BASE + "Careers.png";
     p {
       font-size: 14px;
       color: rgb(102, 102, 102);
+    }
+  }
+  @media screen and (max-width: 751px) {
+    #content-left {
+      width: 100%;
+    }
+    #content-right {
+      display: none;
     }
   }
 </style>

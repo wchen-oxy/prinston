@@ -14,7 +14,7 @@ const aboutLinks: { label: string; url: string }[] = [
   { label: "Leadership", url: "/prinston/leadership" },
   { label: "Research and Development", url: "/prinston/research" },
   { label: "American Manufacturing", url: "/prinston/manufacturing" },
-  { label: "How We Give Back", url: "/prinston/giving-back" },
+  // { label: "How We Give Back", url: "/prinston/giving-back" },
 ];
 
 const productLinks: { label: string; url: string }[] = [
@@ -33,13 +33,13 @@ const productLinks: { label: string; url: string }[] = [
       <li>
         <button id="button-about">About</button>
         <div id="about-dropdown">
-          <Dropdown title="About Us" menuData={aboutLinks} />
+          <Dropdown type="about" title="About Us" menuData={aboutLinks} />
         </div>
       </li>
       <li>
         <button id="button-product">Products</button>
         <div id="product-dropdown">
-          <Dropdown title="Products" menuData={productLinks} />
+          <Dropdown type="products" title="Products" menuData={productLinks} />
         </div>
       </li>
     </ul>
@@ -48,6 +48,7 @@ const productLinks: { label: string; url: string }[] = [
         textLinks.map(({ label, href }) => (
           <li>
             <a
+              class="links"
               aria-current={Astro.url.pathname === href}
               class:list={[
                 "link",
@@ -78,7 +79,7 @@ const productLinks: { label: string; url: string }[] = [
     </div>
     <div class="modal-row">
       <button id="about-mobile" class="modal-row-button">
-        <h2>About</h2>
+        <h2 class="mobile-title">About</h2>
         <img
           id="about-caret"
           class="caret"
@@ -88,16 +89,18 @@ const productLinks: { label: string; url: string }[] = [
       <div id="about-row">
         {
           aboutLinks.map(({ label, url }) => (
-            <a class="mobile-links" href={url}>
-              {label}
-            </a>
+            <div class="product-rows">
+              <a class="mobile-links" href={url}>
+                {label}
+              </a>
+            </div>
           ))
         }
       </div>
     </div>
     <div class="modal-row">
       <button id="product-mobile" class="modal-row-button">
-        <h2>Products</h2>
+        <h2 class="mobile-title">Products</h2>
         <img
           id="product-caret"
           class="caret"
@@ -107,21 +110,23 @@ const productLinks: { label: string; url: string }[] = [
       <div id="product-row">
         {
           productLinks.map(({ label, url }) => (
-            <a class="mobile-links" href={url}>
-              {label}
-            </a>
+            <div class="product-rows">
+              <a class="mobile-links" href={url}>
+                {label}
+              </a>
+            </div>
           ))
         }
       </div>
     </div>
     <div class="modal-row">
-      <a class="mobile-title"><h2>CMO Services</h2></a>
+      <a><h2 class="mobile-title">CMO Services</h2></a>
     </div>
     <div class="modal-row">
-      <a class="mobile-title"><h2>Careers</h2></a>
+      <a><h2 class="mobile-title">Careers</h2></a>
     </div>
     <div class="modal-row">
-      <a class="mobile-title"><h2>Contact</h2></a>
+      <a><h2 class="mobile-title">Contact</h2></a>
     </div>
   </div>
 
@@ -134,10 +139,6 @@ const productLinks: { label: string; url: string }[] = [
       padding: 1rem 1rem 1rem 1rem;
       justify-content: space-between;
     }
-    .nav-items {
-      list-style-type: none;
-    }
-
     img {
       height: 60px;
     }
@@ -145,16 +146,20 @@ const productLinks: { label: string; url: string }[] = [
     a {
       text-decoration: none;
       color: black;
+      font-size: 18px;
     }
 
     button {
-      border: none;
+      border: 2px solid transparent;
       background-color: transparent;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
+      transition: border-bottom 100ms;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
     .nav-left {
-      /* margin-left: 60px; */
       display: flex;
       align-items: center;
     }
@@ -167,7 +172,12 @@ const productLinks: { label: string; url: string }[] = [
       margin: 0;
       gap: 1rem;
       display: flex;
+      padding-left: 1rem;
       align-items: center;
+      list-style-type: none;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
     .bar-container {
       margin: auto;
@@ -191,8 +201,18 @@ const productLinks: { label: string; url: string }[] = [
       flex-direction: column;
       width: 100%;
     }
+    .product-rows {
+      border-left: 1px solid #333;
+      font-size: 20px;
+      padding: 0.625rem 0 0.625rem 2rem;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+    }
 
     .mobile-title {
+      font-weight: 400;
+      color: #333;
     }
     .modal-row-button {
       display: flex;
@@ -205,7 +225,9 @@ const productLinks: { label: string; url: string }[] = [
 
     .mobile-links {
       font-size: 20px;
-      margin: 1rem 0.5rem;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
 
     #modal {
@@ -230,6 +252,10 @@ const productLinks: { label: string; url: string }[] = [
     #close-icon {
       font-size: 48px;
       margin: 0;
+      color: #333;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
     #about-dropdown {
       display: none;
@@ -264,7 +290,6 @@ const productLinks: { label: string; url: string }[] = [
     }
   </style>
   <script>
-    console.log(import.meta.env);
     const aboutButton = document.getElementById("button-about");
     const productButton = document.getElementById("button-product");
     const productMobile = document.getElementById("product-mobile");
@@ -275,7 +300,12 @@ const productLinks: { label: string; url: string }[] = [
       const about = document.getElementById("about-dropdown");
       if (about.style.display === "") {
         about.style.display = "flex";
-      } else if (about.style.display === "flex") about.style.display = "";
+        aboutButton.style.borderBottom = "2px solid #211f71";
+        productButton.style.borderBottom = "2px solid transparent";
+      } else if (about.style.display === "flex") {
+        aboutButton.style.borderBottom = "2px solid transparent";
+        about.style.display = "";
+      }
       product.style.display = "";
     });
 
@@ -284,7 +314,12 @@ const productLinks: { label: string; url: string }[] = [
       const about = document.getElementById("about-dropdown");
       if (product.style.display === "") {
         product.style.display = "flex";
-      } else if (product.style.display === "flex") product.style.display = "";
+        productButton.style.borderBottom = "2px solid #211f71";
+        aboutButton.style.borderBottom = "2px solid transparent";
+      } else if (product.style.display === "flex") {
+        productButton.style.borderBottom = "2px solid transparent";
+        product.style.display = "";
+      }
       about.style.display = "";
     });
 
@@ -337,10 +372,11 @@ const productLinks: { label: string; url: string }[] = [
       console.log(Modal.style.display === "none" || Modal.style.display === "");
       if (Modal.style.display === "none" || Modal.style.display === "") {
         Modal.style.display = "block";
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
+        //add button styling
       } else {
         Modal.style.display = "none";
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = "auto";
       }
     }
     console.log(document.getElementById("bar-container"));

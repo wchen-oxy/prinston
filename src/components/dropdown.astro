@@ -1,8 +1,11 @@
 ---
-const { title, menuData } = Astro.props;
+const { title, menuData, type } = Astro.props;
 ---
 
-<div class="menu-container">
+<div
+  class="menu-container"
+  style={type === "about" ? { right: "12rem" } : { right: "7rem" }}
+>
   <h3>{title}</h3>
   <div class="dropdown-list">
     {menuData.map(({ label, url }) => <a href={url}>{label}</a>)}
@@ -14,8 +17,12 @@ const { title, menuData } = Astro.props;
     flex-direction: column;
     position: absolute;
     background-color: white;
-    padding: 1rem;
+    padding: 1.5rem;
+    min-width: 25rem;
+    right: 12rem;
+    margin-top: 3rem;
     z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   .dropdown-list {
@@ -23,11 +30,13 @@ const { title, menuData } = Astro.props;
     flex-direction: column;
   }
   h3 {
-    font-size: 16px;
+    font-size: 18px;
     color: grey;
   }
   a {
-    
+    text-decoration: none;
+    color: inherit;
+
     font-size: 18px;
   }
 </style>

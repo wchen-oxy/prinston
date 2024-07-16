@@ -9,12 +9,12 @@ const heroText: { title: string; desc: string }[] = [
   {
     title: "Affordability",
     desc: `By leveraging our R&D and the capabilities of local and abroad facilities, 
-          we are able to manufacture a large variety of generics at any price.`,
+          we are able to manufacture a large variety of generics at various prices.`,
   },
   {
     title: "Reliability",
     desc: `By leveraging our R&D and the capabilities of local and abroad facilities, 
-          we are able to manufacture a large variety of generics at any price.`,
+          we are able to manufacture a large variety of generics at various prices.`,
   },
 ];
 ---
@@ -106,5 +106,21 @@ const heroText: { title: string; desc: string }[] = [
   .content-title {
     line-height: 1;
     font-weight: bold;
+  }
+
+  @media screen and (max-width: 751px) {
+    #content-lower {
+      height: auto;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    #content-text {
+      width: 100%;
+      margin-top: 1em;
+    }
+    #content-image {
+      padding-left: 0;
+      width: 100%;
+    }
   }
 </style>
