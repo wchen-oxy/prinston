@@ -39,12 +39,20 @@ const navLinks: { label: string; ref: string }[] = [
   #hero-image-container {
     width: 100%;
     height: 70vh;
-    background-image: url("/prinston/hero3.jpg");
+    background-image: linear-gradient(
+        125deg,
+        rgba(107, 19, 17, 0.75),
+        rgba(8, 83, 156, 0.75)
+      ),
+      url("/prinston/generic.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    /* background-attachment: fixed; */
+    background-position: 50%;
     background-size: cover;
     display: flex;
+    align-items: center;
+    /* flex-basis: 100%; */
+    box-sizing: border-box;
   }
 
   #hero-image {
@@ -70,40 +78,108 @@ const navLinks: { label: string; ref: string }[] = [
     max-width: 250px;
   }
   .hero-columns {
-    height: 70vh;
-    padding: 4rem;
+    /* height: 70vh; */
+    /* padding: 4rem; */
     width: 50%;
     /* background: green; */
     position: absolute;
     h2 {
-      font-size: 48px;
+      font-size: 64px;
+      font-weight: 300;
       color: white;
       line-height: 1;
+      padding-left: 6rem;
     }
     h4 {
       color: white;
       font-size: 18px;
       font-weight: 100;
+      padding-left: 6rem;
     }
   }
+  #button-column {
+    padding-left: 6rem;
+  }
 
-  @media screen and (min-width: 596px) and (max-width: 1000px) {
+  #empty-columns {
+    display: none;
+  }
+
+  /* @media screen and(max-width: 452px) and (min-width: 726px) {
     .hero-columns {
       width: 75%;
-    }
-  }
-  @media screen and (min-width: 451px) and (max-width: 595px) {
-    .hero-columns {
-      width: auto;
-      h2 {
-        font-size: 42px;
+      h4 {
+        color: red;
       }
+    }
+  } */
+
+  @media screen and (max-width: 1200px) and (min-width: 891px) {
+    .hero-columns {
+      width: 70%;
+      color: aliceblue;
+      h2 {
+        font-size: 64px;
+        padding: 0 3rem;
+      }
+      h4 {
+        padding: 0 3rem;
+      }
+    }
+    #button-column {
+      padding: 0 3rem;
+    }
+
+    #empty-columns {
+      display: none;
     }
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) and (min-width: 681px) {
+    .hero-columns {
+      width: 100%;
+      color: aliceblue;
+      h2 {
+        font-size: 42px;
+        padding: 0 1rem;
+      }
+      h4 {
+        padding: 0 1rem;
+      }
+    }
+    #button-column {
+      padding: 0 1rem;
+    }
+
+    #empty-columns {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 680px) and (min-width: 521px) {
+    .hero-columns {
+      width: 70%;
+      color: aliceblue;
+      h2 {
+        font-size: 42px;
+        padding: 0 1rem;
+      }
+      h4 {
+        padding: 0 1rem;
+      }
+    }
+    #button-column {
+      padding: 0 1rem;
+    }
+
+    #empty-columns {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
     #hero-image-container {
-      /* padding: 1em; */
+      height: 50vh;
     }
     .hero-columns {
       display: flex;
@@ -114,17 +190,20 @@ const navLinks: { label: string; ref: string }[] = [
       h2 {
         font-size: 36px;
         margin: 0.5em;
+        padding: 0;
       }
       h4 {
         margin: 1em;
+        padding: 0;
       }
     }
 
     #button {
-      margin: 1em;
+      /* margin: 1em; */
+      padding: 0;
     }
     #button-column {
-      margin-left: 1em;
+      padding: 0 1rem;
     }
 
     #empty-columns {
