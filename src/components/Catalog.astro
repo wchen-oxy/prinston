@@ -23,6 +23,13 @@ import SectionMeta from "./SectionMeta.astro";
   </div>
 </div>
 <style>
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right;
+  }
+
   #catalog {
     display: flex;
     height: 500px;
@@ -33,12 +40,6 @@ import SectionMeta from "./SectionMeta.astro";
   #content-image {
     padding: 1rem;
     width: 60%;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: right;
-    }
   }
 
   #content-text {

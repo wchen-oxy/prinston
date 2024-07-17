@@ -7,6 +7,13 @@ const { text, url, color } = Astro.props;
 </div>
 
 <style define:vars={{ color }}>
+  a {
+    color: var(--color);
+    font-size: 16px;
+    z-index: 1;
+    text-decoration: none;
+  }
+  
   #button {
     display: flex;
     height: 25px;
@@ -14,11 +21,5 @@ const { text, url, color } = Astro.props;
     width: fit-content;
     border: solid;
     border-color: var(--color);
-    a {
-      color: var(--color);
-      font-size: 16px;
-      z-index: 1;
-      text-decoration: none;
-    }
   }
 </style>
