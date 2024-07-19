@@ -31,7 +31,7 @@ import Layout from "../layouts/Layout.astro";
           facilities overseas.
         </p>
       </div>
-      <div class="main-column">
+      <div class="main-column" id="image-section">
         <img src="/prinston/medicine.jpg" />
       </div>
     </div>
@@ -40,7 +40,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 <style>
   img {
-    padding-left: 4rem;
+    /* margin-left: 4rem; */
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -50,12 +50,22 @@ import Layout from "../layouts/Layout.astro";
     margin: 4rem auto 4rem auto;
     padding: 1rem;
     width: 70%;
-    max-width: calc(100%);
+    /* max-width: calc(100%); */
   }
+
   #main-about {
     display: flex;
   }
+  #image-section {
+    padding-left: 1rem;
+  }
   .main-column {
     width: 50%;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    main {
+      max-width: 1280px;
+    }
   }
 </style>

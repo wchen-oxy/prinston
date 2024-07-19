@@ -42,7 +42,7 @@ const address = [
           </div>
           <div class="info-type">
             <img class="phone" src="/prinston/phone.png" />
-            <p>{phone}</p>
+            <p class="phone-number">{phone}</p>
           </div>
           <div class="info-type">
             <img class="mail" src="/prinston/mail.png" />
@@ -126,11 +126,11 @@ const address = [
     padding-top: 3px;
   }
 
-  a[href^="tel"] {
-  color: white; /* Inherit text color of parent element. */
-  text-decoration: none; /* Remove underline. */
-  /* Additional css `propery: value;` pairs here */
-}
+  .phone-number {
+    color: white; /* Inherit text color of parent element. */
+    text-decoration: none; /* Remove underline. */
+    /* Additional css `propery: value;` pairs here */
+  }
 
   @media screen and (max-width: 751px) {
     #info {

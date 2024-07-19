@@ -1,0 +1,58 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Chief Financial Officer";
+const name = "Gary Xu";
+const imageURL = "/prinston/gary.png";
+const description = `
+Gary Xu is the Chief Financial Officer, spearheading strategic management of
+accounting and finance operations while guiding the IT department in digital
+transformation and ensuring regulatory compliance within the Legal Department.
+Renowned for his role as a catalyst for new initiatives, Gary is recognized as a cross-
+functional leader driving company growth.
+
+Before his tenure with Prinston Pharmaceutical Inc, Gary held the position of Chief
+Accounting Officer and Vice President of Strategic Planning at Designs for Health Inc.
+for 18 years. He also held senior finance roles at global corporations such as Gerald
+Metals and Siemon.
+
+Gary's educational journey includes a bachelor’s degree from the University of Science
+and Technology of China (USTC) and an MBA from Central Connecticut State
+University. He holds CPA licensure and the designation of Certified Management
+Accountant (CMA).
+`;
+---
+
+<Layout title="Gary Xu">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <main>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: 4rem auto 4rem auto;
+    padding: 1rem;
+    width: 70%;
+    /* max-width: calc(100% - 2rem); */
+  }
+
+  @media only screen and (min-width: 1440px) {
+    main {
+      max-width: 1280px;
+    }
+  }
+</style>

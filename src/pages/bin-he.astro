@@ -1,0 +1,57 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Chairman and Chief Executive Officer of Huahai US, Inc.";
+const name = "Bin He";
+const imageURL = "/prinston/temp.webp";
+const description = `
+Bin He has served as the Chairman and Chief Executive Officer of Huahai US, Inc. and
+its subsidiaries (including Prinston Pharmaceuticals, Solco Healthcare, and Prinston
+Laboratories) since 2021. 
+
+Under his leadership, the company has experienced rapid growth both in its top line and bottom line. 
+Mr. He also has served as a Vice President of Huahai US's parent company, Zhejiang Huahai Pharmaceutical, since 2021; 
+where he oversees all its overseas businesses. From 2014 to present, Mr. He has served as the
+Chief Executive Officer of Huahai Investment Co., where he is in charge of Huahai's
+M&amp;A and equity investment activities worldwide. 
+
+Mr. He currently serves on the boards of various companies, including Huaota Biologics Pharmaceutical Co., Axcount Pharma
+GmbH, Eutilex Co. Ltd, Elpis Biopharmaceuticals, and iView Therapeutics. He holds a
+BS degree in International Trade from Jilin University and a MS degree in Finance from
+the Shanghai University of International Business and Economics.
+`;
+---
+
+<Layout title="Gary Xu">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <main>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: 4rem auto 4rem auto;
+    padding: 1rem;
+    width: 70%;
+    /* max-width: calc(100% - 2rem); */
+  }
+
+  @media only screen and (min-width: 1440px) {
+    main {
+      max-width: 1280px;
+    }
+  }
+</style>

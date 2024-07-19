@@ -9,55 +9,55 @@ import Layout from "../layouts/Layout.astro";
 const people = [
   {
     image: "/prinston/temp.webp",
-    url: "/prinston/",
+    url: "/prinston/bin-he",
     name: "Bin He",
     job: "Chairman and CEO",
   },
   {
     image: "/prinston/chris.png",
-    url: "/prinston/",
+    url: "/prinston/chris-keith",
     name: "Chris Keith",
     job: "Chief Revenue Officer",
   },
   {
     image: "/prinston/gary.png",
-    url: "/prinston/",
+    url: "/prinston/gary-xu",
     name: "Gary Xu",
     job: "Chief Financial Officer",
   },
   {
     image: "/prinston/bob.png",
-    url: "/prinston/",
+    url: "/prinston/bob-rodowicz",
     name: "Bob Rodowicz",
     job: "Vice President of Commercial Strategy and Operations at Solco",
   },
   {
     image: "/prinston/david.png",
-    url: "/prinston/",
+    url: "/prinston/david-ayres",
     name: "David Ayres",
     job: "Vice President of Sales",
   },
   {
     image: "/prinston/hongchun.jpg",
-    url: "/prinston/",
+    url: "/prinston/hong-chun",
     name: "Hong Chun Qiu",
     job: "Head of Research & Development",
   },
   {
     image: "/prinston/lijie.jpg",
-    url: "/prinston/",
+    url: "/prinston/lijie-wang",
     name: "Lijie Wang",
     job: "Senior Vice President and Head of Regulatory Affairs and Quality Assurance",
   },
   {
     image: "/prinston/ross.jpg",
-    url: "/prinston/",
+    url: "/prinston/ross-loftis",
     name: "Ross Loftis",
     job: "Site Head and Vice President of Manufacturing",
   },
   {
     image: "/prinston/jonathan.webp",
-    url: "/prinston/",
+    url: "/prinston/jonathan-jung",
     name: "Jonathan Jung",
     job: "General Counsel",
   },
@@ -80,13 +80,22 @@ const people = [
     margin: 4rem auto 4rem auto;
     padding: 1rem;
     width: 70%;
-    max-width: calc(100% - 2rem);
+    /* max-width: calc(100% - 2rem); */
   }
+  
+  @media only screen and (min-width: 1440px) {
+    main {
+      max-width: 1280px;
+    }
+  }
+
   #main-about {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    gap: 1em;
+    /* gap: 1em; */
+    justify-content: space-between;
+    margin-top: 3rem;
   }
   h4 {
     margin-bottom: 0;
