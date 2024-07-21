@@ -1,0 +1,43 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Site Head and Vice President of Manufacturing";
+const name = "Ross Loftis";
+const imageURL = "/prinston/ross.jpg";
+const description = `
+As the Site Head and Vice President of Manufacturing for Prinston Laboratories, Ross\
+Loftis oversees all operations for Prinston Laboratories. This includes resource\
+planning, scheduling, and execution activities for operations, planning, quality, and\
+supply chain functions.\
+\n\nRoss is a results-driven executive with 21 years of progressive leadership in the\
+pharmaceutical industry. His expertise spans multiple critical domains within the\
+operation.\
+\n\nRoss's deep understanding of solid oral dose manufacturing has been honed through\
+years of hands-on experience. He has overseen the production of high-quality generic\
+pharmaceuticals, ensuring compliance with rigorous industry standards. His ability to\
+optimize processes, streamline production, and maintain product consistency has led to\
+cost savings and improved customer service.\
+`;
+---
+
+<Layout title="Bob Rodowicz">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <CenteredMainLayout>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </CenteredMainLayout>
+</Layout>
+<style></style>

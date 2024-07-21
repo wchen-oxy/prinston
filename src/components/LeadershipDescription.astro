@@ -19,9 +19,9 @@ const { title, name, description, imageURL } = Astro.props;
   </div>
   <div class="offset-column"></div>
   <div class="leadership-description">
-    <pre>
-    {description}
-</pre>
+    <p>
+      {description}
+    </p>
   </div>
   <style>
     h1 {
@@ -32,9 +32,10 @@ const { title, name, description, imageURL } = Astro.props;
       font-weight: 100;
       margin: 0;
     }
-    pre {
+    p {
       font-family: inherit;
       font-size: 18px;
+      white-space: pre-line;
     }
     img {
       width: 100%;

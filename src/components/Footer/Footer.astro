@@ -1,0 +1,173 @@
+---
+import Contact from "./contact.astro";
+
+const address = [
+  {
+    location: "Prinston Pharm - HQ",
+    address: "700 Atrium Dr,\n Suite B, \nSomerset, NJ 08873",
+    phone: "(609) 655-1688",
+    email: "contact@prinstonpharm.com",
+  },
+  {
+    location: "Prinston Labs - Manufacturing",
+    address: "3241 Woodpark Boulevard,\n Charlotte,\n NC 28206",
+    phone: "(609) 655-1688",
+    email: "customerservice@solcohealthcare.com",
+  },
+  {
+    location: "Solco - Distribution Lab and Manufacturing",
+    address: "700 Atrium Dr,\n Suite A,\n Somerset, NJ 08873",
+    phone: "(855)-581-9688",
+    email: "customerservice@solcohealthcare.com",
+  },
+  {
+    location: "Huahai U.S. Inc.",
+    address: "700 Atrium Dr,\n Suite C,\n Somerset, NJ 08873",
+    phone: "(609) 664-2220",
+    email: "effie_luo@huahaipharm.com",
+  },
+];
+---
+
+<div id="footer">
+  <div id="left-column" class="footer-column">
+    <h3 id="info-location-title">Our Contact Info</h3>
+    <div class="info-contact-info">
+      {
+        address.map(({ location, address, phone, email }) => (
+          <Contact
+            location={location}
+            address={address}
+            phone={phone}
+            email={email}
+          />
+        ))
+      }
+    </div>
+    <div class="info-contact-info2">
+      {
+        address
+          .slice(0, 2)
+          .map(({ location, address, phone, email }) => (
+            <Contact
+              location={location}
+              address={address}
+              phone={phone}
+              email={email}
+            />
+          ))
+      }
+    </div>
+    <div class="info-contact-info2">
+      {
+        address
+          .slice(2, 4)
+          .map(({ location, address, phone, email }) => (
+            <Contact
+              location={location}
+              address={address}
+              phone={phone}
+              email={email}
+            />
+          ))
+      }
+    </div>
+    <!-- <div class="info-contact-info3">
+      {
+        address.map(({ location, address, phone, email }) => (
+          <Contact
+            location={location}
+            address={address}
+            phone={phone}
+            email={email}
+          />
+        ))
+      }
+    </div> -->
+  </div>
+  <div id="credit">
+    <span>
+      <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
+      by
+      <a target="_blank" href="https://icons8.com">Icons8</a>
+    </span>
+    <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons"
+      >Arrow icons created by Freepik - Flaticon</a
+    >
+  </div>
+</div>
+
+<style>
+  #footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #211f71;
+    /* padding-top: 4rem; */
+    /* padding-bottom: 4rem; */
+  }
+
+  #left-column {
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+
+  #info-location-title {
+    font-weight: 400;
+    font-size: 24px;
+    color: white;
+  }
+
+  .info-contact-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .info-contact-info2 {
+    display: none;
+  }
+
+  #credit {
+    display: flex;
+    justify-content: center;
+    color: #8e8db6;
+    margin-top: 5rem;
+  }
+  .footer-column {
+    display: flex;
+  }
+
+  @media screen {
+    
+  }
+  @media screen and (max-width: 749px) {
+    .info-contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .info-contact-info2 {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 750px) {
+    .info-contact-info {
+      display: none;
+    }
+    .info-contact-info2 {
+      display: flex;
+      /* flex-direction: column; */
+      /* justify-content: space-between; */
+    }
+
+    #left-column {
+      margin: 4rem auto 4rem auto;
+      padding: 1rem;
+      width: 85%;
+    }
+    #credit {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

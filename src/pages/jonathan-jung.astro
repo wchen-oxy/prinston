@@ -1,0 +1,42 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "General Counsel";
+const name = "Jonathan Jung";
+const imageURL = "/prinston/jonathan.webp";
+const description = `
+Jonathan Jung is the General Counsel for Prinston Pharmaceutical and is responsible\
+for the company's legal affairs, including corporate, litigation, intellectual property, labor,\
+employment, sales, marketing, regulatory, compliance, risk management,\
+governance, and privacy. He provides senior management with practical advice on\
+company strategies, manages the daily operations of the legal department, and\
+oversees the work of outside counsels and advisors.\
+\n\nPreviously, Jonathan served as general counsel for companies across several industry\
+sectors and worked in private practice and various government agencies. In addition, he\
+is the Chair of Membership for Corporate and Securities Law at the Association of\
+Corporate Counsel and has served on the board of non-profit organizations. He also\
+received the In-House Impact Award from the New Jersey Legal Awards.\
+`;
+---
+
+<Layout title="Bob Rodowicz">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <CenteredMainLayout>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </CenteredMainLayout>
+</Layout>
+<style></style>

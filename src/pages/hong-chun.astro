@@ -1,0 +1,45 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title =
+  "Vice President and Head of Regulatory Affairs and Quality Assurance";
+const name = "Hong Chun";
+const imageURL = "/prinston/hongchun.jpg";
+const description = `
+Hongchun, Ph.D., oversees the product development, analytical research and\
+development, and scientific affairs teams. He leads the company's efforts to deliver new \
+products that invigorate Prinston's continued growth and improve patients' well-being by\
+offering them high-quality medications.\
+\n\nHongchun is a seasoned R&D leader and technical expert with over 25 years of\
+pharmaceutical industry experience and a track record of successfully delivering results\
+in scientific research, new drug product design &amp; development, clinical studies,\
+regulatory submission, and compliance management. Before joining Princeton, he held\
+various responsibilities at Prinbury BioPharm (Shanghai), AustarPharma, Reckitt\
+Benckiser, GSK, Novartis, Pfizer, and Oread.\
+\n\nHongchun earned a Ph.D. in Pharmaceutics from the University of Georgia, an M.S. in\
+Chemistry from the University of Louisiana at Lafayette, and a B.S. in Pharmacy from\
+China Pharmaceutical University.\
+`;
+---
+
+<Layout title="Bob Rodowicz">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <CenteredMainLayout>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </CenteredMainLayout>
+</Layout>
+<style></style>

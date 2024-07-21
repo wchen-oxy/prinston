@@ -3,31 +3,30 @@ import Header from "../components/Header.astro";
 import LeadershipDescription from "../components/LeadershipDescription.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Chief Revenue Officer";
 const name = "Chris Keith";
 const imageURL = "/prinston/chris.png";
 const description = `
-Chris Keith is the Chief Revenue Officer at Solco Healthcare. He oversees all aspects of
-the company's revenue generation strategies and operations. With a deep
-understanding of market trends and customer needs, Chris has successfully led his
-teams to achieve and exceed revenue targets year after year.
-
-Prior to joining Solco, Chris co-founded Éclat Pharmaceuticals (now Avadel) and served
-as the company's Executive Vice President of Sales and Marketing. Before Éclat, Chris
-spent 18 years with ETHEX Corporation, leading the marketing team as the Vice
-President of Marketing.
-
-Chris holds a Bachelor of Science in Marketing and Management and a Master of
-Business Administration from the University of Missouri St. Louis.
+Chris Keith is the Chief Revenue Officer at Solco Healthcare. He oversees all aspects of \
+the company's revenue generation strategies and operations. With a deep \
+understanding of market trends and customer needs, Chris has successfully led his \
+teams to achieve and exceed revenue targets year after year. \
+\n\nPrior to joining Solco, Chris co-founded Éclat Pharmaceuticals (now Avadel) and served \
+as the company's Executive Vice President of Sales and Marketing. Before Éclat, Chris \
+spent 18 years with ETHEX Corporation, leading the marketing team as the Vice \
+President of Marketing. \
+\n\nChris holds a Bachelor of Science in Marketing and Management and a Master of \
+Business Administration from the University of Missouri St. Louis. \
 `;
 ---
 
 <Layout title="Gary Xu">
   <Header />
   <PageHeader url="/prinston/labs.webp" />
-  <main>
+  <CenteredMainLayout>
     <!-- <SectionMeta section="Leadership" title=""/> -->
     <div>
       <LeadershipDescription
@@ -37,19 +36,7 @@ Business Administration from the University of Missouri St. Louis.
         imageURL={imageURL}
       />
     </div>
-  </main>
+  </CenteredMainLayout>
 </Layout>
 <style>
-  main {
-    margin: 4rem auto 4rem auto;
-    padding: 1rem;
-    width: 70%;
-    /* max-width: calc(100% - 2rem); */
-  }
-
-  @media only screen and (min-width: 1440px) {
-    main {
-      max-width: 1280px;
-    }
-  }
 </style>

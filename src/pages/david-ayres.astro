@@ -1,0 +1,38 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Vice President of Sales";
+const name = "David Ayres";
+const imageURL = "/prinston/david.png";
+const description = `
+David Ayres is the Vice President of Sales at Solco Healthcare. As the Vice President of \
+Sales, David oversees Solco's account management team and is responsible for \
+building and maintaining solid customer relationships. \
+\n\nBefore joining Solco, David worked for WellPoint Next Rx, a leading pharmacy benefit \
+manager in the U.S., for 16 years. \
+\n\nDavid holds a Bachelor of Science in Business Administration from the University of \
+Phoenix, underscoring his strong business management and leadership foundation. \
+`;
+---
+
+<Layout title="Gary Xu">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <CenteredMainLayout>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </CenteredMainLayout>
+</Layout>
+<style></style>

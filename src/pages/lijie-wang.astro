@@ -1,0 +1,45 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title =
+  "Vice President and Head of Regulatory Affairs and Quality Assurance";
+const name = "Lijie Wang";
+const imageURL = "/prinston/lijie.jpg";
+const description = `
+Lijie Wang, Ph.D., is an accomplished professional with extensive experience in\
+regulatory affairs and quality assurance. Dr. Wang currently holds the position of Senior\
+Vice President and Head of Regulatory Affairs and Quality Assurance, where she is\
+responsible for managing life-cycle drug products and developing regulatory strategies\
+to ensure quality assurance.\
+\n\nWith over 20 years of experience in the field, Dr. Wang has achieved several notable\
+accomplishments throughout her career, including leading and managing Departments\
+of Regulatory Affairs and Quality Assurance for product management life cycle in\
+Chemistry, Manufacturing and Controls, bioequivalence, labeling, patent strategies,\
+eCTD operations, pharmacovigilance, and customer complaints.\
+\n\nDr. Wang's educational journey includes Chemical Engineering in bachelor's and\
+master's degrees from Dalian University of Technology, China and PH.D. from McGill\
+University, Canada.
+`;
+---
+
+<Layout title="Bob Rodowicz">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <CenteredMainLayout>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </CenteredMainLayout>
+</Layout>
+<style></style>

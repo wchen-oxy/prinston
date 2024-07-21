@@ -1,0 +1,41 @@
+---
+import Header from "../components/Header.astro";
+import LeadershipDescription from "../components/LeadershipDescription.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Vice President of Commercial Strategy and Operations at Solco";
+const name = "Bob Rodowicz";
+const imageURL = "/prinston/bob.png";
+const description = `
+Bob Rodowicz serves as the Vice President of Commercial Strategy and Operations at \
+Solco Healthcare. In this position, he manages the Commercial Operations team that \
+deals with demand and supply planning, third-party logistics (3PL) partnerships, \
+customer service, new product launch planning, and DEA quotas. Additionally, Bob \
+works with the Management team on the overall Strategy, including the government \
+business, injectables, and future growth of the organization. \
+\n\nBob has over 22 years of experience in the generic pharmaceutical industry and has \
+held various leadership positions. Before joining Solco Healthcare, Bob was the Vice \
+President of Sales and Marketing at Athem, LLC. \
+\n\nBob holds a Bachelor of Science in Marketing from Saint Joseph's University. \
+`;
+---
+
+<Layout title="Bob Rodowicz">
+  <Header />
+  <PageHeader url="/prinston/labs.webp" />
+  <CenteredMainLayout>
+    <!-- <SectionMeta section="Leadership" title=""/> -->
+    <div>
+      <LeadershipDescription
+        title={title}
+        name={name}
+        description={description}
+        imageURL={imageURL}
+      />
+    </div>
+  </CenteredMainLayout>
+</Layout>
+<style></style>
