@@ -10,13 +10,14 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="CMO">
   <Header />
-  <PageHeader url="/prinston/labs.webp" />
+  <PageHeader
+    url="/prinston/labs.webp"
+    section="CMO Services"
+    title="From Drug Formulation to Inventory"
+    subHeader="See what we can do for you as a contract manufacturing organization"
+  />
   <CenteredMainLayout>
-    <SectionMeta
-      section="CMO Services"
-      title="From Drug Formulation to Inventory"
-      subHeader="See what we can do for you as a contract manufacturing organization"
-    />
+    <SectionMeta />
     <div id="main-about">
       <div class="main-column">
         <img id="image-content" src="/prinston/medicine.jpg" />
@@ -92,7 +93,6 @@ import Layout from "../layouts/Layout.astro";
   <Footer />
 </Layout>
 <style>
- 
   #main-about {
     display: flex;
   }

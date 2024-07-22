@@ -22,7 +22,7 @@ const careersImage = BASE + "Careers.png";
   </div>
   <div id="content-right">
     <img src={careersImage} />
-    <p>
+    <p id="image-desc">
       We believe fostering a friendly team environment not only brings out the
       best in employees but also the best in our performance. At Prinston
       Pharmaceuticals we truly are in the business together as a family.
@@ -50,21 +50,25 @@ const careersImage = BASE + "Careers.png";
 
   #section-description {
     margin-bottom: 48px;
+    font-size: 20px;
+  }
+
+  #image-desc {
+    font-size: 16px;
+    color: rgb(102, 102, 102);
   }
 
   #content-right {
     padding: 1rem;
     width: 50%;
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
-    p {
-      font-size: 14px;
-      color: rgb(102, 102, 102);
-    }
   }
-  @media screen and (max-width: 751px) {
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 900px) {
     #content-left {
       width: 100%;
     }

@@ -3,26 +3,26 @@ const { location, address, phone, email } = Astro.props;
 ---
 
 <div class="info-column">
-  <div class="info-type-row">
+  <span class="info-type-row">
     <h3 class="locations">{location}</h3>
-  </div>
-  <div id="location-row" class="info-type-row">
+  </span>
+  <span id="location-row" class="info-type-row">
     <img class="location-image" src="/prinston/location.png" />
     <p>{address}</p>
-  </div>
-  <div class="info-type-row">
+  </span>
+  <span class="info-type-row">
     <img class="phone" src="/prinston/phone.png" />
     <p class="phone-number">{phone}</p>
-  </div>
-  <div class="info-type-row">
+  </span>
+  <span class="info-type-row">
     <img class="mail" src="/prinston/mail.png" />
     <p>{email}</p>
-  </div>
+  </span>
 </div>
 <style>
   p {
     font-weight: 100;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     color: rgb(192, 206, 253);
     white-space: pre-line;
@@ -40,13 +40,17 @@ const { location, address, phone, email } = Astro.props;
     margin-right: 5px;
     margin-top: 4px;
   }
-  
+
   #location-row {
     align-items: start;
-}
+  }
 
   .info-column {
-    width: 50%;
+    /* width: 50%; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    display: inline-block;
   }
 
   .info-type-row {
@@ -56,7 +60,7 @@ const { location, address, phone, email } = Astro.props;
 
   .locations {
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     margin-bottom: 0;
   }
@@ -70,5 +74,15 @@ const { location, address, phone, email } = Astro.props;
     color: white; /* Inherit text color of parent element. */
     text-decoration: none; /* Remove underline. */
     /* Additional css `propery: value;` pairs here */
+  }
+  @media screen and (max-width: 387px){
+    p{
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 1300px) and (min-width: 873px) {
+    .info-column {
+      width: 50%;
+    }
   }
 </style>

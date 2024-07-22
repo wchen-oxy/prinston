@@ -5,6 +5,7 @@ import PageHeader from "../components/PageHeader.astro";
 import Person from "../components/person.astro";
 import SectionMeta from "../components/SectionMeta.astro";
 import Layout from "../layouts/Layout.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 
 const people = [
   {
@@ -66,38 +67,38 @@ const people = [
 
 <Layout title="Leadership">
   <Header />
-  <PageHeader url="/prinston/labs.webp" />
-  <main>
-    <SectionMeta section="About Us" title="Meet Our Leadership" subHeader="" />
+  <PageHeader
+    url="/prinston/labs.webp"
+    section="About Us"
+    title="Meet Our Leadership"
+    subHeader=""
+  />
+  <CenteredMainLayout>
     <div id="main-about">
       {people.map((person) => <Person {...person} />)}
     </div>
-  </main>
+  </CenteredMainLayout>
   <Footer />
 </Layout>
 <style>
-  main {
-    margin: 4rem auto 4rem auto;
-    padding: 1rem;
-    width: 70%;
-    /* max-width: calc(100% - 2rem); */
-  }
-  
-  @media only screen and (min-width: 1440px) {
-    main {
-      max-width: 1280px;
-    }
+  #main-about {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* gap: 1em; */
+    /* justify-content: space-between; */
+    /* margin: 3rem -1em; */
+    /* width: 100%; */
+    display: grid;
+    column-gap: 1em;
+    row-gap: 3em;
+    grid-template-columns: repeat(3, calc((100% / 3) - (2em / 3)));
   }
 
-  #main-about {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    /* gap: 1em; */
-    justify-content: space-between;
-    margin-top: 3rem;
-  }
-  h4 {
-    margin-bottom: 0;
+  @media screen and (max-width: 685px) {
+    #main-about {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
   }
 </style>

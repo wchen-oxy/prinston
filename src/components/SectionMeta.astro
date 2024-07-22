@@ -1,5 +1,5 @@
 ---
-const { section, title, subHeader} = Astro.props;
+const { section, title, subHeader } = Astro.props;
 ---
 
 <div>
@@ -10,15 +10,29 @@ const { section, title, subHeader} = Astro.props;
 <style>
   h1 {
     color: #36469c;
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
   }
   h2 {
-    font-size: 32px;
+    font-size: 48px;
     font-weight: 400;
     margin: 0px;
   }
   h5 {
+    font-size: 20px;
+    font-weight: 400;
     color: gray;
+  }
+
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 16px;
+    }
+    h2 {
+      font-size: 34px;
+    }
+    h5 {
+      font-size: 16px;
+    }
   }
 </style>

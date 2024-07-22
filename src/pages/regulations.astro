@@ -3,18 +3,18 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SectionMeta from "../components/SectionMeta.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About">
   <Header />
-  <PageHeader url="/prinston/hero2.jpg" />
-  <main>
-    <SectionMeta
-      section="Company Profile"
-      title="About Prinston Pharmaceutical"
-      subHeader="Serving the community since 2010"
-    />
+  <PageHeader
+    url="/prinston/hero2.jpg"
+    section="Products"
+    title="Generic Medicine Regulations"
+  />
+  <CenteredMainLayout>
     <div id="main-about">
       <p>
         Generic drugs undergo a rigorous approval process by the FDA to ensure
@@ -62,7 +62,7 @@ import Layout from "../layouts/Layout.astro";
         have a different label
       </p>
     </div>
-  </main>
+  </CenteredMainLayout>
   <Footer />
 </Layout>
 <style>
@@ -72,19 +72,6 @@ import Layout from "../layouts/Layout.astro";
     object-fit: contain;
   }
 
-  main {
-    margin: 100px auto 200px auto;
-    padding: 1rem;
-    width: 70%;
-    /* max-width: calc(100% - 2rem); */
-  }
-  
-  @media only screen and (min-width: 1440px) {
-    main {
-      max-width: 1280px;
-    }
-  }
-  
   #main-about {
     /* display: flex; */
   }

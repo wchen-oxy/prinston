@@ -9,13 +9,13 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="About">
   <Header />
-  <PageHeader url="/prinston/scientist-crop.jpg" />
+  <PageHeader
+    url="/prinston/scientist-crop.jpg"
+    section="Products"
+    title="What Are Generic Medicines?"
+    subHeader="The backbone of affordable medicine"
+  />
   <CenteredMainLayout>
-    <SectionMeta
-      section="Company Profile"
-      title="What Are Generics?"
-      subHeader="The backbone of affordable medicine"
-    />
     <div id="main-about">
       <div class="main-column">
         <p>
@@ -56,5 +56,17 @@ import Layout from "../layouts/Layout.astro";
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @media screen and (max-width: 1000px) {
+    #main-about {
+      flex-direction: column-reverse;
+    }
+    .main-column {
+      width: 100%;
+    }
+    img {
+      padding: 0;
+    }
   }
 </style>

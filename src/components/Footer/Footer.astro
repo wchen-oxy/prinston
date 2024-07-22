@@ -89,10 +89,11 @@ const address = [
     <span>
       <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
       by
-      <a target="_blank" href="https://icons8.com">Icons8</a>
+      <a target="_blank" href="https://icons8.com">Icons8. </a>
     </span>
+    <br/>
     <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons"
-      >Arrow icons created by Freepik - Flaticon</a
+      > Arrow icons created by Freepik - Flaticon</a
     >
   </div>
 </div>
@@ -102,7 +103,7 @@ const address = [
     display: flex;
     flex-direction: column;
     background-color: #211f71;
-    /* padding-top: 4rem; */
+    padding-top: 4rem;
     /* padding-bottom: 4rem; */
   }
 
@@ -127,11 +128,16 @@ const address = [
     display: none;
   }
 
+  a{
+    text-decoration: none;
+    color: #8e8db6;
+  }
   #credit {
     display: flex;
     justify-content: center;
     color: #8e8db6;
     margin-top: 5rem;
+    margin-bottom: 1em;
   }
   .footer-column {
     display: flex;
@@ -140,7 +146,7 @@ const address = [
   @media screen {
     
   }
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 872px) {
     .info-contact-info {
       display: flex;
       flex-direction: column;
@@ -148,9 +154,14 @@ const address = [
     .info-contact-info2 {
       display: none;
     }
+    #left-column {
+      margin: 4rem auto 4rem auto;
+      padding: 1rem;
+      width: 85%;
+    }
   }
 
-  @media screen and (max-width: 1200px) and (min-width: 750px) {
+  @media screen and (max-width: 1300px) and (min-width: 873px) {
     .info-contact-info {
       display: none;
     }
@@ -165,9 +176,6 @@ const address = [
       padding: 1rem;
       width: 85%;
     }
-    #credit {
-      flex-direction: column;
-      align-items: center;
-    }
+    
   }
 </style>

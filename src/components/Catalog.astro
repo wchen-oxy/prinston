@@ -43,23 +43,25 @@ import SectionMeta from "./SectionMeta.astro";
   }
 
   #content-text {
-    padding: 0 0 1rem 1rem ;
+    padding: 0 0 1rem 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 40%;
+    height: 100%;
   }
 
   #content-description {
+    margin-top: 24px;
     margin-bottom: 48px;
   }
 
   p {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
   }
 
-  @media screen and (max-width: 751px) {
+  @media screen and (max-width: 900px) {
     #catalog {
       height: auto;
       flex-direction: column;
