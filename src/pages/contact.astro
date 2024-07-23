@@ -1,0 +1,36 @@
+---
+import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Careers">
+  <Header />
+  <PageHeader section="" title="Contact Us" />
+  <CenteredMainLayout>
+    <div>
+      <h2>Customer Support</h2>
+      <p>(929)232-4107</p>
+      <p>customers@prinstonpharm.com</p>
+    </div>
+    <div>
+      <h2>Sales</h2>
+      <p>(929)132-4107</p>
+      <p>sales@prinstonpharm.com</p>
+    </div>
+    <div>
+      <h2>CMO</h2>
+      <p>(929)232-4107</p>
+      <p>cmo@prinstonpharm.com</p>
+    </div>
+  </CenteredMainLayout>
+  <Footer />
+</Layout>
+
+<style>
+  p {
+    white-space: pre-line;
+  }
+</style>

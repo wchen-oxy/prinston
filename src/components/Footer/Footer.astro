@@ -86,14 +86,14 @@ const address = [
     </div> -->
   </div>
   <div id="credit">
-    <span>
+    <div>
       <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
       by
       <a target="_blank" href="https://icons8.com">Icons8. </a>
-    </span>
-    <br/>
-    <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons"
-      > Arrow icons created by Freepik - Flaticon</a
+    </div>
+    <br />
+    <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">
+      Arrow icons created by Freepik - Flaticon</a
     >
   </div>
 </div>
@@ -128,13 +128,14 @@ const address = [
     display: none;
   }
 
-  a{
+  a {
     text-decoration: none;
     color: #8e8db6;
   }
   #credit {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     color: #8e8db6;
     margin-top: 5rem;
     margin-bottom: 1em;
@@ -144,7 +145,6 @@ const address = [
   }
 
   @media screen {
-    
   }
   @media screen and (max-width: 872px) {
     .info-contact-info {
@@ -176,6 +176,5 @@ const address = [
       padding: 1rem;
       width: 85%;
     }
-    
   }
 </style>

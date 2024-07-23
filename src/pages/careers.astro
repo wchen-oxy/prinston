@@ -1,0 +1,69 @@
+---
+import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+
+const desc = `Prepare correspondence, reports, presentations, and other materials.\
+\nPerform legal research.\
+\nOrganize and analyze information and data.\
+\nReview and monitor new and updated laws and regulations in relevant fields.\
+\nAssist with reviewing, drafting and revising various contracts, including CDA, supply collaboration agreement, etc.\
+\nMaintain procedures, forms, and legal policy documents.\
+\nAssist with litigation and dispute resolution.\
+\nManage Intellectual property portfolios.\
+\nCoordinate matters with Human Resources.\
+\nA corporate paralegal at a pharmaceutical manufacturer.\
+\nIn-house corporate legal support experience in both public and private company settings.\
+\nExtensive knowledge of corporate governance, intellectual property, employment litigation and Human Resources related law.\
+\nPrepares both material contracts and routine business agreements in all aspects of the business (e.g. MSA, SOWs, NDAs, CDAs, etc.)\
+\nOther duties may be assigned.\
+`;
+
+const qualifications = `B.A Degree.\
+\nPrior corporate paralegal experience preferred.\
+\nPrior experience in the pharmaceutical industry preferred.\
+\nStrong organizational, customer service, and project management skills.\
+\nStrong work ethic, positive attitude, and professional demeanor.\
+\nAbility to work independently and as part of a team.\
+\nExcellent verbal and written communication skills.\
+\nMust be eligible to work in the U.S.\
+`;
+
+const benefits = `401(k)\
+\nDental insurance\
+\nFree parking\
+\nHealth insurance\
+\nPaid sick time\
+\nPaid time off\
+\nVision insurance\
+`;
+---
+
+<Layout title="Careers">
+  <Header />
+  <PageHeader section="Careers" title="See our Open Positions" />
+  <CenteredMainLayout>
+    <div>
+      <h2>Paralegal</h2>
+      <h4>Job Description</h4>
+      <p>Paralegal will work on a range of projects that will support the legal team. </p>
+      <h4>Job Duties</h4>
+      <p>{desc}</p>
+      <h4>Qualifications</h4>
+      <p>{qualifications}</p>
+      <h4>Benefits</h4>
+      <p>{benefits}</p>
+    </div>
+    <div><h5>
+        Please send your resume to jobs@prinstonpharm.com, with the job title in the subject.</h5></div>
+  </CenteredMainLayout>
+  <Footer />
+</Layout>
+
+<style>
+  p {
+    white-space: pre-line;
+  }
+</style>
