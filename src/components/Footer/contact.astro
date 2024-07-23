@@ -32,6 +32,16 @@ const { location, address, phone, email } = Astro.props;
     color: #8e8db6;
   }
 
+  a[href^="tel"] {
+    text-decoration: inherit;
+    color: inherit;
+  }
+  
+  p[href^="tel"] {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
   img {
     display: flex;
     flex-direction: column;
@@ -75,8 +85,8 @@ const { location, address, phone, email } = Astro.props;
     text-decoration: none; /* Remove underline. */
     /* Additional css `propery: value;` pairs here */
   }
-  @media screen and (max-width: 387px){
-    p{
+  @media screen and (max-width: 387px) {
+    p {
       font-size: 16px;
     }
   }
