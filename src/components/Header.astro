@@ -48,7 +48,7 @@ const productLinks: { label: string; url: string }[] = [
         textLinks.map(({ label, href }) => (
           <li>
             <a
-              class="links"
+              class="normal-links"
               aria-current={Astro.url.pathname === href}
               class:list={[
                 "link",
@@ -126,7 +126,7 @@ const productLinks: { label: string; url: string }[] = [
       <a href="/prinston/careers"><h2 class="mobile-title">Careers</h2></a>
     </div>
     <div class="modal-row">
-      <a><h2 class="mobile-title">Contact</h2></a>
+      <a href="/prinston/contact"><h2 class="mobile-title">Contact</h2></a>
     </div>
   </div>
 
@@ -158,7 +158,16 @@ const productLinks: { label: string; url: string }[] = [
       -webkit-user-select: none; /* Safari */
       -ms-user-select: none; /* IE 10 and IE 11 */
       user-select: none; /* Standard syntax */
+      padding-top: 3px;
+      font-family: sans-serif;
+      font-weight: 400;
     }
+
+    .normal-links{
+      font-family: sans-serif;
+      font-weight: 400;
+    }
+
     .nav-left {
       display: flex;
       align-items: center;
@@ -272,6 +281,9 @@ const productLinks: { label: string; url: string }[] = [
       display: none;
       flex-direction: column;
     }
+    li {
+      padding: 0 12px;
+    }
 
     @media screen and (max-width: 750px) {
       nav {
@@ -285,6 +297,7 @@ const productLinks: { label: string; url: string }[] = [
         padding-top: 10px;
       }
     }
+    
     @media screen and (min-width: 751px) {
       .nav-items {
         display: flex;

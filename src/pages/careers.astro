@@ -2,10 +2,12 @@
 import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
+import CareerTab from "../components/careerTab.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 
-const desc = `Prepare correspondence, reports, presentations, and other materials.\
+const desc = `
+ Prepare correspondence, reports, presentations, and other materials.\
 \nPerform legal research.\
 \nOrganize and analyze information and data.\
 \nReview and monitor new and updated laws and regulations in relevant fields.\
@@ -45,25 +47,87 @@ const benefits = `401(k)\
   <Header />
   <PageHeader section="Careers" title="See our Open Positions" />
   <CenteredMainLayout>
-    <div>
-      <h2>Paralegal</h2>
-      <h4>Job Description</h4>
-      <p>Paralegal will work on a range of projects that will support the legal team. </p>
-      <h4>Job Duties</h4>
-      <p>{desc}</p>
-      <h4>Qualifications</h4>
-      <p>{qualifications}</p>
-      <h4>Benefits</h4>
-      <p>{benefits}</p>
+    <CareerTab
+      department="Legal"
+      positions={[
+        {
+          name: "Paralegal",
+          link: "paralegal",
+        },
+      ]}
+    />
+    <CareerTab
+      department="Business Development"
+      positions={[
+        {
+          name: "Manager/Associate Director, Portfolio/Project Management",
+          link: "associate-director",
+        },
+      ]}
+      isFirst={"true"}
+    />
+    <CareerTab department="Human Resources" positions={[]} isFirst={"true"} />
+    <CareerTab department="Research" positions={[]} isFirst={"true"} />
+    <CareerTab department="Accounting" positions={[]} isFirst={"true"} />
+
+    <!-- <div class="department">
+      <h2>Legal</h2>
+      <div class="inner-div">This is the content of Div 1.</div>
     </div>
-    <div><h5>
-        Please send your resume to jobs@prinstonpharm.com, with the job title in the subject.</h5></div>
+    <div class="department">
+      <h2>Marketing</h2>
+      <div class="inner-div">This is the content of Div 2.</div>
+    </div>
+    <div class="department">
+      <h2>Engineering</h2>
+      <div class="inner-div">This is the content of Div 3.</div>
+    </div> -->
   </CenteredMainLayout>
   <Footer />
 </Layout>
 
-<style>
-  p {
-    white-space: pre-line;
-  }
-</style>
+<script>
+  const ids = [
+    "Legal",
+    "Business Development",
+    "Human Resources",
+    "Research",
+    "Accounting",
+  ];
+  const buttons = ids.map((id) => {
+    return { id, button: document.getElementById(id) };
+  });
+  console.log(buttons);
+  buttons.forEach((object) => {
+    object.button.addEventListener("click", (element) => {
+      console.log("click");
+      const innerDiv = document.getElementById(object.id + "-contents");
+      const plus = document.getElementById(object.id + "-plus");
+      const minus = document.getElementById(object.id + "-minus");
+      if (innerDiv.style.display === "none" || innerDiv.style.display === "") {
+        innerDiv.style.display = "flex";
+        plus.style.display = "none";
+        minus.style.display = "inline";
+      } else {
+        innerDiv.style.display = "none";
+        plus.style.display = "inline";
+        minus.style.display = "none";
+      }
+    });
+  });
+  // const button = document.getElementById("department");
+  // button.addEventListener("click", (element) => {
+  //   const innerDiv = document.getElementById("contents");
+  //   const plus = document.getElementById("plus");
+  //   const minus = document.getElementById("minus");
+  //   if (innerDiv.style.display === "none" || innerDiv.style.display === "") {
+  //     innerDiv.style.display = "flex";
+  //     plus.style.display = "none";
+  //     minus.style.display = "inline";
+  //   } else {
+  //     innerDiv.style.display = "none";
+  //     plus.style.display = "inline";
+  //     minus.style.display = "none";
+  //   }
+  // });
+</script>

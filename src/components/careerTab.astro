@@ -1,0 +1,56 @@
+---
+const { department, positions, isFirst } = Astro.props;
+const count = positions.length;
+---
+
+<button
+  id={department}
+  class="department"
+  style={isFirst === "true" && { borderTop: "none" }}
+>
+  <h2>{department}</h2>
+  <!-- <h4>{count}</h4> -->
+  <h2 id={department + "-plus"}>+</h2>
+  <h2 id={department + "-minus"} style={{ display: "none" }}>-</h2>
+</button>
+<div id={department + "-contents"} class="contents">
+  {
+    positions.map((position) => {
+      return <a href={position.link}>{position.name}</a>;
+    })
+  }
+  {positions.length === 0 && 
+    <p>No Available Positions At This Time</p>
+}
+</div>
+<style>
+  .department {
+    display: flex;
+    background-color: aliceblue;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #000;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* margin-bottom: 10px; */
+    cursor: pointer;
+  }
+
+  .contents {
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #000;
+    border-top: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  a {
+    font-size: 20px;
+  }
+  #plus {
+  }
+  #minus {
+    display: none;
+  }
+</style>

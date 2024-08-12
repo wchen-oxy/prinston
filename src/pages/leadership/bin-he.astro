@@ -1,9 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import LeadershipDescription from "../components/LeadershipDescription.astro";
-import PageHeader from "../components/PageHeader.astro";
-import SectionMeta from "../components/SectionMeta.astro";
-import Layout from "../layouts/Layout.astro";
+import Footer from "../../components/Footer/Footer.astro";
+import Header from "../../components/Header.astro";
+import LeadershipDescription from "../../components/LeadershipDescription.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import SectionMeta from "../../components/SectionMeta.astro";
+import CenteredMainLayout from "../../layouts/CenteredMainLayout.astro";
+import Layout from "../../layouts/Layout.astro";
 
 const title = "Chairman and Chief Executive Officer of Huahai US, Inc.";
 const name = "Bin He";
@@ -24,10 +26,15 @@ the Shanghai University of International Business and Economics. \
 `;
 ---
 
-<Layout title="Gary Xu">
+<Layout title="Bin He">
   <Header />
-  <PageHeader url="/prinston/labs.webp" />
-  <main>
+  <PageHeader
+    url="/prinston/labs.webp"
+    section="About Leadership"
+    title={name}
+    subHeader={title}
+  />
+  <CenteredMainLayout>
     <!-- <SectionMeta section="Leadership" title=""/> -->
     <div>
       <LeadershipDescription
@@ -37,19 +44,6 @@ the Shanghai University of International Business and Economics. \
         imageURL={imageURL}
       />
     </div>
-  </main>
+  </CenteredMainLayout>
+  <Footer />
 </Layout>
-<style>
-  main {
-    margin: 4rem auto 4rem auto;
-    padding: 1rem;
-    width: 70%;
-    /* max-width: calc(100% - 2rem); */
-  }
-
-  @media only screen and (min-width: 1440px) {
-    main {
-      max-width: 1280px;
-    }
-  }
-</style>
