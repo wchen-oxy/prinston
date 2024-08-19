@@ -3,16 +3,18 @@ import Button from "./Button.astro";
 ---
 
 <div id="hero-image-container">
-  <div class="hero-columns">
-    <h2>The Community's Partner in Affordable Generics</h2>
-    <h4>
-      Providing high quality, accessible generic pharmaceuticals for decades.
-    </h4>
-    <div id="button-column">
-      <Button text="Learn More" url="/prinston/about" color="white" />
+  <div id="hero-column-container">
+    <div class="hero-columns">
+      <h2>The Community's Partner in Affordable Generics</h2>
+      <h4>
+        Providing high quality, accessible generic pharmaceuticals for decades.
+      </h4>
+      <div id="button-column">
+        <Button text="Learn More" url="/prinston/about" color="white" />
+      </div>
     </div>
+    <div class="hero-columns" id="empty-columns"></div>
   </div>
-  <div class="hero-columns" id="empty-columns"></div>
 </div>
 
 <style>
@@ -21,18 +23,23 @@ import Button from "./Button.astro";
     height: 70vh;
     background-image: linear-gradient(
         125deg,
-        rgba(107, 19, 17, 0.75),
-        rgba(8, 83, 156, 0.75)
+        rgba(107, 19, 17, 0.8),
+        rgba(8, 83, 156, 0.4)
       ),
       url("/prinston/generic.jpg");
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
     background-position: 50%;
     background-size: cover;
+  }
+  #hero-column-container {
     display: flex;
     align-items: center;
-    /* flex-basis: 100%; */
+    margin: auto;
     box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    max-width: calc(100% - 40px);
   }
 
   #hero-image {
@@ -49,7 +56,7 @@ import Button from "./Button.astro";
     position: absolute;
   }
   #button-column {
-    padding-left: 6rem;
+    /* padding-left: 6.5rem; */
   }
 
   #empty-columns {
@@ -61,14 +68,12 @@ import Button from "./Button.astro";
     font-weight: 300;
     color: white;
     line-height: 1;
-    padding-left: 6rem;
     margin: 0;
   }
   h4 {
     color: white;
     font-size: 24px;
     font-weight: 100;
-    padding-left: 6rem;
   }
 
   /* @media screen and(max-width: 452px) and (min-width: 726px) {
@@ -80,20 +85,44 @@ import Button from "./Button.astro";
     }
   } */
 
+  @media (min-width: 48rem) {
+    #hero-column-container {
+      max-width: calc(100% - 64px);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    #hero-column-container {
+      max-width: calc(100% - 128px);
+    }
+  }
+
+  @media (min-width: 90rem) {
+    #hero-column-container {
+      max-width: calc(100% - 192px);
+    }
+  }
+
+  @media (min-width: 104rem) {
+    #hero-column-container {
+      max-width: 1552px;
+    }
+
+    .hero-columns {
+      width: 40%;
+    }
+  }
+
   @media screen and (max-width: 1200px) and (min-width: 891px) {
     .hero-columns {
-      width: 70%;
-      color: aliceblue;
+      /* color: aliceblue; */
       h2 {
         font-size: 42px;
-        padding: 0 3rem;
       }
       h4 {
-        padding: 0 3rem;
       }
     }
     #button-column {
-      padding: 0 3rem;
     }
 
     #empty-columns {
@@ -103,12 +132,8 @@ import Button from "./Button.astro";
 
   @media screen and (max-width: 890px) and (min-width: 681px) {
     .hero-columns {
-      width: 70%;
-      color: aliceblue;
-      margin-left: 40px;
     }
     #button-column {
-      padding: 0 1rem;
     }
 
     #empty-columns {
@@ -116,20 +141,15 @@ import Button from "./Button.astro";
     }
     h2 {
       font-size: 42px;
-      padding: 0 1rem;
     }
     h4 {
-      padding: 0 1rem;
     }
   }
 
   @media screen and (max-width: 680px) and (min-width: 521px) {
     .hero-columns {
-      width: 70%;
-      margin-left: 30px;
     }
     #button-column {
-      padding: 0 1rem;
     }
 
     #empty-columns {
@@ -138,15 +158,16 @@ import Button from "./Button.astro";
 
     h2 {
       font-size: 42px;
-      padding: 0 1rem;
     }
     h4 {
-      padding: 0 1rem;
       font-size: 20px;
     }
   }
 
   @media screen and (max-width: 520px) {
+    .hero-column-container {
+      max-width: calc(100% - 40px);
+    }
     #hero-image-container {
       height: 60vh;
       background-position: 80%;

@@ -30,25 +30,12 @@ const address = [
 ---
 
 <div id="footer">
-  <div id="left-column" class="footer-column">
-    <h3 id="info-location-title">Our Contact Info</h3>
-    <div class="info-contact-info">
-      {
-        address.map(({ location, address, phone, email }) => (
-          <Contact
-            location={location}
-            address={address}
-            phone={phone}
-            email={email}
-          />
-        ))
-      }
-    </div>
-    <div class="info-contact-info2">
-      {
-        address
-          .slice(0, 2)
-          .map(({ location, address, phone, email }) => (
+  <div id="footer-content">
+    <div id="left-column" class="footer-column">
+      <h3 id="info-location-title">Our Contact Info</h3>
+      <div class="info-contact-info">
+        {
+          address.map(({ location, address, phone, email }) => (
             <Contact
               location={location}
               address={address}
@@ -56,23 +43,37 @@ const address = [
               email={email}
             />
           ))
-      }
-    </div>
-    <div class="info-contact-info2">
-      {
-        address
-          .slice(2, 4)
-          .map(({ location, address, phone, email }) => (
-            <Contact
-              location={location}
-              address={address}
-              phone={phone}
-              email={email}
-            />
-          ))
-      }
-    </div>
-    <!-- <div class="info-contact-info3">
+        }
+      </div>
+      <div class="info-contact-info2">
+        {
+          address
+            .slice(0, 2)
+            .map(({ location, address, phone, email }) => (
+              <Contact
+                location={location}
+                address={address}
+                phone={phone}
+                email={email}
+              />
+            ))
+        }
+      </div>
+      <div class="info-contact-info2">
+        {
+          address
+            .slice(2, 4)
+            .map(({ location, address, phone, email }) => (
+              <Contact
+                location={location}
+                address={address}
+                phone={phone}
+                email={email}
+              />
+            ))
+        }
+      </div>
+      <!-- <div class="info-contact-info3">
       {
         address.map(({ location, address, phone, email }) => (
           <Contact
@@ -84,16 +85,17 @@ const address = [
         ))
       }
     </div> -->
-  </div>
-  <div id="credit">
-    <div>
-      <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
-      by
-      <a target="_blank" href="https://icons8.com">Icons8. </a>
     </div>
-    <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">
-      Arrow icons created by Freepik - Flaticon</a
-    >
+    <div id="credit">
+      <div>
+        <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
+        by
+        <a target="_blank" href="https://icons8.com">Icons8. </a>
+      </div>
+      <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">
+        Arrow icons created by Freepik - Flaticon</a
+      >
+    </div>
   </div>
 </div>
 
@@ -102,20 +104,25 @@ const address = [
     display: flex;
     flex-direction: column;
     background-color: #211f71;
-    padding-top: 50px;
+    padding-top: 25px;
   }
+  #footer-content {
+    width: 100%;
 
+    margin: auto;
+  }
   #left-column {
     flex-direction: column;
     justify-content: center;
-    padding-left: 4em;
-    padding-right: 4em;
+    max-width: calc(100% - 40px);
+    margin: auto;
   }
 
   #info-location-title {
     font-weight: 400;
     font-size: 24px;
     color: white;
+    margin-bottom:0 ;
   }
 
   .info-contact-info {
@@ -143,8 +150,6 @@ const address = [
     display: flex;
   }
 
-  @media screen {
-  }
   @media screen and (max-width: 872px) {
     .info-contact-info {
       display: flex;
@@ -155,8 +160,8 @@ const address = [
     }
     #left-column {
       margin: 2em auto 2em auto;
-      padding: 1rem;
-      width: 85%;
+      /* padding: 1rem; */
+      /* width: 85%; */
     }
   }
 
@@ -172,8 +177,32 @@ const address = [
 
     #left-column {
       margin: 2em auto 2em auto;
-      padding: 1rem;
-      width: 85%;
+      /* padding: 1rem; */
+      /* width: 85%; */
+    }
+  }
+
+  @media (min-width: 48rem) {
+    #left-column {
+      max-width: calc(100% - 64px);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    #left-column {
+      max-width: calc(100% - 128px);
+    }
+  }
+
+  @media (min-width: 90rem) {
+    #left-column {
+      max-width: calc(100% - 192px);
+    }
+  }
+
+  @media (min-width: 104rem) {
+    #left-column {
+      max-width: 1552px;
     }
   }
 </style>

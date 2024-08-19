@@ -1,0 +1,22 @@
+---
+const { department, positions, isFirst } = Astro.props;
+const count = positions.length;
+---
+
+<div class="contents">
+  {
+    positions.map((position) => {
+      return <a href={position.link}>{position.name}</a>;
+    })
+  }
+</div>
+
+<style>
+  .contents {
+    flex-direction: column;
+  }
+
+  a {
+    font-size: 20px;
+  }
+</style>

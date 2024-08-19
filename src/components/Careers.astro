@@ -2,49 +2,62 @@
 // import { BASE } from "../constants";
 import Button from "./Button.astro";
 import SectionMeta from "./SectionMeta.astro";
+import Spacer from "./spacer.astro";
 const BASE = "/prinston/";
 const careersImage = BASE + "Careers.png";
 ---
 
 <div id="careers">
-  <div id="content-left">
-    <SectionMeta
-      section="Open Positions"
-      title="Join Our Rapidly Expanding Team"
-    />
-    <p id="section-description">
-      Something about what opportunities/why it's a great company top join. For
-      example, this is a fast growing company with year over year growth. We
-      have acquired multiple companies in the span of just a few years to
-      supplement our new ventures.
-    </p>
-    <Button text="See Openings"  url="/prinston/careers"/>
-  </div>
-  <div id="content-right">
-    <img src={careersImage} />
-    <p id="image-desc">
-      We believe fostering a friendly team environment not only brings out the
-      best in employees but also the best in our performance. At Prinston
-      Pharmaceuticals we truly are in the business together as a family.
-    </p>
-  </div>
-</div>
+  <Spacer/>
 
+  <div id="careers-content">
+    <div id="content-left">
+      <SectionMeta
+        section="Open Positions"
+        title="Join Our Rapidly Expanding Team"
+      />
+      <p id="section-description">
+        Something about what opportunities/why it's a great company top join.
+        For example, this is a fast growing company with year over year growth.
+        We have acquired multiple companies in the span of just a few years to
+        supplement our new ventures.
+      </p>
+      <Button text="See Openings" url="/prinston/careers" />
+    </div>
+    <div id="content-right">
+      <img src={careersImage} />
+      <p id="image-desc">
+        We believe fostering a friendly team environment not only brings out the
+        best in employees but also the best in our performance. At Prinston
+        Pharmaceuticals we truly are in the business together as a family.
+      </p>
+    </div>
+  </div>
+  <Spacer/>
+
+</div>
 <style>
   #careers {
-    display: flex;
-    justify-content: center;
     /* width: 100%; */
     background-color: aliceblue;
     /* padding-top: 48px; */
     /* padding-bottom: 48px; */
-    padding: 48px 4rem 48px 4rem;
+    /* padding: 4rem 0; */
   }
+
+  #careers-content {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: calc(100% - 40px);
+
+  }
+
   #content-left {
     display: flex;
     flex-direction: column;
     width: 50%;
-    padding: 1rem;
+    padding-right: 1rem;
     justify-content: center;
   }
 
@@ -59,7 +72,7 @@ const careersImage = BASE + "Careers.png";
   }
 
   #content-right {
-    padding: 1rem;
+    padding-right: 1rem;
     width: 50%;
   }
 
@@ -67,10 +80,37 @@ const careersImage = BASE + "Careers.png";
     width: 100%;
     object-fit: contain;
   }
+  @media (min-width: 48rem) {
+    #careers-content {
+      max-width: calc(100% - 64px);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    #careers-content {
+      max-width: calc(100% - 128px);
+    }
+  }
+
+  @media (min-width: 90rem) {
+    #careers-content {
+      max-width: calc(100% - 192px);
+    }
+  }
+
+  @media (min-width: 104rem) {
+    #careers-content {
+      max-width: 1552px;
+    }
+
+    .hero-columns {
+      width: 40%;
+    }
+  }
 
   @media screen and (max-width: 900px) {
     #careers {
-      padding: 48px 1rem;
+      padding: 48px 0;
     }
     #content-left {
       width: 100%;

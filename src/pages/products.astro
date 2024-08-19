@@ -8,6 +8,7 @@ import brands from "../assets/brands";
 import Footer from "../components/Footer/Footer.astro";
 import list from "../assets/data.json";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Spacer from "../components/spacer.astro";
 ---
 
 <Layout title="Catalog">
@@ -18,6 +19,7 @@ import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
     title="Our Catalog for Generic Drugs"
     subHeader="See our catalog of products"
   />
+  <Spacer />
   <CenteredMainLayout>
     <label for="product-name">Product Name</label>
     <input id="searchbar" type="text" placeholder="Type Here" />
@@ -117,6 +119,7 @@ import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
       </tbody>
     </table>
   </CenteredMainLayout>
+  <Spacer />
   <Footer />
 </Layout>
 <style>

@@ -3,6 +3,7 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SectionMeta from "../components/SectionMeta.astro";
+import Spacer from "../components/spacer.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -14,6 +15,7 @@ import Layout from "../layouts/Layout.astro";
     section="Products"
     title="Generic Medicine Regulations"
   />
+  <Spacer/>
   <CenteredMainLayout>
     <div id="main-about">
       <p>
@@ -63,6 +65,7 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </div>
   </CenteredMainLayout>
+  <Spacer/>
   <Footer />
 </Layout>
 <style>

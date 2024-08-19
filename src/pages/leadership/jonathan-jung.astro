@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import LeadershipDescription from "../../components/LeadershipDescription.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import SectionMeta from "../../components/SectionMeta.astro";
+import Spacer from "../../components/spacer.astro";
 import CenteredMainLayout from "../../layouts/CenteredMainLayout.astro";
 import Layout from "../../layouts/Layout.astro";
 
@@ -28,6 +29,7 @@ received the In-House Impact Award from the New Jersey Legal Awards.\
 <Layout title="Bob Rodowicz">
   <Header />
   <PageHeader section="About Leadership" title={name} subHeader={title} />
+  <Spacer />
   <CenteredMainLayout>
     <!-- <SectionMeta section="Leadership" title=""/> -->
     <div>
@@ -39,6 +41,6 @@ received the In-House Impact Award from the New Jersey Legal Awards.\
       />
     </div>
   </CenteredMainLayout>
+  <Spacer />
 </Layout>
 <Footer />
-

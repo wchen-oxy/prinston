@@ -6,6 +6,7 @@ import Person from "../components/person.astro";
 import SectionMeta from "../components/SectionMeta.astro";
 import Layout from "../layouts/Layout.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Spacer from "../components/spacer.astro";
 
 const people = [
   {
@@ -73,11 +74,13 @@ const people = [
     title="Meet Our Leadership"
     subHeader="Prinston Pharmaceutical is comprised of several subsidiaries. Solco Healthcare is the marketing organizatin for Prinston Pharmaceuticals and Prinston Laboratories is the manufactiring organization"
   />
+  <Spacer />
   <CenteredMainLayout>
     <div id="main-about">
       {people.map((person) => <Person {...person} />)}
     </div>
   </CenteredMainLayout>
+  <Spacer />
   <Footer />
 </Layout>
 <style>

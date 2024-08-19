@@ -3,6 +3,8 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import CareerTab from "../components/careerTab.astro";
+import CareerTab2 from "../components/careerTab2.astro";
+import Spacer from "../components/spacer.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -45,8 +47,10 @@ const benefits = `401(k)\
 
 <Layout title="Careers">
   <Header />
-  <PageHeader section="Careers" title="See our Open Positions" />
+  <PageHeader section="Careers" title="Join Prinston Pharmaceutical" />
+  <Spacer />
   <CenteredMainLayout>
+    <h1>Open Positions</h1>
     <CareerTab
       department="Legal"
       positions={[
@@ -83,8 +87,14 @@ const benefits = `401(k)\
       <div class="inner-div">This is the content of Div 3.</div>
     </div> -->
   </CenteredMainLayout>
+  <Spacer />
   <Footer />
 </Layout>
+<style>
+  h1{
+    font-weight: 400;
+  }
+</style>
 
 <script>
   const ids = [
@@ -97,7 +107,6 @@ const benefits = `401(k)\
   const buttons = ids.map((id) => {
     return { id, button: document.getElementById(id) };
   });
-  console.log(buttons);
   buttons.forEach((object) => {
     object.button.addEventListener("click", (element) => {
       console.log("click");

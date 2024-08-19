@@ -1,0 +1,63 @@
+---
+import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Spacer from "../components/spacer.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Company Structure">
+  <Header />
+  <PageHeader
+    section="Company Structure"
+    title="Prinston Pharmaceutical's Organizational Structure "
+    subHeader="Prinston Pharmaceutical is a key component of a multinational conglomerate."
+  />
+  <Spacer />
+  <CenteredMainLayout>
+    <div class="main-column">
+      <!-- <div id="text-content">
+        <h1>Prinston Laboratories</h1>
+        <p class="structure-text">
+          Prinston Laboratories is the US Manufacturing site and also serves as
+          the previous par/qualitest facility. Prinston Laboratories was
+          acquired in 2017.
+        </p>
+        <h1>Solco Healthcare</h1>
+        <p class="structure-text">
+          Solco healthcare is the sales and marketing division of Prinston
+          Pharmaceutical. It was acquired in 2012.
+        </p>
+      </div> -->
+      <img src="/prinston/structure-c.jpg" />
+    </div>
+    <CenteredMainLayout />
+  </CenteredMainLayout>
+  <Spacer />
+  <Footer />
+
+  <style>
+    .main-column {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+    #text-content {
+      max-width: 800px;
+    }
+    h1 {
+      font-size: 34px;
+      font-weight: 400;
+    }
+    p {
+      font-size: 20px;
+    }
+    img {
+      display: block;
+      margin: auto;
+      width: 100%;
+      object-fit: contain;
+    }
+  </style></Layout
+>

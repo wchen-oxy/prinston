@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SectionMeta from "../components/SectionMeta.astro";
+import Spacer from "../components/spacer.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -18,78 +19,71 @@ import Layout from "../layouts/Layout.astro";
   />
   <CenteredMainLayout>
     <SectionMeta />
-    <div id="main-about">
-      <div class="main-column">
-        <img id="image-content" src="/prinston/medicine.jpg" />
-        <h4>Manufacturing Technology</h4>
-        <p>
-          Prinston Labs, the manufacturing hub for Prinstom Pharmaceutical,
-          boasts brand name manufacturing tools. Prinston Labs can produce large
-          product batches with the following:
-          <br />
-        </p>
-        <ul>
-          <li>Kikusui and Korsch tablet presses</li>
-          <li>Bosch encapsulation</li>
-          <li>Vector & Glatt fluid bed granulators</li>
-          <li>Optel serialization equipment</li>
-        </ul>
+  </CenteredMainLayout>
+  <div id="main-about">
+    <div class="main-column">
+      <img id="image-content" src="/prinston/medicine-c.jpg" />
+      <CenteredMainLayout>
+        <div id="left-content">
+          <h4>Manufacturing Technology</h4>
+          <p>
+            Prinston Labs, the manufacturing hub for Prinstom Pharmaceutical,
+            boasts brand name manufacturing tools. Prinston Labs can produce
+            large product batches with the following:
+            <br />
+          </p>
+          <ul>
+            <li>Kikusui and Korsch tablet presses</li>
+            <li>Bosch encapsulation</li>
+            <li>Vector & Glatt fluid bed granulators</li>
+            <li>Optel serialization equipment</li>
+          </ul>
+          <h4>Quality Control</h4>
+          <p>
+            Our production quality control team has performed 100% on-time
+            stability tests for several decades. To ensure our high quality
+            standards, we continuously invest in the latest lab equipment, data
+            management and collection.
+          </p>
+          <h4>Safety and Hygiene</h4>
+          <p>
+            Safety is our top concern. Our facilities have a recordable incident
+            rate of below 1 and a lost time incident rate of 0.
+          </p>
+          <h4>Regulatory Compliance</h4>
+          <p>
+            Prinston Labs has an excellent record of regulatory compliance.
+            <br /><br />
+            Throughout its operation, Prinston Labs has undergone multiple FDA general
+            and pre-approval inspections without ever recieving a 483 citation. Furthermore,
+            Prinston Labs is under full compliance with all local, state and federal
+            agencies such as the DEA. Prinston Labs has achieved this exemplary record
+            through several means. We use multiple systems such as SAP, Sparta Systems,
+            StarLIMS, Blue Mountain, Master Control, Eduneering, among several others
+            for documentation of batch progresses, laboratory data and inventory.
+          </p>
+          <h4>What We Can Do For You</h4>
+          <p>
+            At Prinston Pharmaceuticals, we pride ourselves on creating tailor
+            made solutions. Our production batches start at a minimum of 85kg up
+            to 1800kg, or as low as 160,000 doses to 20,000,000 doses per batch.
+            Our manufacturing facility of Prinston Labs in Charolotte, North
+            Carolina is conveniently located 10 minutes from Charolotte Douglas
+            International Airport.
+            <br />
+            <br />
 
-        <!-- <div id="image-section">
-          <div id="image-section-paragraph">
-            <ContentSection
-              header="Quality Control"
-              body=`Our production quality control team has performed 100%
-             on-time stability tests for several decades. To ensure our high quality standards, we continuously invest in the latest
-             lab equipment, data management and collection.`
-            />
-          </div>
-          <img id="image-content" src="/prinston/medicine.jpg" />
-        </div> -->
-        <h4>Quality Control</h4>
-        <p>
-          Our production quality control team has performed 100% on-time
-          stability tests for several decades. To ensure our high quality
-          standards, we continuously invest in the latest lab equipment, data
-          management and collection.
-        </p>
-        <h4>Safety and Hygiene</h4>
-        <p>
-          Safety is our top concern. Our facilities have a recordable incident
-          rate of below 1 and a lost time incident rate of 0.
-        </p>
-        <h4>Regulatory Compliance</h4>
-        <p>
-          Prinston Labs has an excellent record of regulatory compliance.
-          <br /><br />
-          Throughout its operation, Prinston Labs has undergone multiple FDA general
-          and pre-approval inspections without ever recieving a 483 citation. Furthermore,
-          Prinston Labs is under full compliance with all local, state and federal
-          agencies such as the DEA. Prinston Labs has achieved this exemplary record
-          through several means. We use multiple systems such as SAP, Sparta Systems,
-          StarLIMS, Blue Mountain, Master Control, Eduneering, among several others
-          for documentation of batch progresses, laboratory data and inventory.
-        </p>
-        <h4>What We Can Do For You</h4>
-        <p>
-          At Prinston Pharmaceuticals, we pride ourselves on creating tailor
-          made solutions. Our production batches start at a minimum of 85kg up
-          to 1800kg, or as low as 160,000 doses to 20,000,000 doses per batch.
-          Our manufacturing facility of Prinston Labs in Charolotte, North
-          Carolina is conveniently located 10 minutes from Charolotte Douglas
-          International Airport.
-          <br />
-          <br />
-
-          For additional information, please contact:
-          CMOServices@prinstonpharm.com
-        </p>
-      </div>
-      <!-- <div class="main-column">
+            For additional information, please contact:
+            CMOServices@prinstonpharm.com
+          </p>
+        </div>
+        <Spacer />
+      </CenteredMainLayout>
+    </div>
+    <!-- <div class="main-column">
         <img src="/prinston/medicine.jpg" />
       </div> -->
-    </div>
-  </CenteredMainLayout>
+  </div>
   <Footer />
 </Layout>
 <style>
@@ -100,7 +94,15 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
   }
   #image-content {
-    width: 60%;
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+  #left-content {
+    width: 70%;
+  }
+  #right-content {
+    width: 30%;
   }
   #image-section-paragraph {
     width: 40%;
@@ -116,20 +118,30 @@ import Layout from "../layouts/Layout.astro";
     } */
   }
   h4 {
-    font-size: 20px;
-    margin-bottom: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 48px;
   }
+
   li {
     font-size: 20px;
   }
   p {
-    margin-top: 0px;
+    margin-top: 20px;
     font-size: 20px;
   }
-
-  @media screen and (max-width: 820px) {
-    #image-content {
+  @media (max-width: 888px) {
+    #left-content {
       width: 100%;
+    }
+    #right-content {
+      width: 100%;
+    }
+  }
+  @media (min-width: 104rem) {
+    #image-content {
+      max-width: 1552px;
+      margin: auto;
     }
   }
 </style>

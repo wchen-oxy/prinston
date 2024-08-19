@@ -4,17 +4,18 @@ import SectionMeta from "./SectionMeta.astro";
 const heroText: { title: string; desc: string }[] = [
   {
     title: "Quality",
-    desc: "We follow industry standards.",
+    desc: `We are dedicated to producing high quality generic pharmaceuticals.
+     We have an excellent complicance record with zero recorded 483 citations.`,
   },
   {
     title: "Affordability",
     desc: `By leveraging our R&D and the capabilities of local and abroad facilities, 
-          we are able to manufacture a large variety of generics at various prices.`,
+          we are able to manufacture a large variety of generic pharmaceuticals at affordable prices.`,
   },
   {
     title: "Reliability",
-    desc: `By leveraging our R&D and the capabilities of local and abroad facilities, 
-          we are able to manufacture a large variety of generics at various prices.`,
+    desc: `Our American manufacturing facility has conducted 100% on-time stability tests since its founding. 
+           To do so, we utilize multiple systems to manage complicance and reliability. `,
   },
 ];
 ---
@@ -26,9 +27,7 @@ const heroText: { title: string; desc: string }[] = [
       title="Quality, Affordability and Reliability"
       subHeader=" We're able to leverage our local and international facilities to manufacture affordable and high quality generics at any scale."
     />
-    <h3>
-     
-    </h3>
+    <h3></h3>
   </div>
   <div id="content-lower">
     <div id="content-text">
@@ -77,10 +76,10 @@ const heroText: { title: string; desc: string }[] = [
   }
 
   #prinston-difference {
-    margin: 100px 0 100px 0;
+    margin: auto;
   }
   #content-upper {
-    margin-top: 40px;
+    /* margin-top: 40px; */
     margin-bottom: 80px;
   }
 
@@ -90,14 +89,14 @@ const heroText: { title: string; desc: string }[] = [
   }
 
   #content-image {
-    width: 60%;
+    width: 55%;
     padding-left: 1rem;
   }
 
   #content-text {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 45%;
   }
 
   .content-text-container {
@@ -111,8 +110,8 @@ const heroText: { title: string; desc: string }[] = [
     font-weight: bold;
   }
 
-  @media screen and (max-width: 751px) {
-    #content-upper { 
+  @media screen and (max-width: 901px) {
+    #content-upper {
       margin-bottom: 0px;
     }
     #content-lower {
@@ -128,7 +127,7 @@ const heroText: { title: string; desc: string }[] = [
       padding-left: 0;
       width: 100%;
     }
-    .content-text-container{
+    .content-text-container {
       margin: 0.5rem 0;
     }
   }

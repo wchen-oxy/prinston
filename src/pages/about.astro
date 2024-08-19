@@ -3,6 +3,7 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SectionMeta from "../components/SectionMeta.astro";
+import Spacer from "../components/spacer.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -15,6 +16,7 @@ import Layout from "../layouts/Layout.astro";
     subHeader="Serving the community since 2010"
     url="/prinston/hero2.jpg"
   />
+  <Spacer />
   <CenteredMainLayout>
     <!-- <SectionMeta
       section="Company Profile"
@@ -22,21 +24,26 @@ import Layout from "../layouts/Layout.astro";
       subHeader="Serving the community since 2010"
     /> -->
     <div id="main-about">
+      <div class="main-column" id="with-image">
+        <div class="inner-column">
+          <h2>What We Do</h2>
+          <p>
+            Prinston Pharmaceutical is a pharmaceutical company that specializes
+            in generics pharmaceutical products. We specialize in complex
+            sterile and non-sterile dosage forms, including: injectables,
+            topicals, tablets and capsules. We offer cardiovascular, central
+            neurological system, anti inflammation and other medicines.
+          </p>
+          <p>
+            Our mission is to provide customers with high quality, affordable
+            and innovative generic pharmaceutical drugs.
+          </p>
+        </div>
+        <div id="image-section" class="inner-column">
+          <img src="/prinston/first-shipment.jpg" />
+        </div>
+      </div>
       <div class="main-column">
-        <h2>What We Do</h2>
-        <p>
-          Prinston Pharmaceutical is a pharmaceutical company that specializes
-          in generics pharmaceutical products. We specialize in complex sterile
-          and non-sterile dosage forms, including: injectables, topicals,
-          tablets and capsules. We offer cardiovascular, central neurological
-          system, anti inflammation and other medicines.
-        </p>
-
-        <p>
-          Our mission is to provide customers with high quality, affordable and
-          innovative generic pharmaceutical drugs.
-        </p>
-
         <h2>Our History</h2>
         <p>
           Before Prinston Pharmaceutical was incorporated, Prinston
@@ -64,63 +71,78 @@ import Layout from "../layouts/Layout.astro";
           site and Huahai US serves as the API sales office.
           <br />
         </p>
-        <h2>Our Company Structure</h2>
-        <h4>Prinston Laboratories</h4>
-        <p class="structure-text">
-          Prinston Laboratories is the US Manufacturing site and also serves as
-          the previous par/qualitest facility. Prinston Laboratories was
-          acquired in 2017.
-        </p>
-        <h4>Solco Healthcare</h4>
-        <p class="structure-text">
-          Solco healthcare is the sales and marketing division of Prinston
-          Pharmaceutical. It was acquired in 2012.
-        </p>
       </div>
-      <div class="main-column" id="image-section">
+    
+      </div>
+      <!-- <div class="main-column" id="image-section">
         <img src="/prinston/first-shipment.jpg" />
-      </div>
+      </div> -->
     </div>
   </CenteredMainLayout>
+  <Spacer />
 </Layout>
 <Footer />
 
 <style>
+  #with-image {
+    display: flex;
+  }
+
+  #image-section {
+    margin-left: 3rem;
+  }
+
   img {
     /* margin-left: 4rem; */
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
+
   h2 {
     font-weight: 500;
+    margin: 0;
   }
+
   h4 {
     font-weight: 700;
     margin-bottom: 0;
   }
+
+  p {
+    font-size: 20px;
+  }
+
   .structure-text {
     margin-top: 0px;
   }
 
   #main-about {
     display: flex;
+    flex-direction: column;
   }
-  #image-section {
-    padding-left: 1rem;
-  }
+
   .main-column {
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  .inner-column {
     width: 50%;
   }
-  @media screen and (max-width: 820px) {
-    #main-about {
+  @media screen and (max-width: 1000px) {
+    #with-image {
       flex-direction: column-reverse;
+    }
+    .inner-column {
+      width: 100%;
     }
     .main-column {
       width: 100%;
     }
     #image-section {
-      padding: 0;
+      margin-left: 0;
+      margin-bottom: 3rem;
     }
   }
 </style>
