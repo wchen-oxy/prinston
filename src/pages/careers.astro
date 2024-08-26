@@ -1,66 +1,38 @@
 ---
+import Button from "../components/Button.astro";
 import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
-import CareerTab from "../components/careerTab.astro";
-import CareerTab2 from "../components/careerTab2.astro";
 import Spacer from "../components/spacer.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
-
-const desc = `
- Prepare correspondence, reports, presentations, and other materials.\
-\nPerform legal research.\
-\nOrganize and analyze information and data.\
-\nReview and monitor new and updated laws and regulations in relevant fields.\
-\nAssist with reviewing, drafting and revising various contracts, including CDA, supply collaboration agreement, etc.\
-\nMaintain procedures, forms, and legal policy documents.\
-\nAssist with litigation and dispute resolution.\
-\nManage Intellectual property portfolios.\
-\nCoordinate matters with Human Resources.\
-\nA corporate paralegal at a pharmaceutical manufacturer.\
-\nIn-house corporate legal support experience in both public and private company settings.\
-\nExtensive knowledge of corporate governance, intellectual property, employment litigation and Human Resources related law.\
-\nPrepares both material contracts and routine business agreements in all aspects of the business (e.g. MSA, SOWs, NDAs, CDAs, etc.)\
-\nOther duties may be assigned.\
-`;
-
-const qualifications = `B.A Degree.\
-\nPrior corporate paralegal experience preferred.\
-\nPrior experience in the pharmaceutical industry preferred.\
-\nStrong organizational, customer service, and project management skills.\
-\nStrong work ethic, positive attitude, and professional demeanor.\
-\nAbility to work independently and as part of a team.\
-\nExcellent verbal and written communication skills.\
-\nMust be eligible to work in the U.S.\
-`;
-
-const benefits = `401(k)\
-\nDental insurance\
-\nFree parking\
-\nHealth insurance\
-\nPaid sick time\
-\nPaid time off\
-\nVision insurance\
-`;
 ---
 
 <Layout title="Careers">
   <Header />
-  <PageHeader section="Careers" title="We're Hiring!" />
-
+  <PageHeader section="Culture" title="We're Hiring!" />
+  <div></div>
+  <Spacer />
   <CenteredMainLayout>
     <img id="image-content" src="/prinston/our-coworkers-c.jpg" />
-    <Spacer />
     <div class="content">
       <h1>Join Our Team and Transform Healthcare</h1>
       <p>
         At Prinston Pharmaceutical, we are dedicated to pioneering breakthroughs
         that improve and save lives. Our mission is to innovate and deliver
-        high-quality, life-changing treatments to patients around the world.
-        Here's why you should consider joining our team:
+        high-quality, life-changing treatments to patients around the world. If
+        you're passionate about making a difference and ready to take your
+        career to the next level, we invite you to explore our current job
+        openings and join our team. Together, we can transform the future of
+        healthcare.
       </p>
-
+      <Spacer />
+      <div id="roles-container">
+        <div id="button">
+          <a href={"/prinston/open-positions"}>{"View Open Roles"}</a>
+        </div>
+      </div>
+      <Spacer />
       <h2>Innovative Environment</h2>
       <p>
         We foster a culture of innovation where your ideas can thrive. Our
@@ -108,122 +80,33 @@ const benefits = `401(k)\
         contributes to improving the quality of life for patients and their
         families.
       </p>
-
-      <h2>Join Us Today</h2>
-      <p>
-        If you're passionate about making a difference and ready to take your
-        career to the next level, we invite you to explore our current job
-        openings and join our team. Together, we can transform the future of
-        healthcare.
-      </p>
-      <Spacer />
-      <Spacer />
-    </div>
-    <div class="content">
-      <h1>Open Positions</h1>
-      <CareerTab
-        department="Legal"
-        positions={[
-          {
-            name: "Paralegal",
-            link: "paralegal",
-          },
-        ]}
-      />
-      <CareerTab
-        department="Business Development"
-        positions={[
-          {
-            name: "Manager/Associate Director, Portfolio/Project Management",
-            link: "associate-director",
-          },
-        ]}
-        isFirst={"true"}
-      />
-      <!-- <CareerTab department="Human Resources" positions={[]} isFirst={"true"} />
-    <CareerTab department="Research" positions={[]} isFirst={"true"} />
-    <CareerTab department="Accounting" positions={[]} isFirst={"true"} /> -->
-
-      <!-- <div class="department">
-      <h2>Legal</h2>
-      <div class="inner-div">This is the content of Div 1.</div>
-    </div>
-    <div class="department">
-      <h2>Marketing</h2>
-      <div class="inner-div">This is the content of Div 2.</div>
-    </div>
-    <div class="department">
-      <h2>Engineering</h2>
-      <div class="inner-div">This is the content of Div 3.</div>
-    </div> -->
     </div>
     <Spacer />
-    <p>To apply, please send your resume to hr@prinstonpharm.com</p>
+    <Spacer />
   </CenteredMainLayout>
-  <Spacer />
-  <Spacer />
   <Footer />
 </Layout>
 <style>
-  h1 {
-    font-size: 34px;
-    font-weight: 400;
-  }
-  h2 {
-    margin-bottom: 0;
-  }
-  p {
-    margin-top: 0;
-  }
-  .content {
-    max-width: 1026px;
-  }
   img {
     max-width: 100%;
   }
-</style>
+  a {
+    color: var(--color);
+    font-size: 24px;
+    z-index: 1;
+    text-decoration: none;
+  }
 
-<script>
-  const ids = [
-    "Legal",
-    "Business Development",
-    "Human Resources",
-    "Research",
-    "Accounting",
-  ];
-  const buttons = ids.map((id) => {
-    return { id, button: document.getElementById(id) };
-  });
-  buttons.forEach((object) => {
-    object.button.addEventListener("click", (element) => {
-      console.log("click");
-      const innerDiv = document.getElementById(object.id + "-contents");
-      const plus = document.getElementById(object.id + "-plus");
-      const minus = document.getElementById(object.id + "-minus");
-      if (innerDiv.style.display === "none" || innerDiv.style.display === "") {
-        innerDiv.style.display = "flex";
-        plus.style.display = "none";
-        minus.style.display = "inline";
-      } else {
-        innerDiv.style.display = "none";
-        plus.style.display = "inline";
-        minus.style.display = "none";
-      }
-    });
-  });
-  // const button = document.getElementById("department");
-  // button.addEventListener("click", (element) => {
-  //   const innerDiv = document.getElementById("contents");
-  //   const plus = document.getElementById("plus");
-  //   const minus = document.getElementById("minus");
-  //   if (innerDiv.style.display === "none" || innerDiv.style.display === "") {
-  //     innerDiv.style.display = "flex";
-  //     plus.style.display = "none";
-  //     minus.style.display = "inline";
-  //   } else {
-  //     innerDiv.style.display = "none";
-  //     plus.style.display = "inline";
-  //     minus.style.display = "none";
-  //   }
-  // });
-</script>
+  #button {
+    display: flex;
+    /* height: 25px; */
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    width: fit-content;
+    border: solid;
+    border-color: var(--color);
+  }
+  #roles-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import CareerTab from "../components/careerTab.astro";
+import CareerTab2 from "../components/careerTab2.astro";
+import Spacer from "../components/spacer.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Careers">
+  <Header />
+  <PageHeader section="Careers" title="We're Hiring!" />
+  <Spacer />
+  <CenteredMainLayout>
+    <div class="content">
+      <h1>Open Positions</h1>
+      <CareerTab
+        department="Legal"
+        positions={[
+          {
+            name: "Paralegal",
+            link: "paralegal",
+          },
+        ]}
+      />
+      <CareerTab
+        department="Business Development"
+        positions={[
+          {
+            name: "Manager/Associate Director, Portfolio/Project Management",
+            link: "associate-director",
+          },
+        ]}
+        isFirst={"true"}
+      />
+      <!-- <CareerTab department="Human Resources" positions={[]} isFirst={"true"} />
+    <CareerTab department="Research" positions={[]} isFirst={"true"} />
+    <CareerTab department="Accounting" positions={[]} isFirst={"true"} /> -->
+
+      <!-- <div class="department">
+      <h2>Legal</h2>
+      <div class="inner-div">This is the content of Div 1.</div>
+    </div>
+    <div class="department">
+      <h2>Marketing</h2>
+      <div class="inner-div">This is the content of Div 2.</div>
+    </div>
+    <div class="department">
+      <h2>Engineering</h2>
+      <div class="inner-div">This is the content of Div 3.</div>
+    </div> -->
+    </div>
+    <Spacer />
+    <p>To apply, please send your resume to hr@prinstonpharm.com</p>
+  </CenteredMainLayout>
+  <Spacer />
+  <Spacer />
+  <Footer />
+</Layout>
+<style>
+  h1 {
+    font-size: 34px;
+    font-weight: 400;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0;
+  }
+  .content {
+    max-width: 1026px;
+  }
+</style>
+
+<script>
+  const ids = [
+    "Legal",
+    "Business Development",
+    "Human Resources",
+    "Research",
+    "Accounting",
+  ];
+  const buttons = ids.map((id) => {
+    return { id, button: document.getElementById(id) };
+  });
+  buttons.forEach((object) => {
+    object.button.addEventListener("click", (element) => {
+      console.log("click");
+      const innerDiv = document.getElementById(object.id + "-contents");
+      const plus = document.getElementById(object.id + "-plus");
+      const minus = document.getElementById(object.id + "-minus");
+      if (innerDiv.style.display === "none" || innerDiv.style.display === "") {
+        innerDiv.style.display = "flex";
+        plus.style.display = "none";
+        minus.style.display = "inline";
+      } else {
+        innerDiv.style.display = "none";
+        plus.style.display = "inline";
+        minus.style.display = "none";
+      }
+    });
+  });
+  // const button = document.getElementById("department");
+  // button.addEventListener("click", (element) => {
+  //   const innerDiv = document.getElementById("contents");
+  //   const plus = document.getElementById("plus");
+  //   const minus = document.getElementById("minus");
+  //   if (innerDiv.style.display === "none" || innerDiv.style.display === "") {
+  //     innerDiv.style.display = "flex";
+  //     plus.style.display = "none";
+  //     minus.style.display = "inline";
+  //   } else {
+  //     innerDiv.style.display = "none";
+  //     plus.style.display = "inline";
+  //     minus.style.display = "none";
+  //   }
+  // });
+</script>

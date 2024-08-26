@@ -7,6 +7,8 @@ const address = [
     address: "700 Atrium Dr,\n Suite B, \nSomerset, NJ 08873",
     phone: "(609) 655-1688",
     email: "contact@prinstonpharm.com",
+    website: "www.prinstonpharm.com",
+    url: "https://www.prinstonpharm.com",
   },
   {
     location: "Prinston Labs - Manufacturing",
@@ -19,12 +21,16 @@ const address = [
     address: "700 Atrium Dr,\n Suite A,\n Somerset, NJ 08873",
     phone: "(855) 581-9688",
     email: "customerservice@solcohealthcare.com",
+    website: "www.solcohealthcare.com",
+    url: "https://www.solcohealthcare.com",
   },
   {
     location: "Huahai U.S. Inc.",
     address: "700 Atrium Dr,\n Suite C,\n Somerset, NJ 08873",
     phone: "(609) 664-2220",
     email: "effie_luo@huahaipharm.com",
+    website: "www.en.huahaipharm.com/index.aspx",
+    url: "https://www.en.huahaipharm.com/index.aspx",
   },
 ];
 ---
@@ -35,12 +41,14 @@ const address = [
       <h3 id="info-location-title">Our Contact Info</h3>
       <div class="info-contact-info">
         {
-          address.map(({ location, address, phone, email }) => (
+          address.map(({ location, address, phone, email, website, url }) => (
             <Contact
               location={location}
               address={address}
               phone={phone}
               email={email}
+              website={website}
+              url={url}
             />
           ))
         }
@@ -49,12 +57,14 @@ const address = [
         {
           address
             .slice(0, 2)
-            .map(({ location, address, phone, email }) => (
+            .map(({ location, address, phone, email, website, url }) => (
               <Contact
                 location={location}
                 address={address}
                 phone={phone}
                 email={email}
+                website={website}
+                url={url}
               />
             ))
         }
@@ -63,12 +73,14 @@ const address = [
         {
           address
             .slice(2, 4)
-            .map(({ location, address, phone, email }) => (
+            .map(({ location, address, phone, email, website, url }) => (
               <Contact
                 location={location}
                 address={address}
                 phone={phone}
                 email={email}
+                website={website}
+                url={url}
               />
             ))
         }
@@ -122,7 +134,7 @@ const address = [
     font-weight: 400;
     font-size: 24px;
     color: white;
-    margin-bottom:0 ;
+    margin-bottom: 0;
   }
 
   .info-contact-info {
