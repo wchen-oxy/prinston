@@ -1,0 +1,66 @@
+---
+const { title, description, source } = Astro.props;
+---
+
+<div class="manufacturing-row">
+  <div class="inner-column left-column">
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+  <div class="inner-column right-column">
+    <img src={source} />
+  </div>
+</div>
+
+<style>
+  img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+  }
+  .manufacturing-row {
+    display: flex;
+    padding: 3rem 0;
+  }
+  .inner-column {
+    width: 50%;
+    max-width: 728px;
+  }
+  .left-column {
+    margin-right: 3rem;
+  }
+  .right-column {
+    margin-left: 3rem;
+    width: calc(40% - 2rem);
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .right-column {
+      margin-left: 3rem;
+      width: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 950px) {
+    img {
+      object-fit: cover;
+    }
+    .manufacturing-row {
+      display: flex;
+      flex-direction: column-reverse;
+      margin: 3rem 0;
+    }
+    .left-column {
+      min-width: 100%;
+      width: 100%;
+      margin: 0;
+    }
+    .right-column {
+      margin: 0;
+      /* margin-left: 3rem; */
+      min-width: 100%;
+      width: 100%;
+    }
+  }
+</style>

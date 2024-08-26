@@ -2,43 +2,44 @@
 
 ---
 
-<div>
+<div class="hero">
   <slot />
 </div>
 
 <style>
-  div {
-    margin:  auto;
+  .hero {
+    margin: auto;
+    width: 100%;
     /* padding: 1rem 0; */
     max-width: calc(100% - 40px);
   }
 
   @media only screen and (min-width: 1440px) {
-    div: {
+    .hero: {
       max-width: 1280px;
     }
   }
 
   @media (min-width: 48rem) {
-    div {
+    .hero {
       max-width: calc(100% - 64px);
     }
   }
 
   @media (min-width: 64rem) {
-    div {
+    .hero {
       max-width: calc(100% - 128px);
     }
   }
 
   @media (min-width: 90rem) {
-    div {
+    .hero {
       max-width: calc(100% - 192px);
     }
   }
 
   @media (min-width: 104rem) {
-    div {
+    .hero {
       max-width: 1552px;
     }
 

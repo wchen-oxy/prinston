@@ -77,7 +77,7 @@ const people = [
   <Spacer />
   <CenteredMainLayout>
     <div id="main-about">
-      {people.map((person) => <Person {...person} />)}
+      {people.map((person, index) => <Person index={index} {...person} />)}
     </div>
   </CenteredMainLayout>
   <Spacer />
@@ -92,9 +92,12 @@ const people = [
     /* margin: 3rem -1em; */
     /* width: 100%; */
     display: grid;
-    column-gap: 1em;
+    justify-content: space-between;
+    /* column-gap: 1em; */
     row-gap: 3em;
     grid-template-columns: repeat(3, calc((100% / 3) - (2em / 3)));
+    max-width: 1100px;
+    margin: auto;
   }
 
   @media screen and (max-width: 685px) {

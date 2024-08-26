@@ -23,9 +23,10 @@ import Layout from "../layouts/Layout.astro";
   <div id="main-about">
     <div class="main-column">
       <img id="image-content" src="/prinston/medicine-c.jpg" />
+      <Spacer />
       <CenteredMainLayout>
         <div id="left-content">
-          <h4>Manufacturing Technology</h4>
+          <h4 id="first-title">Manufacturing Technology</h4>
           <p>
             Prinston Labs, the manufacturing hub for Prinstom Pharmaceutical,
             boasts brand name manufacturing tools. Prinston Labs can produce
@@ -87,6 +88,9 @@ import Layout from "../layouts/Layout.astro";
   <Footer />
 </Layout>
 <style>
+  #first-title{
+    margin-top:0;
+  }
   #main-about {
     display: flex;
   }
@@ -100,6 +104,7 @@ import Layout from "../layouts/Layout.astro";
   }
   #left-content {
     width: 70%;
+    max-width: 1026px;
   }
   #right-content {
     width: 30%;
@@ -125,6 +130,7 @@ import Layout from "../layouts/Layout.astro";
 
   li {
     font-size: 20px;
+    font-weight: 100;
   }
   p {
     margin-top: 20px;

@@ -14,7 +14,7 @@ const aboutLinks: { label: string; url: string }[] = [
   { label: "Leadership", url: "/prinston/leadership" },
   { label: "Company Structure", url: "/prinston/company-structure" },
   // { label: "Research and Development", url: "/prinston/research" },
-  // { label: "American Manufacturing", url: "/prinston/manufacturing" },
+  { label: "Manufacturing", url: "/prinston/manufacturing" },
   // { label: "How We Give Back", url: "/prinston/giving-back" },
 ];
 
@@ -28,7 +28,7 @@ const productLinks: { label: string; url: string }[] = [
 <nav>
   <div id="nav">
     <div class="nav-left">
-      <a  href="/prinston"> <img src={"/prinston/logo.png"} alt="logo" /></a>
+      <a href="/prinston"> <img src={"/prinston/logo.png"} alt="logo" /></a>
     </div>
     <div class="nav-right">
       <ul class="nav-items">
@@ -53,7 +53,7 @@ const productLinks: { label: string; url: string }[] = [
         {
           textLinks.map(({ label, href }) => (
             <li>
-              <a 
+              <a
                 class="normal-links links"
                 aria-current={Astro.url.pathname === href}
                 class:list={[
@@ -74,9 +74,11 @@ const productLinks: { label: string; url: string }[] = [
       </ul>
 
       <div id="bar-container">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
+        <div id="bar-icon-container">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -202,9 +204,8 @@ const productLinks: { label: string; url: string }[] = [
       -ms-user-select: none; /* IE 10 and IE 11 */
       user-select: none; /* Standard syntax */
     }
-    .bar-container {
-      margin: auto;
-      z-index: 3;
+    #bar-icon-container:hover {
+      cursor: pointer;
     }
     .bar1,
     .bar2,

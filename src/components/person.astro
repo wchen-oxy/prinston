@@ -1,8 +1,17 @@
 ---
-const { image, name, job, url } = Astro.props;
+const { index, image, name, job, url } = Astro.props;
+
+const setAlignment = (index) => {
+  const acutalIndex = index + 1;
+  if (acutalIndex % 3 === 1) return "justify-self: start";
+  else if (acutalIndex % 3 === 2) return "justify-self: center";
+  else if (acutalIndex % 3 === 0) return "justify-self: end";
+  else throw new Error("bad index");
+};
+const alignment = setAlignment(index);
 ---
 
-<div class="person-container">
+<div class="person-container" style={alignment}>
   <a href={url}>
     <div class="image-container">
       <img class="image" src={image} />
@@ -15,6 +24,7 @@ const { image, name, job, url } = Astro.props;
 <style>
   .person-container {
     max-width: 300px;
+    /* margin: auto; */
     /* flex: 1 1 0px;
     margin: 0 1em; */
     /* grid-column-start: 1;

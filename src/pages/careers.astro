@@ -47,34 +47,104 @@ const benefits = `401(k)\
 
 <Layout title="Careers">
   <Header />
-  <PageHeader section="Careers" title="Join Prinston Pharmaceutical" />
-  <Spacer />
-  <CenteredMainLayout>
-    <h1>Open Positions</h1>
-    <CareerTab
-      department="Legal"
-      positions={[
-        {
-          name: "Paralegal",
-          link: "paralegal",
-        },
-      ]}
-    />
-    <CareerTab
-      department="Business Development"
-      positions={[
-        {
-          name: "Manager/Associate Director, Portfolio/Project Management",
-          link: "associate-director",
-        },
-      ]}
-      isFirst={"true"}
-    />
-    <CareerTab department="Human Resources" positions={[]} isFirst={"true"} />
-    <CareerTab department="Research" positions={[]} isFirst={"true"} />
-    <CareerTab department="Accounting" positions={[]} isFirst={"true"} />
+  <PageHeader section="Careers" title="We're Hiring!" />
 
-    <!-- <div class="department">
+  <CenteredMainLayout>
+    <img id="image-content" src="/prinston/our-coworkers-c.jpg" />
+    <Spacer />
+    <div class="content">
+      <h1>Join Our Team and Transform Healthcare</h1>
+      <p>
+        At Prinston Pharmaceutical, we are dedicated to pioneering breakthroughs
+        that improve and save lives. Our mission is to innovate and deliver
+        high-quality, life-changing treatments to patients around the world.
+        Here's why you should consider joining our team:
+      </p>
+
+      <h2>Innovative Environment</h2>
+      <p>
+        We foster a culture of innovation where your ideas can thrive. Our
+        cutting-edge research and development facilities are equipped with the
+        latest technology, enabling you to push the boundaries of science and
+        medicine.
+      </p>
+
+      <h2>Collaborative Culture</h2>
+      <p>
+        Collaboration is at the heart of everything we do. You'll work alongside
+        some of the brightest minds in the industry, sharing knowledge and
+        expertise to achieve common goals. Together, we can make a real
+        difference in patients' lives.
+      </p>
+
+      <h2>Career Growth and Development</h2>
+      <p>
+        Your professional growth is important to us. We offer a variety of
+        training programs, mentorship opportunities, and career development
+        resources to help you reach your full potential. Whether you're just
+        starting out or looking to advance your career, we provide the support
+        you need to succeed.
+      </p>
+
+      <h2>Commitment to Diversity and Inclusion</h2>
+      <p>
+        We believe that diverse perspectives drive innovation. Our inclusive
+        workplace welcomes individuals from all backgrounds, ensuring that
+        everyone feels valued and respected. We are committed to creating an
+        environment where you can bring your whole self to work.
+      </p>
+
+      <h2>Comprehensive Benefits</h2>
+      <p>
+        We offer a competitive benefits package designed to support your health,
+        well-being, and financial security. From comprehensive health insurance
+        to retirement plans and wellness programs, we've got you covered.
+      </p>
+
+      <h2>Making a Difference</h2>
+      <p>
+        When you join Prinston Pharmaceutical, you become part of a team that is
+        dedicated to making a positive impact on the world. Our work directly
+        contributes to improving the quality of life for patients and their
+        families.
+      </p>
+
+      <h2>Join Us Today</h2>
+      <p>
+        If you're passionate about making a difference and ready to take your
+        career to the next level, we invite you to explore our current job
+        openings and join our team. Together, we can transform the future of
+        healthcare.
+      </p>
+      <Spacer />
+      <Spacer />
+    </div>
+    <div class="content">
+      <h1>Open Positions</h1>
+      <CareerTab
+        department="Legal"
+        positions={[
+          {
+            name: "Paralegal",
+            link: "paralegal",
+          },
+        ]}
+      />
+      <CareerTab
+        department="Business Development"
+        positions={[
+          {
+            name: "Manager/Associate Director, Portfolio/Project Management",
+            link: "associate-director",
+          },
+        ]}
+        isFirst={"true"}
+      />
+      <!-- <CareerTab department="Human Resources" positions={[]} isFirst={"true"} />
+    <CareerTab department="Research" positions={[]} isFirst={"true"} />
+    <CareerTab department="Accounting" positions={[]} isFirst={"true"} /> -->
+
+      <!-- <div class="department">
       <h2>Legal</h2>
       <div class="inner-div">This is the content of Div 1.</div>
     </div>
@@ -86,13 +156,30 @@ const benefits = `401(k)\
       <h2>Engineering</h2>
       <div class="inner-div">This is the content of Div 3.</div>
     </div> -->
+    </div>
+    <Spacer />
+    <p>To apply, please send your resume to hr@prinstonpharm.com</p>
   </CenteredMainLayout>
+  <Spacer />
   <Spacer />
   <Footer />
 </Layout>
 <style>
-  h1{
+  h1 {
+    font-size: 34px;
     font-weight: 400;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0;
+  }
+  .content {
+    max-width: 1026px;
+  }
+  img {
+    max-width: 100%;
   }
 </style>
 

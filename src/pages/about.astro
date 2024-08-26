@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
     /> -->
     <div id="main-about">
       <div class="main-column" id="with-image">
-        <div class="inner-column">
+        <div class="inner-column" id="what-we-do">
           <h2>What We Do</h2>
           <p>
             Prinston Pharmaceutical is a pharmaceutical company that specializes
@@ -44,43 +44,45 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
       <div class="main-column">
-        <h2>Our History</h2>
-        <p>
-          Before Prinston Pharmaceutical was incorporated, Prinston
-          Pharmaceutical's parent company Huahai US was founded in Cranbury, New
-          Jersey in 2004. In 2007, the first Chinese developed pharmaceutical
-          product was approved for sale in the US. In 2008, Huahai US's first
-          generic pharmaceutical "Benazepril" was launched in the US.
-          <br />
-        </p>
-        <p>
-          To address the rapidly growing size of its operations, Huahai US
-          founded Prinston Pharmaceutical in 2010 to reorganize its divisions
-          and streamline US operations. Subsequently, Solco Healthcare was
-          acquired in 2012 followed shortly in 2013 with the release of Prinston
-          Pharmaceutical's first delayed release product. Finally in 2017,
-          Prinston Laboratories was acquired to serve as the main manufacturing
-          facility.
-          <br />
+        <div class="inner-column" id="our-history">
+          <h2>Our History</h2>
+          <p>
+            Before Prinston Pharmaceutical was incorporated, Prinston
+            Pharmaceutical's parent company Huahai US was founded in Cranbury,
+            New Jersey in 2004. In 2007, the first Chinese developed
+            pharmaceutical product was approved for sale in the US. In 2008,
+            Huahai US's first generic pharmaceutical "Benazepril" was launched
+            in the US.
+            <br />
+          </p>
+          <p>
+            To address the rapidly growing size of its operations, Huahai US
+            founded Prinston Pharmaceutical in 2010 to reorganize its divisions
+            and streamline US operations. Subsequently, Solco Healthcare was
+            acquired in 2012 followed shortly in 2013 with the release of
+            Prinston Pharmaceutical's first delayed release product. Finally in
+            2017, Prinston Laboratories was acquired to serve as the main
+            manufacturing facility.
+            <br />
 
-          <br />
-          To accomplish its mission, Prinston Pharmaceutical makes use of several
-          subsidiaries. Prinston Pharmaceutical serves as the parent company and
-          is responsible for research and devleopment. Solco Healthcare serves as
-          the sales and marketing arm, Prinston Laboratories serves as the US manufacturing
-          site and Huahai US serves as the API sales office.
-          <br />
-        </p>
+            <br />
+            To accomplish its mission, Prinston Pharmaceutical makes use of several
+            subsidiaries. Prinston Pharmaceutical serves as the parent company and
+            is responsible for research and devleopment. Solco Healthcare serves
+            as the sales and marketing arm, Prinston Laboratories serves as the US
+            manufacturing site and Huahai US serves as the API sales office.
+            <br />
+          </p>
+        </div>
       </div>
-    
-      </div>
-      <!-- <div class="main-column" id="image-section">
+    </div>
+    <!-- <div class="main-column" id="image-section">
         <img src="/prinston/first-shipment.jpg" />
       </div> -->
-    </div>
   </CenteredMainLayout>
-  <Spacer />
 </Layout>
+<Spacer />
+
 <Footer />
 
 <style>
@@ -88,6 +90,13 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
   }
 
+  #what-we-do {
+    margin-right: 3rem;
+  }
+
+  #our-history {
+    width: calc(50% - 3rem);
+  }
   #image-section {
     margin-left: 3rem;
   }
@@ -130,9 +139,14 @@ import Layout from "../layouts/Layout.astro";
   .inner-column {
     width: 50%;
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1327px) {
     #with-image {
       flex-direction: column-reverse;
+    }
+
+    #our-history{
+      width: 100%;
+      margin-right: 0;
     }
     .inner-column {
       width: 100%;

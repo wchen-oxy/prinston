@@ -1,0 +1,116 @@
+---
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ManufacturingRow from "../components/ManufacturingRow.astro";
+import Spacer from "../components/spacer.astro";
+import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer/Footer.astro";
+
+const data = [
+  {
+    title: "Dispensation",
+    description: `We have four dispensing suits. We also use electronic batch records
+        to increase accuracy, error reduction and inventory control.`,
+    src: "/prinston/dispensing.png",
+  },
+  {
+    title: `Granulation`,
+    description: `Our facilities are capable of both dry and wet granulation. 
+    For top spray granulation, we use Freund-Vector equipment with the following 
+    capacities: 240 kg to 480 kg, 314 kg to 628 kg, and 62 kg to 120 kg. Additionally,
+    for roller compactor dry granulation, we use Alexanderwerk equipment that is
+    capable of up to 50 kg per hour. Finally, our wet granulation uses Lodige-Littleford 
+    equipment with a capacity of 100 kg to 200 kg.`,
+    src: "/prinston/granulation-c.jpg",
+  },
+  {
+    title: "Blending",
+    description: `Our facilities have several blender machines with varying capacities. 
+    Our largest blenders are our two double cone 150 ft\u00B3 blenders, capable of 
+    vacuum transfer at 800 kg to 1250 kg. Our other double cone blenders include a 60 
+    ft\u00B3 blender with a capacity of 400 kg to 600 kg, a 30 ft\u00B3 blender 
+    with a capacity of 250 kg to 400 kg, and a 10 ft\u00B3 blender with a capacity of
+     50 kg to 100 kg. We also have a 3 ft\u00B3 V blender with a capacity of 10 kg to
+      70 kg. Our smallest blender is a 1.3 ft\u00B3 blender with a capacity of 10 kg to 20 kg.
+    `,
+    src: "/prinston/blending.png",
+  },
+  {
+    title: "Compression",
+    description: `Our facilities have several compression machines with varying capacities. 
+    Our two largest Korsch machines are capable of producing 418,000 tablets per hour, and our
+    other bi-layer capable Korsch machine can produce 90,000 tablets per hour. Our larger Kikusui
+    machine is capable of producing 86,000 tablets per hour, and our six other Kikusui machines 
+    can produce a combined total of 320,000 tablets per hour.`,
+    src: "/prinston/compression.png",
+  },
+  {
+    title: "Coating",
+    description: `Our facilities have Accela-Cota and O'Hara Lab coating equipment. The two 60" 
+    Accela-Cota units each at 350 kg capacity uses perforated pans and are able to perform 
+    enteric and film coating. Our 48" Acceela-Cota eqipment at 125 kg capacity also uses a 
+    perforated pan and is also capable of an enteric and film coating. Our O' Hara Lab machine
+    uses interchangeable pans at 18", 24" and 36". 
+    `,
+    src: "/prinston/coating-c.jpg",
+  },
+  {
+    title: "Encapsulation",
+    description: `Our facilities uses a Bosch machine capable of 150,000 capsules per hours. It 
+    is capable of a bead or powder fill, has a 100% check weigh system and a statistical process
+    weight control. `,
+    src: "/prinston/encapsulation-c.png",
+  },
+  {
+    title: "Packaging",
+    description: `Our packaging process utilizes equipment from Lakso Slat and Cremer. Our three 
+    Lakso Slat machines are each capable of 10 to 80 bottles per minute, and our Cremer machine
+    is capable of 10 to 60 bottles per minute.`,
+    src: "/prinston/packaging.png",
+  },
+];
+---
+
+<Layout title="Manufacturing">
+  <Header />
+  <PageHeader
+    section="Manufacturing"
+    title="Prinston Pharmaceutical Manufacturing Capabilities"
+  />
+  <Spacer />
+  <CenteredMainLayout>
+    <div id="manufacturing">
+      <p class="general-desc">
+        Prinston Pharmaceutical makes use of its subsidiary, Prinston
+        Laboratories, to produce its generic pharmaceuticals. Prinston
+        Laboratories has its main manufacturing site in Charlotte, North
+        Carolina. With a combined 170,975 ft&sup2; of facility space dedicated
+        to supporting manufacturing, Prinston Laboratories is able to produce 5
+        billion doses anually.
+      </p>
+      <p class="general-desc">
+        Prinston Laboratories's oral solid dose proccess is comprised of:
+        dispensation, granulation, blending, compression, encapsulation, coating
+        and packaging.
+      </p>
+      {
+        data.map((item) => (
+          <ManufacturingRow
+            title={item.title}
+            description={item.description}
+            source={item.src}
+          />
+        ))
+      }
+    </div>
+  </CenteredMainLayout>
+  <Spacer />
+  <Footer />
+</Layout>
+
+<style>
+  .general-desc {
+    max-width: 1026px;
+  }
+</style>
