@@ -37,67 +37,108 @@ const address = [
 
 <div id="footer">
   <div id="footer-content">
-    <div id="left-column" class="footer-column">
-      <h3 id="info-location-title">Our Contact Info</h3>
-      <div class="info-contact-info">
-        {
-          address.map(({ location, address, phone, email, website, url }) => (
-            <Contact
-              location={location}
-              address={address}
-              phone={phone}
-              email={email}
-              website={website}
-              url={url}
-            />
-          ))
-        }
+    <div id="footer-hero">
+      <div id="logo-column" class="footer-column">
+        <img id="footer-logo" src={"/prinston/logo.png"} alt="logo" />
       </div>
-      <div class="info-contact-info2">
-        {
-          address
-            .slice(0, 2)
-            .map(({ location, address, phone, email, website, url }) => (
-              <Contact
-                location={location}
-                address={address}
-                phone={phone}
-                email={email}
-                website={website}
-                url={url}
+      <div id="right-column">
+        <div id="left-column" class="footer-column">
+          <h3 class="category-titles">Our Locations</h3>
+          <div class="info-contact-info">
+            {
+              address.map(
+                ({ location, address, phone, email, website, url }) => (
+                  <Contact
+                    location={location}
+                    address={address}
+                    phone={phone}
+                    email={email}
+                    website={website}
+                    url={url}
+                  />
+                )
+              )
+            }
+          </div>
+          <div class="info-contact-info2">
+            {
+              address
+                .slice(0, 2)
+                .map(({ location, address, phone, email, website, url }) => (
+                  <Contact
+                    location={location}
+                    address={address}
+                    phone={phone}
+                    email={email}
+                    website={website}
+                    url={url}
+                  />
+                ))
+            }
+          </div>
+          <div class="info-contact-info2">
+            {
+              address
+                .slice(2, 4)
+                .map(({ location, address, phone, email, website, url }) => (
+                  <Contact
+                    location={location}
+                    address={address}
+                    phone={phone}
+                    email={email}
+                    website={website}
+                    url={url}
+                  />
+                ))
+            }
+          </div>
+        </div>
+        <div id="social-links">
+          <h3 class="category-titles">Follow Us</h3>
+          <div id="media-container">
+            <a
+              href="https://www.linkedin.com/company/prinston-pharmaceutical-inc-/"
+              target="_blank"
+            >
+              <img
+                class="social-media-icons"
+                src="/prinston/linkedin-i.png"
+                alt="Icon"
               />
-            ))
-        }
-      </div>
-      <div class="info-contact-info2">
-        {
-          address
-            .slice(2, 4)
-            .map(({ location, address, phone, email, website, url }) => (
-              <Contact
-                location={location}
-                address={address}
-                phone={phone}
-                email={email}
-                website={website}
-                url={url}
+            </a>
+            <a href="https://x.com/PrinstonPharm" target="_blank">
+              <img
+                class="social-media-icons"
+                src="/prinston/twitter-i.png"
+                alt="Icon"
               />
-            ))
-        }
+            </a>
+          </div>
+        </div>
       </div>
-      <!-- <div class="info-contact-info3">
-      {
-        address.map(({ location, address, phone, email }) => (
-          <Contact
-            location={location}
-            address={address}
-            phone={phone}
-            email={email}
-          />
-        ))
-      }
-    </div> -->
     </div>
+    <!-- <div id="social-links">
+      <h4>Follow Us</h4>
+      <div>
+        <a
+          href="https://www.linkedin.com/company/prinston-pharmaceutical-inc-/"
+          target="_blank"
+        >
+          <img
+            class="social-media-icons"
+            src="/prinston/linkedin-i.png"
+            alt="Icon"
+          />
+        </a>
+        <a href="https://x.com/PrinstonPharm" target="_blank">
+          <img
+            class="social-media-icons"
+            src="/prinston/twitter-i.png"
+            alt="Icon"
+          />
+        </a>
+      </div>
+    </div> -->
     <div id="credit">
       <div>
         <a target="_blank" href="https://icons8.com/icon/12580/email">Mail</a> icon
@@ -112,37 +153,75 @@ const address = [
 </div>
 
 <style>
+  h4 {
+    font-weight: 100;
+    color: white;
+    margin-bottom: 8px;
+  }
   #footer {
     display: flex;
     flex-direction: column;
     background-color: #211f71;
-    padding-top: 25px;
+    padding-top: 50px;
   }
+
   #footer-content {
     width: 100%;
-
     margin: auto;
   }
+
+  #footer-hero {
+    display: flex;
+    max-width: calc(100% - 40px);
+    margin: auto;
+    justify-content: space-between;
+  }
+
+  #social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 25px;
+  }
+
   #left-column {
     flex-direction: column;
     justify-content: center;
-    max-width: calc(100% - 40px);
-    margin: auto;
   }
 
-  #info-location-title {
-    font-weight: 400;
-    font-size: 24px;
-    color: white;
-    margin-bottom: 0;
-  }
-
-  .info-contact-info {
+  #right-column {
     display: flex;
     justify-content: space-between;
   }
-  .info-contact-info2 {
+
+  #footer-logo {
+    height: 80px;
+    width: auto;
+    /* margin-top: 15px; */
+  }
+
+  #media-container {
+    padding-top: 16px;
+  }
+
+  .category-titles {
+    font-weight: 400;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .social-media-icons {
+    width: 25px;
+  }
+  .info-contact-info {
     display: none;
+    /* justify-content: space-between; */
+  }
+  .info-contact-info2 {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
   }
 
   a {
@@ -162,58 +241,67 @@ const address = [
     display: flex;
   }
 
-  @media screen and (max-width: 872px) {
-    .info-contact-info {
+  @media screen and (max-width: 840px) {
+    /* .info-contact-info {
       display: flex;
       flex-direction: column;
     }
     .info-contact-info2 {
       display: none;
+    } */
+    #logo-column {
+      margin-left: -5px;
+      margin-bottom: 24px;
     }
-    #left-column {
+    #right-column {
+      display: flex;
+      flex-direction: column;
+    }
+    #footer-hero {
       margin: 2em auto 2em auto;
+      flex-direction: column;
       /* padding: 1rem; */
       /* width: 85%; */
     }
+    #social-links {
+      margin-top: 36px;
+      align-items: start;
+    }
   }
 
-  @media screen and (max-width: 1300px) and (min-width: 873px) {
-    .info-contact-info {
-      display: none;
+  @media screen and (max-width: 1200px) and (min-width: 841px) {
+    #logo-column {
+      margin-bottom: 24px;
+      margin-left: -5px;
     }
-    .info-contact-info2 {
-      display: flex;
-      /* flex-direction: column; */
-      /* justify-content: space-between; */
-    }
-
-    #left-column {
+    #footer-hero {
       margin: 2em auto 2em auto;
+      flex-direction: column;
       /* padding: 1rem; */
       /* width: 85%; */
     }
   }
 
   @media (min-width: 48rem) {
-    #left-column {
+    #footer-hero {
       max-width: calc(100% - 64px);
     }
   }
 
   @media (min-width: 64rem) {
-    #left-column {
+    #footer-hero {
       max-width: calc(100% - 128px);
     }
   }
 
   @media (min-width: 90rem) {
-    #left-column {
+    #footer-hero {
       max-width: calc(100% - 192px);
     }
   }
 
   @media (min-width: 104rem) {
-    #left-column {
+    #footer-hero {
       max-width: 1552px;
     }
   }

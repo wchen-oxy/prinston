@@ -1,8 +1,9 @@
 ---
-const { title, menuData, type } = Astro.props;
+const { title, menuData, type, isLeft } = Astro.props;
+const finalClassname = isLeft ? "menu-container-left" : 'menu-container'
 ---
 
-<div class="menu-container">
+<div class={finalClassname}>
   <!-- <h3>{title}</h3> -->
   <div class="dropdown-list">
     {menuData.map(({ label, url }) => <a href={url}>{label}</a>)}
@@ -21,6 +22,19 @@ const { title, menuData, type } = Astro.props;
     z-index: 1;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
+  .menu-container-left {
+    display: block;
+    /* flex-direction: column; */
+    position: absolute;
+    background-color: white;
+    padding: 2rem 2rem 2rem 2rem;
+    min-width: 25rem;
+    margin-left: -210px;
+    margin-top: 3rem;
+    z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
 
   .dropdown-list {
     display: flex;
@@ -52,7 +66,7 @@ const { title, menuData, type } = Astro.props;
     /* transition: transform 0.3s ease; */
   }
 
-   a:hover::after {
+  a:hover::after {
     border-bottom: 1px solid rgba(31, 135, 232, 1);
     transform: scaleX(1);
   }

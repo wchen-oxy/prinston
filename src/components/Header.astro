@@ -5,7 +5,14 @@ const textLinks: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
   // { label: "Products", href: "/products/" },
   { label: "CMO Services", href: "/prinston/cmo/" },
-  { label: "Careers", href: "/prinston/careers/" },
+  // { label: "Careers", href: "/prinston/careers/" },
+  // { label: "Contact", href: "/prinston/contact/" },
+];
+const textLinks2: { label: string; href: string }[] = [
+  // { label: "About", href: "/about" },
+  // { label: "Products", href: "/products/" },
+  // { label: "CMO Services", href: "/prinston/cmo/" },
+  // { label: "Careers", href: "/prinston/careers/" },
   { label: "Contact", href: "/prinston/contact/" },
 ];
 
@@ -22,6 +29,11 @@ const productLinks: { label: string; url: string }[] = [
   { label: "What are Generic Medicines", url: "/prinston/generics" },
   { label: "Generic Medicine Regulations", url: "/prinston/regulations" },
   { label: "Product List", url: "/prinston/products" },
+];
+
+const careersLinks: { label: string; url: string }[] = [
+  { label: "About Our Careers", url: "/prinston/careers" },
+  { label: "Open Positions", url: "/prinston/open-positions" },
 ];
 ---
 
@@ -52,6 +64,37 @@ const productLinks: { label: string; url: string }[] = [
       <ul class="nav-items">
         {
           textLinks.map(({ label, href }) => (
+            <li>
+              <a
+                class="normal-links links"
+                aria-current={Astro.url.pathname === href}
+                class:list={[
+                  "link",
+                  {
+                    active:
+                      Astro.url.pathname === href ||
+                      (href !== "/" && Astro.url.pathname.startsWith(href)),
+                  },
+                ]}
+                href={href}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="nav-items">
+        <li>
+          <button id="button-careers">Careers</button>
+          <div id="careers-dropdown">
+            <Dropdown type="careers" title="Careers" menuData={careersLinks} isLeft={true}/>
+          </div>
+        </li>
+      </ul>
+      <ul class="nav-items">
+        {
+          textLinks2.map(({ label, href }) => (
             <li>
               <a
                 class="normal-links links"
@@ -295,11 +338,18 @@ const productLinks: { label: string; url: string }[] = [
     #product-dropdown {
       display: none;
     }
+    #careers-dropdown {
+      display: none;
+    }
     #about-row {
       display: none;
       flex-direction: column;
     }
     #product-row {
+      display: none;
+      flex-direction: column;
+    }
+    #careers-row {
       display: none;
       flex-direction: column;
     }
@@ -365,33 +415,53 @@ const productLinks: { label: string; url: string }[] = [
     const productButton = document.getElementById("button-product");
     const productMobile = document.getElementById("product-mobile");
     const aboutMobile = document.getElementById("about-mobile");
+    const careersButton = document.getElementById("button-careers");
+    const careersMobile = document.getElementById("careers-mobile");
+
+    const product = document.getElementById("product-dropdown");
+    const about = document.getElementById("about-dropdown");
+    const careers = document.getElementById("careers-dropdown");
+
+    careersButton.addEventListener("click", (e) => {
+      if (careers.style.display === "") {
+        careers.style.display = "flex";
+        careersButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
+        productButton.style.borderBottom = "2px solid transparent";
+        aboutButton.style.borderBottom = "2px solid transparent";
+      } else if (careers.style.display === "flex") {
+        careersButton.style.borderBottom = "2px solid transparent";
+        careers.style.display = "";
+      }
+      product.style.display = "";
+      about.style.display = "";
+    });
 
     aboutButton.addEventListener("click", (e) => {
-      const product = document.getElementById("product-dropdown");
-      const about = document.getElementById("about-dropdown");
       if (about.style.display === "") {
         about.style.display = "flex";
         aboutButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
         productButton.style.borderBottom = "2px solid transparent";
+        careersButton.style.borderBottom = "2px solid transparent";
       } else if (about.style.display === "flex") {
         aboutButton.style.borderBottom = "2px solid transparent";
         about.style.display = "";
       }
       product.style.display = "";
+      careers.style.display = "";
     });
 
     productButton.addEventListener("click", (e) => {
-      const product = document.getElementById("product-dropdown");
-      const about = document.getElementById("about-dropdown");
       if (product.style.display === "") {
         product.style.display = "flex";
         productButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
         aboutButton.style.borderBottom = "2px solid transparent";
+        careersButton.style.borderBottom = "2px solid transparent";
       } else if (product.style.display === "flex") {
         productButton.style.borderBottom = "2px solid transparent";
         product.style.display = "";
       }
       about.style.display = "";
+      careers.style.display = "";
     });
 
     aboutMobile.addEventListener("click", (e) => {
@@ -421,18 +491,26 @@ const productLinks: { label: string; url: string }[] = [
     document.addEventListener("click", (e) => {
       const product = document.getElementById("product-dropdown");
       const about = document.getElementById("about-dropdown");
+      const careers = document.getElementById("careers-dropdown");
       const isButtonClick =
+        e.target.id === "button-careers" ||
         e.target.id === "button-product" ||
         e.target.id === "button-about" ||
         e.target.tagName.toLowerCase() === "a"
           ? true
           : false;
       if (isButtonClick) return;
-      if (product.style.display === "flex" || about.style.display === "flex") {
+      if (
+        product.style.display === "flex" ||
+        about.style.display === "flex" ||
+        careers.style.display === "flex"
+      ) {
         product.style.display = "";
         about.style.display = "";
+        careers.style.display = "";
         productButton.style.borderBottom = "2px solid transparent";
         aboutButton.style.borderBottom = "2px solid transparent";
+        careersButton.style.borderBottom = "2px solid transparent";
       }
     });
 

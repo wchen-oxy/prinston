@@ -10,14 +10,17 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Careers">
   <Header />
-  <PageHeader section="Culture" title="We're Hiring!" />
+  <PageHeader section="Culture" title="Become the Next Part of Affordable Healthcare" />
   <div></div>
   <Spacer />
   <CenteredMainLayout>
     <img id="image-content" src="/prinston/our-coworkers-c.jpg" />
+    <div style="margin-top:-4px;">
+      <Spacer/>
+    </div>
     <div class="content">
-      <h1>Join Our Team and Transform Healthcare</h1>
-      <p>
+      <!-- <h1 class="content-title">Join Our Team and Transform Healthcare</h1> -->
+      <p class="content-description">
         At Prinston Pharmaceutical, we are dedicated to pioneering breakthroughs
         that improve and save lives. Our mission is to innovate and deliver
         high-quality, life-changing treatments to patients around the world. If
@@ -26,13 +29,13 @@ import Layout from "../layouts/Layout.astro";
         openings and join our team. Together, we can transform the future of
         healthcare.
       </p>
-      <Spacer />
       <div id="roles-container">
         <div id="button">
           <a href={"/prinston/open-positions"}>{"View Open Roles"}</a>
         </div>
       </div>
       <Spacer />
+      <h1>Our Values</h1>
       <h2>Innovative Environment</h2>
       <p>
         We foster a culture of innovation where your ideas can thrive. Our
@@ -47,15 +50,6 @@ import Layout from "../layouts/Layout.astro";
         some of the brightest minds in the industry, sharing knowledge and
         expertise to achieve common goals. Together, we can make a real
         difference in patients' lives.
-      </p>
-
-      <h2>Career Growth and Development</h2>
-      <p>
-        Your professional growth is important to us. We offer a variety of
-        training programs, mentorship opportunities, and career development
-        resources to help you reach your full potential. Whether you're just
-        starting out or looking to advance your career, we provide the support
-        you need to succeed.
       </p>
 
       <h2>Commitment to Diversity and Inclusion</h2>
@@ -107,6 +101,18 @@ import Layout from "../layouts/Layout.astro";
   }
   #roles-container {
     display: flex;
+    margin-top: 4rem;
     justify-content: center;
+  }
+  .content{
+    margin-top: -1px;
+  }
+  .content-title {
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .content-description {
+    margin-top: 0;
   }
 </style>
