@@ -11,19 +11,18 @@ import Layout from "../layouts/Layout.astro";
   <Header />
   <PageHeader section="" title="Contact Us" />
   <Spacer />
-  <Spacer />
   <CenteredMainLayout>
-    <div>
+    <div class="contact">
       <h2>Customer Support</h2>
       <p>(929)232-4107</p>
       <p>customers@prinstonpharm.com</p>
     </div>
-    <div>
+    <div class="contact">
       <h2>Sales</h2>
       <p>(929)132-4107</p>
       <p>sales@prinstonpharm.com</p>
     </div>
-    <div>
+    <div class="contact">
       <h2>CMO</h2>
       <p>(929)232-4107</p>
       <p>cmo@prinstonpharm.com</p>
@@ -37,9 +36,14 @@ import Layout from "../layouts/Layout.astro";
 <style>
   h2 {
     font-weight: 500;
+    margin-bottom: 0;
   }
   p {
     white-space: pre-line;
     margin: 0;
+  }
+
+  .contact {
+    margin-bottom: 48px;
   }
 </style>
