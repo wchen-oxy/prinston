@@ -6,12 +6,12 @@ const count = positions.length;
 <h2>{department}</h2>
 {
   positions.map((position) => {
-    return <a href={position.link}>{position.name}</a>;
+    return <a href={"/prinston/careers/" + position.link}>{position.name}</a>;
   })
 }
 {positions.length === 0 && <p>No Available Positions At This Time</p>}
 <style>
-  h2{
+  h2 {
     margin-bottom: 0;
   }
   a {

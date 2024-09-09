@@ -22,9 +22,11 @@ import Layout from "../layouts/Layout.astro";
   </CenteredMainLayout>
   <div id="main-about">
     <div class="main-column">
-      <img id="image-content" src="/prinston/medicine-c.jpg" />
-      <Spacer />
+      <!-- <img id="image-content" src="/prinston/medicine-c.jpg" />
+      <Spacer /> -->
       <CenteredMainLayout>
+        <img id="image-content" src="/prinston/medicine-c.jpg" />
+        <Spacer />
         <div id="left-content">
           <h4 id="first-title">Manufacturing Technology</h4>
           <p>
@@ -88,8 +90,8 @@ import Layout from "../layouts/Layout.astro";
   <Footer />
 </Layout>
 <style>
-  #first-title{
-    margin-top:0;
+  #first-title {
+    margin-top: 0;
   }
   #main-about {
     display: flex;

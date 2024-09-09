@@ -10,70 +10,75 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Careers">
   <Header />
-  <PageHeader section="Culture" title="Become the Next Part of Affordable Healthcare" />
-  <div></div>
-  <Spacer />
+
+  <!-- <PageHeader
+    section="Culture"
+    title="Become the Next Part of Affordable Healthcare"
+  /> -->
   <CenteredMainLayout>
+    <h1 id="title">Develop Affordable Healthcare</h1>
+    <h3>Together, we can transform the future of healthcare.</h3>
+    <div id="roles-container">
+      <div id="button">
+        <a href={"/prinston/open-positions"}>{"View Open Roles"}</a>
+      </div>
+    </div>
+    <Spacer />
     <img id="image-content" src="/prinston/our-coworkers-c.jpg" />
     <div style="margin-top:-4px;">
-      <Spacer/>
+      <Spacer />
     </div>
     <div class="content">
       <!-- <h1 class="content-title">Join Our Team and Transform Healthcare</h1> -->
       <p class="content-description">
         At Prinston Pharmaceutical, we are dedicated to pioneering breakthroughs
         that improve and save lives. Our mission is to innovate and deliver
-        high-quality, life-changing treatments to patients around the world. If
-        you're passionate about making a difference and ready to take your
-        career to the next level, we invite you to explore our current job
-        openings and join our team. Together, we can transform the future of
-        healthcare.
+        high-quality, life-changing treatments to patients around the world. To
+        do that, we emphasize growing a world class team.
       </p>
-      <div id="roles-container">
-        <div id="button">
-          <a href={"/prinston/open-positions"}>{"View Open Roles"}</a>
-        </div>
-      </div>
+
       <Spacer />
-      <h1>Our Values</h1>
-      <h2>Innovative Environment</h2>
-      <p>
-        We foster a culture of innovation where your ideas can thrive. Our
-        cutting-edge research and development facilities are equipped with the
-        latest technology, enabling you to push the boundaries of science and
-        medicine.
-      </p>
+      <div id="values">
+        <h2>Innovative Environment</h2>
+        <p>
+          We foster a culture of innovation where your ideas can thrive. Our
+          cutting-edge research and development facilities are equipped with the
+          latest technology, enabling you to push the boundaries of science and
+          medicine.
+        </p>
 
-      <h2>Collaborative Culture</h2>
-      <p>
-        Collaboration is at the heart of everything we do. You'll work alongside
-        some of the brightest minds in the industry, sharing knowledge and
-        expertise to achieve common goals. Together, we can make a real
-        difference in patients' lives.
-      </p>
+        <h2>Collaborative Culture</h2>
+        <p>
+          Collaboration is at the heart of everything we do. You'll work
+          alongside some of the brightest minds in the industry, sharing
+          knowledge and expertise to achieve common goals. Together, we can make
+          a real difference in patients' lives.
+        </p>
 
-      <h2>Commitment to Diversity and Inclusion</h2>
-      <p>
-        We believe that diverse perspectives drive innovation. Our inclusive
-        workplace welcomes individuals from all backgrounds, ensuring that
-        everyone feels valued and respected. We are committed to creating an
-        environment where you can bring your whole self to work.
-      </p>
+        <h2>Commitment to Diversity and Inclusion</h2>
+        <p>
+          We believe that diverse perspectives drive innovation. Our inclusive
+          workplace welcomes individuals from all backgrounds, ensuring that
+          everyone feels valued and respected. We are committed to creating an
+          environment where you can bring your whole self to work.
+        </p>
 
-      <h2>Comprehensive Benefits</h2>
-      <p>
-        We offer a competitive benefits package designed to support your health,
-        well-being, and financial security. From comprehensive health insurance
-        to retirement plans and wellness programs, we've got you covered.
-      </p>
+        <h2>Comprehensive Benefits</h2>
+        <p>
+          We offer a competitive benefits package designed to support your
+          health, well-being, and financial security. From comprehensive health
+          insurance to retirement plans and wellness programs, we've got you
+          covered.
+        </p>
 
-      <h2>Making a Difference</h2>
-      <p>
-        When you join Prinston Pharmaceutical, you become part of a team that is
-        dedicated to making a positive impact on the world. Our work directly
-        contributes to improving the quality of life for patients and their
-        families.
-      </p>
+        <h2>Making a Difference</h2>
+        <p>
+          When you join Prinston Pharmaceutical, you become part of a team that
+          is dedicated to making a positive impact on the world. Our work
+          directly contributes to improving the quality of life for patients and
+          their families.
+        </p>
+      </div>
     </div>
     <Spacer />
     <Spacer />
@@ -81,22 +86,39 @@ import Layout from "../layouts/Layout.astro";
   <Footer />
 </Layout>
 <style>
+  :root {
+    --color: #6495ed;
+  }
   img {
     max-width: 100%;
   }
-  a {
-    color: var(--color);
+  h1 {
+    font-size: 64px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  h3 {
+    margin-top: 0;
+    font-weight: 400;
     font-size: 24px;
+    text-align: center;
+  }
+  a {
+    color: white;
+    font-size: 20px;
     z-index: 1;
     text-decoration: none;
   }
-
+  #title {
+    text-align: center;
+  }
   #button {
     display: flex;
     /* height: 25px; */
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     width: fit-content;
     border: solid;
+    background-color: var(--color);
     border-color: var(--color);
   }
   #roles-container {
@@ -104,7 +126,12 @@ import Layout from "../layouts/Layout.astro";
     margin-top: 4rem;
     justify-content: center;
   }
-  .content{
+
+  #values {
+    max-width: 800px;
+    margin: auto;
+  }
+  .content {
     margin-top: -1px;
   }
   .content-title {
@@ -113,6 +140,7 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: 0;
   }
   .content-description {
+    font-size: 24px;
     margin-top: 0;
   }
 </style>
