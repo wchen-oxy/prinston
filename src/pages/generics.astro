@@ -16,12 +16,12 @@ import Layout from "../layouts/Layout.astro";
     title="What Are Generic Medicines?"
     subHeader="The backbone of affordable medicine"
   />
-
+  <img id='mobile-image' src="/prinston/pills2-c.jpg" />
   <CenteredMainLayout>
     <div class="main-column">
-      <img src="/prinston/pills2-c.jpg" />
+      <img id="normal-image" src="/prinston/pills2-c.jpg" />
     </div>
-  <Spacer />
+    <Spacer />
     <div id="main-about">
       <div class="main-column">
         <p>
@@ -46,6 +46,11 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </CenteredMainLayout>
   <Spacer />
+  <Spacer />
+  <Spacer />
+  <Spacer />
+  <Spacer />
+
   <Footer />
 </Layout>
 <style>
@@ -73,8 +78,16 @@ import Layout from "../layouts/Layout.astro";
   p {
     font-size: 20px;
   }
-
+  #mobile-image{
+    display: none;
+  }
   @media screen and (max-width: 1000px) {
+    #mobile-image{
+      display: block;
+    }
+    #normal-image{
+      display: none;
+    }
     #main-about {
       flex-direction: column-reverse;
     }
