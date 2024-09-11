@@ -76,9 +76,11 @@ const people = [
   />
   <Spacer />
   <CenteredMainLayout>
+    <Spacer />
     <div id="main-about">
       {people.map((person, index) => <Person index={index} {...person} />)}
     </div>
+    <Spacer />
   </CenteredMainLayout>
   <Spacer />
   <Footer />

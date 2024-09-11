@@ -40,6 +40,29 @@ const address = [
     <div id="footer-hero">
       <div id="logo-column" class="footer-column">
         <img id="footer-logo" src={"/prinston/logo.png"} alt="logo" />
+        <div id="social-links">
+          <h3 id="social-link-title">Follow Us</h3>
+          <div id="media-container">
+            <a
+              id="linkedin-icon"
+              href="https://www.linkedin.com/company/prinston-pharmaceutical-inc-/"
+              target="_blank"
+            >
+              <img
+                class="social-media-icons"
+                src="/prinston/linkedin-i.png"
+                alt="Icon"
+              />
+            </a>
+            <a href="https://x.com/PrinstonPharm" target="_blank">
+              <img
+                class="social-media-icons"
+                src="/prinston/twitter-i.png"
+                alt="Icon"
+              />
+            </a>
+          </div>
+        </div>
       </div>
       <div id="right-column">
         <div id="left-column" class="footer-column">
@@ -93,29 +116,6 @@ const address = [
             }
           </div>
         </div>
-        <div id="social-links">
-          <h3 class="category-titles">Follow Us</h3>
-          <div id="media-container">
-            <a
-              id="linkedin-icon"
-              href="https://www.linkedin.com/company/prinston-pharmaceutical-inc-/"
-              target="_blank"
-            >
-              <img
-                class="social-media-icons"
-                src="/prinston/linkedin-i.png"
-                alt="Icon"
-              />
-            </a>
-            <a href="https://x.com/PrinstonPharm" target="_blank">
-              <img
-                class="social-media-icons"
-                src="/prinston/twitter-i.png"
-                alt="Icon"
-              />
-            </a>
-          </div>
-        </div>
       </div>
     </div>
     <!-- <div id="social-links">
@@ -162,7 +162,7 @@ const address = [
   #footer {
     display: flex;
     flex-direction: column;
-    background-color:#282667;
+    background-color: #282667;
     padding-top: 100px;
   }
 
@@ -175,16 +175,29 @@ const address = [
     display: flex;
     max-width: calc(100% - 40px);
     margin: auto;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
-
+  #logo-column {
+    display: flex;
+    flex-direction: column;
+  }
   #social-links {
     display: flex;
     flex-direction: column;
+    padding-left: 24px;
     padding-bottom: 25px;
   }
 
-  #linkedin-icon{
+  #social-link-title {
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+    margin-bottom: 0;
+    margin-top: 24px;
+  }
+
+  #linkedin-icon {
+    margin-left: 2px;
     margin-right: 24px;
   }
 
@@ -196,16 +209,17 @@ const address = [
   #right-column {
     display: flex;
     justify-content: space-between;
+    margin-left: 160px;
   }
 
   #footer-logo {
     height: 80px;
-    width: auto;
+    width: fit-content;
     /* margin-top: 15px; */
   }
 
   #media-container {
-    padding-top: 16px;
+    padding-top: 18px;
   }
 
   .category-titles {
@@ -249,6 +263,10 @@ const address = [
     #footer {
       padding-top: 50px;
     }
+    #footer-logo{
+      height: auto;
+      width: 240px;
+    }
     .info-contact-info {
       display: flex;
       flex-direction: column;
@@ -271,8 +289,12 @@ const address = [
       /* width: 85%; */
     }
     #social-links {
-      margin-top: 36px;
+      margin-top: 0px;
       align-items: start;
+    }
+    #right-column {
+      display: flex; 
+      margin-left: 0;
     }
   }
 
@@ -291,6 +313,7 @@ const address = [
     #right-column {
       display: flex;
       flex-direction: column;
+      margin-left: 0;
     }
     #footer-hero {
       margin: 2em auto 2em auto;
@@ -307,7 +330,7 @@ const address = [
   @media screen and (max-width: 1200px) and (min-width: 841px) {
     #logo-column {
       margin-bottom: 24px;
-      margin-left: -5px;
+      margin-left: 132px;
     }
     #footer-hero {
       margin: 2em auto 2em auto;

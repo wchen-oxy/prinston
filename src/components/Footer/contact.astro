@@ -34,12 +34,13 @@ const { location, address, phone, email, website, url } = Astro.props;
     word-wrap: break-word;
     width: 100%;
     margin: 0;
-    color: rgb(192, 206, 253);
+    color: rgb(153, 176, 252);
     white-space: pre-line;
   }
 
   a {
-    color: #8e8db6;
+    color:  rgb(192, 206, 253);
+    font-weight: 100;
   }
 
   a[href^="tel"] {
@@ -94,7 +95,6 @@ const { location, address, phone, email, website, url } = Astro.props;
   }
 
   .phone-number {
-    color: white; /* Inherit text color of parent element. */
     text-decoration: none; /* Remove underline. */
     /* Additional css `propery: value;` pairs here */
   }
