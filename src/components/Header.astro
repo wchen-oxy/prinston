@@ -32,7 +32,7 @@ const productLinks: { label: string; url: string }[] = [
 ];
 
 const careersLinks: { label: string; url: string }[] = [
-  { label: "About Our Careers", url: "/prinston/careers" },
+  { label: "Careers At Prinston Pharmaceutical", url: "/prinston/careers" },
   { label: "Open Positions", url: "/prinston/open-positions" },
 ];
 ---
@@ -88,7 +88,12 @@ const careersLinks: { label: string; url: string }[] = [
         <li>
           <button id="button-careers">Careers</button>
           <div id="careers-dropdown">
-            <Dropdown type="careers" title="Careers" menuData={careersLinks} isLeft={true}/>
+            <Dropdown
+              type="careers"
+              title="Careers"
+              menuData={careersLinks}
+              isLeft={true}
+            />
           </div>
         </li>
       </ul>
@@ -175,7 +180,26 @@ const careersLinks: { label: string; url: string }[] = [
       <a href="/prinston/cmo"><h2 class="mobile-title">CMO Services</h2></a>
     </div>
     <div class="modal-row">
-      <a href="/prinston/careers"><h2 class="mobile-title">Careers</h2></a>
+      <!-- <a href="/prinston/careers"><h2 class="mobile-title">Careers</h2></a> -->
+      <button id="careers-mobile" class="modal-row-button">
+        <h2 class="mobile-title">Careers</h2>
+        <img
+          id="careers-caret"
+          class="caret"
+          src="/prinston/navigate-down-arrow.png"
+        />
+      </button>
+      <div id="careers-row">
+        {
+          careersLinks.map(({ label, url }) => (
+            <div class="careers-rows">
+              <a class="mobile-links" href={url}>
+                {label}
+              </a>
+            </div>
+          ))
+        }
+      </div>
     </div>
     <div class="modal-row">
       <a href="/prinston/contact"><h2 class="mobile-title">Contact</h2></a>
@@ -276,6 +300,14 @@ const careersLinks: { label: string; url: string }[] = [
       -ms-user-select: none; /* IE 10 and IE 11 */
       user-select: none; /* Standard syntax */
     }
+    .careers-rows{
+      border-left: 1px solid #333;
+      font-size: 20px;
+      padding: 0.625rem 0 0.625rem 2rem;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+    }
 
     .mobile-title {
       font-weight: 400;
@@ -349,10 +381,12 @@ const careersLinks: { label: string; url: string }[] = [
       display: none;
       flex-direction: column;
     }
+    
     #careers-row {
       display: none;
       flex-direction: column;
     }
+
     li {
       padding: 0 12px;
     }
@@ -484,6 +518,18 @@ const careersLinks: { label: string; url: string }[] = [
         caret.style.transform = "rotate(180deg)";
       } else if (productInfo.style.display === "flex") {
         productInfo.style.display = "";
+        caret.style.transform = "rotate(0deg)";
+      }
+    });
+
+    careersMobile.addEventListener("click", (e) => {
+      const careersInfo = document.getElementById("careers-row");
+      const caret = document.getElementById("careers-caret");
+      if (careersInfo.style.display === "") {
+        careersInfo.style.display = "flex";
+        caret.style.transform = "rotate(180deg)";
+      } else if (careersInfo.style.display === "flex") {
+        careersInfo.style.display = "";
         caret.style.transform = "rotate(0deg)";
       }
     });
