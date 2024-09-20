@@ -45,13 +45,13 @@ const careersLinks: { label: string; url: string }[] = [
     <div class="nav-right">
       <ul class="nav-items">
         <li>
-          <button id="button-about">About</button>
+          <button class="button" id="button-about">About</button>
           <div id="about-dropdown">
             <Dropdown type="about" title="About Us" menuData={aboutLinks} />
           </div>
         </li>
         <li>
-          <button id="button-product">Products</button>
+          <button class="button" id="button-product">Products</button>
           <div id="product-dropdown">
             <Dropdown
               type="products"
@@ -86,7 +86,7 @@ const careersLinks: { label: string; url: string }[] = [
       </ul>
       <ul class="nav-items">
         <li>
-          <button id="button-careers">Careers</button>
+          <button class="button" id="button-careers">Careers</button>
           <div id="careers-dropdown">
             <Dropdown
               type="careers"
@@ -238,7 +238,7 @@ const careersLinks: { label: string; url: string }[] = [
       font-weight: 400;
     }
 
-    button:hover {
+    .button:hover {
       border-bottom: 2px solid rgba(31, 135, 232, 1);
     }
 
@@ -300,7 +300,7 @@ const careersLinks: { label: string; url: string }[] = [
       -ms-user-select: none; /* IE 10 and IE 11 */
       user-select: none; /* Standard syntax */
     }
-    .careers-rows{
+    .careers-rows {
       border-left: 1px solid #333;
       font-size: 20px;
       padding: 0.625rem 0 0.625rem 2rem;
@@ -381,7 +381,7 @@ const careersLinks: { label: string; url: string }[] = [
       display: none;
       flex-direction: column;
     }
-    
+
     #careers-row {
       display: none;
       flex-direction: column;
