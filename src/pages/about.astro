@@ -16,7 +16,10 @@ import Layout from "../layouts/Layout.astro";
     subHeader="Serving the community since 2010"
     url="/prinston/hero2.jpg"
   />
-  <Spacer />
+  <div id="mobile">
+    <Spacer />
+  </div>
+
   <CenteredMainLayout>
     <!-- <SectionMeta
       section="Company Profile"
@@ -150,15 +153,26 @@ import Layout from "../layouts/Layout.astro";
   .inner-column {
     width: 50%;
   }
+  @media screen and (max-width: 48rem) {
+    #image-section {
+      height: 250px;
+    }
+    #image-section-2 {
+      height: 250px;
+    }
+  }
   @media screen and (max-width: 1327px) {
+    #mobile {
+      display: none;
+    }
     #with-image {
       flex-direction: column-reverse;
     }
-    #with-image-2{
+    #with-image-2 {
       flex-direction: column;
     }
 
-    #image-section-2{
+    #image-section-2 {
       margin-right: 0;
     }
 
@@ -176,7 +190,7 @@ import Layout from "../layouts/Layout.astro";
       margin-left: 0;
       margin-bottom: 3rem;
     }
-    #image-section-2{
+    #image-section-2 {
       margin-bottom: 3rem;
     }
   }

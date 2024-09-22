@@ -72,11 +72,11 @@ const people = [
     url="/prinston/labs.webp"
     section="About Us"
     title="Meet Our Leadership"
-    subHeader="Prinston Pharmaceutical is comprised of several subsidiaries. Solco Healthcare is the marketing organizatin for Prinston Pharmaceuticals and Prinston Laboratories is the manufactiring organization"
+    subHeader="Prinston Pharmaceutical is comprised of several subsidiaries. Solco Healthcare is the marketing organization for Prinston Pharmaceuticals and Prinston Laboratories is the manufacturing organization"
   />
   <Spacer />
   <CenteredMainLayout>
-    <Spacer />
+    <div class="mobile"> <Spacer /></div> 
     <div id="main-about">
       {people.map((person, index) => <Person index={index} {...person} />)}
     </div>
@@ -102,11 +102,15 @@ const people = [
     margin: auto;
   }
 
-  @media screen and (max-width: 685px) {
+  @media screen and (max-width: 560px) {
     #main-about {
       margin: 0;
       display: flex;
       flex-direction: column;
+    }
+
+    .mobile{
+      display: none;
     }
   }
 </style>

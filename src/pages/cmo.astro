@@ -22,10 +22,16 @@ import Layout from "../layouts/Layout.astro";
   </CenteredMainLayout>
   <div id="main-about">
     <div class="main-column">
-      <!-- <img id="image-content" src="/prinston/medicine-c.jpg" />
-      <Spacer /> -->
+      <div id="mobile">
+        <img class="image-content" src="/prinston/medicine-c.jpg" />
+        <Spacer />
+      </div>
       <CenteredMainLayout>
-        <img id="image-content" src="/prinston/medicine-c.jpg" />
+        <img
+          id="desktop"
+          class="image-content"
+          src="/prinston/medicine-c.jpg"
+        />
         <Spacer />
         <div id="left-content">
           <h4 id="first-title">Manufacturing Technology</h4>
@@ -101,7 +107,10 @@ import Layout from "../layouts/Layout.astro";
   #image-section {
     display: flex;
   }
-  #image-content {
+  #mobile {
+    display: none;
+  }
+  .image-content {
     display: block;
     margin: auto;
     width: 100%;
@@ -141,6 +150,12 @@ import Layout from "../layouts/Layout.astro";
     font-size: 20px;
   }
   @media (max-width: 888px) {
+    #mobile{
+      display: flex;
+    }
+    #desktop{
+      display: none;
+    }
     #left-content {
       width: 100%;
     }
