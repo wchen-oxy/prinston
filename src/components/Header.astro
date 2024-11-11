@@ -4,9 +4,9 @@ const url = import.meta.env.BASE_URL;
 const textLinks: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
   // { label: "Products", href: "/products/" },
-  { label: "CMO Services", href: "/prinston/cmo/" },
+  // { label: "CMO Services", href: "/prinston/cmo/" },
   // { label: "Careers", href: "/prinston/careers/" },
-  // { label: "Contact", href: "/prinston/contact/" },
+  { label: "Manufacturing", href: "/prinston/manufacturing/" },
 ];
 const textLinks2: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
@@ -18,16 +18,16 @@ const textLinks2: { label: string; href: string }[] = [
 
 const aboutLinks: { label: string; url: string }[] = [
   { label: "Company Profile", url: "/prinston/about" },
-  { label: "Leadership", url: "/prinston/leadership" },
-  { label: "Company Structure", url: "/prinston/company-structure" },
+  // { label: "Leadership", url: "/prinston/leadership" },
+  // { label: "Company Structure", url: "/prinston/company-structure" },
   // { label: "Research and Development", url: "/prinston/research" },
-  { label: "Manufacturing", url: "/prinston/manufacturing" },
+  // { label: "Manufacturing", url: "/prinston/manufacturing" },
   // { label: "How We Give Back", url: "/prinston/giving-back" },
 ];
 
 const productLinks: { label: string; url: string }[] = [
   { label: "What are Generic Medicines", url: "/prinston/generics" },
-  { label: "Generic Medicine Regulations", url: "/prinston/regulations" },
+  // { label: "Generic Medicine Regulations", url: "/prinston/regulations" },
   { label: "Product List", url: "/prinston/products" },
 ];
 
@@ -40,7 +40,12 @@ const careersLinks: { label: string; url: string }[] = [
 <nav>
   <div id="nav">
     <div class="nav-left">
-      <a href="/prinston"> <img src={"/prinston/logo.png"} alt="logo" /></a>
+      <a href="/prinston">
+        <img class="prinston-logo" src={"/prinston/logo.png"} alt="logo" /></a
+      >
+      <a href="https://www.solcohealthcare.com/">
+        <img class="solco-logo" src={"/prinston/solco.png"} alt="logo" /></a
+      >
     </div>
     <div class="nav-right">
       <ul class="nav-items">
@@ -177,7 +182,10 @@ const careersLinks: { label: string; url: string }[] = [
       </div>
     </div>
     <div class="modal-row">
-      <a href="/prinston/cmo"><h2 class="mobile-title">CMO Services</h2></a>
+      <!-- <a href="/prinston/cmo"><h2 class="mobile-title">CMO Services</h2></a> -->
+      <a href="/prinston/manufacturing"
+        ><h2 class="mobile-title">Manufacturing</h2></a
+      >
     </div>
     <div class="modal-row">
       <!-- <a href="/prinston/careers"><h2 class="mobile-title">Careers</h2></a> -->
@@ -213,9 +221,15 @@ const careersLinks: { label: string; url: string }[] = [
       /* height: 80px; */
       padding: 1rem 0;
     }
-    img {
+
+    .prinston-logo {
       height: 80px;
       margin-left: -5px;
+    }
+
+    .solco-logo {
+      height: 40px;
+      margin-left: 5px;
     }
 
     a {
@@ -278,7 +292,7 @@ const careersLinks: { label: string; url: string }[] = [
     .bar2,
     .bar3 {
       width: 35px;
-      height: 5px;
+      height: 2px;
       background-color: #333;
       margin: 6px 0;
       transition: 0.4s;
@@ -424,8 +438,24 @@ const careersLinks: { label: string; url: string }[] = [
         padding-top: 10px;
       }
     }
+    @media screen and (max-width: 679px) {
+      .solco-logo {
+        height: 30px;
+        margin-left: 5px;
+      }
+      .prinston-logo {
+        height: 50px;
+      }
+    }
 
     @media screen and (max-width: 680px) and (min-width: 521px) {
+      .solco-logo {
+        height: 30px;
+        margin-left: 5px;
+      }
+      .prinston-logo {
+        height: 50px;
+      }
       .nav-items {
         display: none;
       }

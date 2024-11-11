@@ -7,6 +7,7 @@ import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer/Footer.astro";
 
+const qualityImage = "/prinston/ss-crop.png";
 const data = [
   {
     title: "Dispensation",
@@ -79,9 +80,40 @@ const data = [
     title="Prinston Pharmaceutical Manufacturing Capabilities"
   />
   <Spacer />
-  <Spacer />
   <CenteredMainLayout>
+    <img src={qualityImage} />
     <div id="manufacturing">
+      <Spacer/>
+      <h1>Global Supply</h1>
+      <p class="general-desc">
+        Princeton Pharmaceutical leverages a global supply chain to produce
+        high-quality pharmaceuticals at scale. As a dependable supplier,
+        Princeton Pharmaceutical manufactures APIs at five facilities in China.
+        Additionally, it operates a formulation manufacturing facility in
+        Zhejiang Province, China, alongside its North Carolina facility.
+        Combined, these facilities have an annual capacity of 30 billion units
+        for regular oral solid products, 500 million units for high-potency
+        oncological oral solids, and 20 million units of liquid and powder
+        injections.
+      </p>
+      <p class="general-desc">
+        All production facilities adhere to international cGMP standards and
+        have been certified and inspected by regulatory agencies such as:
+      </p>
+      <ul class="bullet-points">
+        <li>China NMPA</li>
+        <li>FDA</li>
+        <li>BGV</li>
+        <li>EMA</li>
+        <li>PMDA</li>
+        <li>WHO</li>
+        <li>TGA</li>
+        <li>COFEPRIS</li>
+        <li>TMMDA</li>
+      </ul>
+      <Spacer />
+      <Spacer/>
+      <h1>American Manufacturing</h1>
       <p class="general-desc">
         Prinston Pharmaceutical makes use of its subsidiary, Prinston
         Laboratories, to produce its generic pharmaceuticals. Prinston
@@ -95,7 +127,6 @@ const data = [
         dispensation, granulation, blending, compression, encapsulation, coating
         and packaging.
       </p>
-      <Spacer />
       {
         data.map((item) => (
           <ManufacturingRow
@@ -106,6 +137,7 @@ const data = [
         ))
       }
     </div>
+    <div></div>
   </CenteredMainLayout>
   <Spacer />
   <Spacer />
@@ -117,5 +149,15 @@ const data = [
   .general-desc {
     max-width: 1026px;
     font-size: 24px;
+  }
+
+  .bullet-points {
+    font-size: 24px;
+    font-weight: 100;
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
   }
 </style>
