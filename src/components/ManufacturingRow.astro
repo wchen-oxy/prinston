@@ -3,25 +3,39 @@ const { title, description, source } = Astro.props;
 ---
 
 <div class="manufacturing-row">
-  <div class="inner-column left-column">
-    <h2>{title}</h2>
-    <p>{description}</p>
-  </div>
-  <div class="inner-column right-column">
-    <img src={source} />
+  <button class="accordion">
+    <div class="title-container">
+      <h2>
+        {title}
+      </h2>
+      <h2 class="toggle-icon">+</h2>
+    </div>
+  </button>
+  <div class="panel">
+    <div class="inner-column left-column">
+      <p>{description}</p>
+    </div>
+    <div class="inner-column right-column">
+      <img src={source} />
+    </div>
   </div>
 </div>
 
 <style>
+  button {
+    background-color: rgb(252, 252, 252);
+  }
   img {
     height: 100%;
     width: 100%;
-    aspect-ratio: 3/2;
     object-fit: contain;
   }
   .manufacturing-row {
     display: flex;
-    padding: 3rem 0;
+    flex-direction: column;
+  }
+  .title-row {
+    width: 100%;
   }
   .inner-column {
     width: 50%;
@@ -34,7 +48,29 @@ const { title, description, source } = Astro.props;
     margin-left: 3rem;
     width: calc(40% - 2rem);
   }
-
+  .accordion {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+  .panel {
+    padding: 2rem 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
   @media only screen and (max-width: 1440px) {
     .right-column {
       margin-left: 3rem;
@@ -64,3 +100,20 @@ const { title, description, source } = Astro.props;
     }
   }
 </style>
+<script>
+  const acc = document.getElementsByClassName("accordion");
+  for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      const panel = this.nextElementSibling;
+      const icon = this.querySelector(".toggle-icon");
+      if (panel.style.display === "flex") {
+        panel.style.display = "none";
+        icon.textContent = "+";
+      } else {
+        panel.style.display = "flex";
+        icon.textContent = "\u2212";
+      }
+    });
+  }
+</script>
