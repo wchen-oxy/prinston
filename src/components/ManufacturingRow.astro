@@ -84,7 +84,7 @@ const { title, description, source } = Astro.props;
     }
     .manufacturing-row {
       display: flex;
-      flex-direction: column-reverse;
+      /* flex-direction: column-reverse; */
       margin: 3rem 0;
     }
     .left-column {
@@ -97,6 +97,10 @@ const { title, description, source } = Astro.props;
       /* margin-left: 3rem; */
       min-width: 100%;
       width: 100%;
+    }
+    .panel {
+      padding: 0;
+      flex-direction: column-reverse;
     }
   }
 </style>
