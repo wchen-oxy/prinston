@@ -4,47 +4,47 @@ const url = import.meta.env.BASE_URL;
 const textLinks: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
   // { label: "Products", href: "/products/" },
-  // { label: "CMO Services", href: "/prinston/cmo/" },
-  // { label: "Careers", href: "/prinston/careers/" },
-  { label: "Manufacturing", href: "/prinston/manufacturing/" },
+  // { label: "CMO Services", href: "/cmo/" },
+  // { label: "Careers", href: "/careers/" },
+  { label: "Manufacturing", href: "/manufacturing/" },
 ];
 const textLinks2: { label: string; href: string }[] = [
   // { label: "About", href: "/about" },
   // { label: "Products", href: "/products/" },
-  // { label: "CMO Services", href: "/prinston/cmo/" },
-  // { label: "Careers", href: "/prinston/careers/" },
-  { label: "Contact", href: "/prinston/contact/" },
+  // { label: "CMO Services", href: "/cmo/" },
+  // { label: "Careers", href: "/careers/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 const aboutLinks: { label: string; url: string }[] = [
-  { label: "Company Profile", url: "/prinston/about" },
-  // { label: "Leadership", url: "/prinston/leadership" },
-  // { label: "Company Structure", url: "/prinston/company-structure" },
-  // { label: "Research and Development", url: "/prinston/research" },
-  // { label: "Manufacturing", url: "/prinston/manufacturing" },
-  // { label: "How We Give Back", url: "/prinston/giving-back" },
+  { label: "Company Profile", url: "/about" },
+  // { label: "Leadership", url: "/leadership" },
+  // { label: "Company Structure", url: "/company-structure" },
+  // { label: "Research and Development", url: "/research" },
+  // { label: "Manufacturing", url: "/manufacturing" },
+  // { label: "How We Give Back", url: "/giving-back" },
 ];
 
 const productLinks: { label: string; url: string }[] = [
-  { label: "What are Generic Medicines", url: "/prinston/generics" },
-  // { label: "Generic Medicine Regulations", url: "/prinston/regulations" },
-  { label: "Product List", url: "/prinston/products" },
+  { label: "What are Generic Medicines", url: "/generics" },
+  // { label: "Generic Medicine Regulations", url: "/regulations" },
+  { label: "Product List", url: "/products" },
 ];
 
 const careersLinks: { label: string; url: string }[] = [
-  { label: "Careers At Prinston Pharmaceutical", url: "/prinston/careers" },
-  { label: "Open Positions", url: "/prinston/open-positions" },
+  { label: "Careers At Prinston Pharmaceutical", url: "/careers" },
+  { label: "Open Positions", url: "/open-positions" },
 ];
 ---
 
 <nav>
   <div id="nav">
     <div class="nav-left">
-      <a href="/prinston">
-        <img class="prinston-logo" src={"/prinston/logo.png"} alt="logo" /></a
+      <a href="/">
+        <img class="prinston-logo" src={"/logo.png"} alt="logo" /></a
       >
       <a href="https://www.solcohealthcare.com/">
-        <img class="solco-logo" src={"/prinston/solco.png"} alt="logo" /></a
+        <img class="solco-logo" src={"/solco.png"} alt="logo" /></a
       >
     </div>
     <div class="nav-right">
@@ -145,7 +145,7 @@ const careersLinks: { label: string; url: string }[] = [
         <img
           id="about-caret"
           class="caret"
-          src="/prinston/navigate-down-arrow.png"
+          src="/navigate-down-arrow.png"
         />
       </button>
       <div id="about-row">
@@ -166,7 +166,7 @@ const careersLinks: { label: string; url: string }[] = [
         <img
           id="product-caret"
           class="caret"
-          src="/prinston/navigate-down-arrow.png"
+          src="/navigate-down-arrow.png"
         />
       </button>
       <div id="product-row">
@@ -182,19 +182,19 @@ const careersLinks: { label: string; url: string }[] = [
       </div>
     </div>
     <div class="modal-row">
-      <!-- <a href="/prinston/cmo"><h2 class="mobile-title">CMO Services</h2></a> -->
-      <a href="/prinston/manufacturing"
+      <!-- <a href="/cmo"><h2 class="mobile-title">CMO Services</h2></a> -->
+      <a href="/manufacturing"
         ><h2 class="mobile-title">Manufacturing</h2></a
       >
     </div>
     <div class="modal-row">
-      <!-- <a href="/prinston/careers"><h2 class="mobile-title">Careers</h2></a> -->
+      <!-- <a href="/careers"><h2 class="mobile-title">Careers</h2></a> -->
       <button id="careers-mobile" class="modal-row-button">
         <h2 class="mobile-title">Careers</h2>
         <img
           id="careers-caret"
           class="caret"
-          src="/prinston/navigate-down-arrow.png"
+          src="/navigate-down-arrow.png"
         />
       </button>
       <div id="careers-row">
@@ -210,7 +210,7 @@ const careersLinks: { label: string; url: string }[] = [
       </div>
     </div>
     <div class="modal-row">
-      <a href="/prinston/contact"><h2 class="mobile-title">Contact</h2></a>
+      <a href="/contact"><h2 class="mobile-title">Contact</h2></a>
     </div>
   </div>
 

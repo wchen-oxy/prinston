@@ -7,21 +7,21 @@ const { location, address, phone, email, website, url } = Astro.props;
     <h3 class="locations">{location}</h3>
   </span>
   <span id="location-row" class="info-type-row">
-    <img class="location-image" src="/prinston/location.png" />
+    <img class="location-image" src="/location.png" />
     <p>{address}</p>
   </span>
   <!-- <span class="info-type-row">
-    <img class="phone" src="/prinston/phone.png" />
+    <img class="phone" src="/phone.png" />
     <p class="phone-number">{phone}</p>
   </span> -->
   <span class="info-type-row">
-    <img class="mail" src="/prinston/mail.png" />
+    <img class="mail" src="/mail.png" />
     <p>{email}</p>
   </span>
   {
     website && (
       <span class="info-type-row">
-        <img class="website" src="/prinston/url.png" />
+        <img class="website" src="/url.png" />
         <a href={url}>{website}</a>
       </span>
     )
