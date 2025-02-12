@@ -17,7 +17,6 @@ import Layout from "../layouts/Layout.astro";
     <h1>Open Positions</h1>
     <p>To apply, please send your resume to hr@prinstonpharm.com</p>
     <div class="content">
-   
       <CareerTab
         department="Legal"
         positions={[
@@ -37,19 +36,6 @@ import Layout from "../layouts/Layout.astro";
         ]}
         isFirst={"true"}
       />
-      <CareerTab
-      department="IT"
-      positions={[
-        {
-          name: "SAP Functional Lead",
-          link: "sap-functional-lead",
-        },
-        {
-         name: "IT Director",
-         link: "it-director",
-       },
-      ]}
-     />
     </div>
     <Spacer />
   </CenteredMainLayout>

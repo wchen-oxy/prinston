@@ -37,7 +37,7 @@ const careersLinks: { label: string; url: string }[] = [
 ];
 ---
 
-<nav>
+<nav id="spacing-nav">
   <div id="nav">
     <div class="nav-left">
       <a href="/">
@@ -142,11 +142,7 @@ const careersLinks: { label: string; url: string }[] = [
     <div class="modal-row">
       <button id="about-mobile" class="modal-row-button">
         <h2 class="mobile-title">About</h2>
-        <img
-          id="about-caret"
-          class="caret"
-          src="/navigate-down-arrow.png"
-        />
+        <img id="about-caret" class="caret" src="/navigate-down-arrow.png" />
       </button>
       <div id="about-row">
         {
@@ -163,11 +159,7 @@ const careersLinks: { label: string; url: string }[] = [
     <div class="modal-row">
       <button id="product-mobile" class="modal-row-button">
         <h2 class="mobile-title">Products</h2>
-        <img
-          id="product-caret"
-          class="caret"
-          src="/navigate-down-arrow.png"
-        />
+        <img id="product-caret" class="caret" src="/navigate-down-arrow.png" />
       </button>
       <div id="product-row">
         {
@@ -183,19 +175,13 @@ const careersLinks: { label: string; url: string }[] = [
     </div>
     <div class="modal-row">
       <!-- <a href="/cmo"><h2 class="mobile-title">CMO Services</h2></a> -->
-      <a href="/manufacturing"
-        ><h2 class="mobile-title">Manufacturing</h2></a
-      >
+      <a href="/manufacturing"><h2 class="mobile-title">Manufacturing</h2></a>
     </div>
     <div class="modal-row">
       <!-- <a href="/careers"><h2 class="mobile-title">Careers</h2></a> -->
       <button id="careers-mobile" class="modal-row-button">
         <h2 class="mobile-title">Careers</h2>
-        <img
-          id="careers-caret"
-          class="caret"
-          src="/navigate-down-arrow.png"
-        />
+        <img id="careers-caret" class="caret" src="/navigate-down-arrow.png" />
       </button>
       <div id="careers-row">
         {
@@ -213,405 +199,406 @@ const careersLinks: { label: string; url: string }[] = [
       <a href="/contact"><h2 class="mobile-title">Contact</h2></a>
     </div>
   </div>
+</nav>
 
-  <style>
-    nav {
-      background-color: white;
-      /* width: 100%; */
-      /* height: 80px; */
-      padding: 1rem 0;
+<style>
+  nav {
+    background-color: white;
+    /* width: 100%; */
+    /* height: 80px; */
+    padding: 1rem 0;
+  }
+
+  .prinston-logo {
+    height: 80px;
+    margin-left: -5px;
+  }
+
+  .solco-logo {
+    height: 40px;
+    margin-left: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+  button {
+    border: 2px solid transparent;
+    background-color: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    transition: border-bottom 100ms;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    padding-top: 3px;
+    font-family: sans-serif;
+    font-weight: 400;
+  }
+
+  .button:hover {
+    border-bottom: 2px solid rgba(31, 135, 232, 1);
+  }
+
+  .links:hover {
+    border-bottom: 2px solid rgba(31, 135, 232, 1);
+  }
+
+  .normal-links {
+    font-family: sans-serif;
+    font-weight: 400;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: flex;
+  }
+
+  .nav-items {
+    margin: 0;
+    gap: 1rem;
+    display: flex;
+    padding-left: 1rem;
+    align-items: center;
+    list-style-type: none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  #bar-icon-container:hover {
+    cursor: pointer;
+  }
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 2px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  .caret {
+    width: 15px;
+    height: 15px;
+  }
+  .modal-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .product-rows {
+    border-left: 1px solid #333;
+    font-size: 20px;
+    padding: 0.625rem 0 0.625rem 2rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  .careers-rows {
+    border-left: 1px solid #333;
+    font-size: 20px;
+    padding: 0.625rem 0 0.625rem 2rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  .mobile-title {
+    font-weight: 400;
+    color: #333;
+  }
+  .modal-row-button {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .mobile-links {
+    font-size: 20px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  #nav {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    max-width: calc(100% - 40px);
+  }
+
+  #modal {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  #close-row {
+    align-items: flex-end;
+  }
+
+  #close-icon {
+    font-size: 48px;
+    margin: 0;
+    color: #333;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  #about-dropdown {
+    display: none;
+  }
+  #product-dropdown {
+    display: none;
+  }
+  #careers-dropdown {
+    display: none;
+  }
+  #about-row {
+    display: none;
+    flex-direction: column;
+  }
+  #product-row {
+    display: none;
+    flex-direction: column;
+  }
+
+  #careers-row {
+    display: none;
+    flex-direction: column;
+  }
+
+  li {
+    padding: 0 12px;
+  }
+
+  @media (min-width: 48rem) {
+    #nav {
+      max-width: calc(100% - 64px);
     }
+  }
 
-    .prinston-logo {
-      height: 80px;
-      margin-left: -5px;
+  @media (min-width: 64rem) {
+    #nav {
+      max-width: calc(100% - 128px);
     }
+  }
 
+  @media (min-width: 90rem) {
+    #nav {
+      max-width: calc(100% - 192px);
+    }
+  }
+
+  @media (min-width: 104rem) {
+    #nav {
+      max-width: 1552px;
+    }
+  }
+
+  @media screen and (max-width: 891px) {
+    .nav-items {
+      display: none;
+    }
+    #bar-container {
+      display: block;
+      padding-top: 10px;
+    }
+  }
+  @media screen and (max-width: 679px) {
     .solco-logo {
-      height: 40px;
+      height: 30px;
       margin-left: 5px;
     }
-
-    a {
-      text-decoration: none;
-      color: black;
-      font-size: 18px;
+    .prinston-logo {
+      height: 50px;
     }
+  }
 
-    button {
-      border: 2px solid transparent;
-      background-color: transparent;
-      font-size: 18px;
-      cursor: pointer;
-      transition: border-bottom 100ms;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
-      padding-top: 3px;
-      font-family: sans-serif;
-      font-weight: 400;
+  @media screen and (max-width: 680px) and (min-width: 521px) {
+    .solco-logo {
+      height: 30px;
+      margin-left: 5px;
     }
-
-    .button:hover {
-      border-bottom: 2px solid rgba(31, 135, 232, 1);
+    .prinston-logo {
+      height: 50px;
     }
-
-    .links:hover {
-      border-bottom: 2px solid rgba(31, 135, 232, 1);
-    }
-
-    .normal-links {
-      font-family: sans-serif;
-      font-weight: 400;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-right {
-      display: flex;
-    }
-
     .nav-items {
-      margin: 0;
-      gap: 1rem;
+      display: none;
+    }
+    #bar-container {
+      display: block;
+      padding-top: 10px;
+    }
+  }
+
+  @media screen and (min-width: 891px) {
+    .nav-items {
       display: flex;
-      padding-left: 1rem;
-      align-items: center;
-      list-style-type: none;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
     }
-    #bar-icon-container:hover {
-      cursor: pointer;
-    }
-    .bar1,
-    .bar2,
-    .bar3 {
-      width: 35px;
-      height: 2px;
-      background-color: #333;
-      margin: 6px 0;
-      transition: 0.4s;
-    }
-    .caret {
-      width: 15px;
-      height: 15px;
-    }
-    .modal-row {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-    .product-rows {
-      border-left: 1px solid #333;
-      font-size: 20px;
-      padding: 0.625rem 0 0.625rem 2rem;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
-    }
-    .careers-rows {
-      border-left: 1px solid #333;
-      font-size: 20px;
-      padding: 0.625rem 0 0.625rem 2rem;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
-    }
-
-    .mobile-title {
-      font-weight: 400;
-      color: #333;
-    }
-    .modal-row-button {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-
-    .mobile-links {
-      font-size: 20px;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
-    }
-
-    #nav {
-      display: flex;
-      margin: auto;
-      justify-content: space-between;
-      max-width: calc(100% - 40px);
-    }
-
-    #modal {
-      position: absolute;
-      display: none;
-      top: 0;
-      left: 0;
-      background-color: #fff;
-      z-index: 2;
-      height: 100%;
-      width: 100%;
-      padding: 1rem;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      overflow-y: auto;
-    }
-
-    #close-row {
-      align-items: flex-end;
-    }
-
-    #close-icon {
-      font-size: 48px;
-      margin: 0;
-      color: #333;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
-    }
-    #about-dropdown {
+    #bar-container {
       display: none;
     }
-    #product-dropdown {
-      display: none;
-    }
-    #careers-dropdown {
-      display: none;
-    }
-    #about-row {
-      display: none;
-      flex-direction: column;
-    }
-    #product-row {
-      display: none;
-      flex-direction: column;
-    }
+  }
+</style>
+<script>
+  const aboutButton = document.getElementById("button-about");
+  const productButton = document.getElementById("button-product");
+  const productMobile = document.getElementById("product-mobile");
+  const aboutMobile = document.getElementById("about-mobile");
+  const careersButton = document.getElementById("button-careers");
+  const careersMobile = document.getElementById("careers-mobile");
 
-    #careers-row {
-      display: none;
-      flex-direction: column;
-    }
+  const product = document.getElementById("product-dropdown");
+  const about = document.getElementById("about-dropdown");
+  const careers = document.getElementById("careers-dropdown");
 
-    li {
-      padding: 0 12px;
+  careersButton.addEventListener("click", (e) => {
+    if (careers.style.display === "") {
+      careers.style.display = "flex";
+      careersButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
+      productButton.style.borderBottom = "2px solid transparent";
+      aboutButton.style.borderBottom = "2px solid transparent";
+    } else if (careers.style.display === "flex") {
+      careersButton.style.borderBottom = "2px solid transparent";
+      careers.style.display = "";
     }
+    product.style.display = "";
+    about.style.display = "";
+  });
 
-    @media (min-width: 48rem) {
-      #nav {
-        max-width: calc(100% - 64px);
-      }
+  aboutButton.addEventListener("click", (e) => {
+    if (about.style.display === "") {
+      about.style.display = "flex";
+      aboutButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
+      productButton.style.borderBottom = "2px solid transparent";
+      careersButton.style.borderBottom = "2px solid transparent";
+    } else if (about.style.display === "flex") {
+      aboutButton.style.borderBottom = "2px solid transparent";
+      about.style.display = "";
     }
+    product.style.display = "";
+    careers.style.display = "";
+  });
 
-    @media (min-width: 64rem) {
-      #nav {
-        max-width: calc(100% - 128px);
-      }
+  productButton.addEventListener("click", (e) => {
+    if (product.style.display === "") {
+      product.style.display = "flex";
+      productButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
+      aboutButton.style.borderBottom = "2px solid transparent";
+      careersButton.style.borderBottom = "2px solid transparent";
+    } else if (product.style.display === "flex") {
+      productButton.style.borderBottom = "2px solid transparent";
+      product.style.display = "";
     }
+    about.style.display = "";
+    careers.style.display = "";
+  });
 
-    @media (min-width: 90rem) {
-      #nav {
-        max-width: calc(100% - 192px);
-      }
+  aboutMobile.addEventListener("click", (e) => {
+    const aboutInfo = document.getElementById("about-row");
+    const caret = document.getElementById("about-caret");
+    if (aboutInfo.style.display === "") {
+      aboutInfo.style.display = "flex";
+      caret.style.transform = "rotate(180deg)";
+    } else if (aboutInfo.style.display === "flex") {
+      aboutInfo.style.display = "";
+      caret.style.transform = "rotate(0deg)";
     }
+  });
 
-    @media (min-width: 104rem) {
-      #nav {
-        max-width: 1552px;
-      }
+  productMobile.addEventListener("click", (e) => {
+    const productInfo = document.getElementById("product-row");
+    const caret = document.getElementById("product-caret");
+    if (productInfo.style.display === "") {
+      productInfo.style.display = "flex";
+      caret.style.transform = "rotate(180deg)";
+    } else if (productInfo.style.display === "flex") {
+      productInfo.style.display = "";
+      caret.style.transform = "rotate(0deg)";
     }
+  });
 
-    @media screen and (max-width: 891px) {
-      .nav-items {
-        display: none;
-      }
-      #bar-container {
-        display: block;
-        padding-top: 10px;
-      }
+  careersMobile.addEventListener("click", (e) => {
+    const careersInfo = document.getElementById("careers-row");
+    const caret = document.getElementById("careers-caret");
+    if (careersInfo.style.display === "") {
+      careersInfo.style.display = "flex";
+      caret.style.transform = "rotate(180deg)";
+    } else if (careersInfo.style.display === "flex") {
+      careersInfo.style.display = "";
+      caret.style.transform = "rotate(0deg)";
     }
-    @media screen and (max-width: 679px) {
-      .solco-logo {
-        height: 30px;
-        margin-left: 5px;
-      }
-      .prinston-logo {
-        height: 50px;
-      }
-    }
+  });
 
-    @media screen and (max-width: 680px) and (min-width: 521px) {
-      .solco-logo {
-        height: 30px;
-        margin-left: 5px;
-      }
-      .prinston-logo {
-        height: 50px;
-      }
-      .nav-items {
-        display: none;
-      }
-      #bar-container {
-        display: block;
-        padding-top: 10px;
-      }
-    }
-
-    @media screen and (min-width: 891px) {
-      .nav-items {
-        display: flex;
-      }
-      #bar-container {
-        display: none;
-      }
-    }
-  </style>
-  <script>
-    const aboutButton = document.getElementById("button-about");
-    const productButton = document.getElementById("button-product");
-    const productMobile = document.getElementById("product-mobile");
-    const aboutMobile = document.getElementById("about-mobile");
-    const careersButton = document.getElementById("button-careers");
-    const careersMobile = document.getElementById("careers-mobile");
-
+  document.addEventListener("click", (e) => {
     const product = document.getElementById("product-dropdown");
     const about = document.getElementById("about-dropdown");
     const careers = document.getElementById("careers-dropdown");
-
-    careersButton.addEventListener("click", (e) => {
-      if (careers.style.display === "") {
-        careers.style.display = "flex";
-        careersButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
-        productButton.style.borderBottom = "2px solid transparent";
-        aboutButton.style.borderBottom = "2px solid transparent";
-      } else if (careers.style.display === "flex") {
-        careersButton.style.borderBottom = "2px solid transparent";
-        careers.style.display = "";
-      }
+    const isButtonClick =
+      e.target.id === "button-careers" ||
+      e.target.id === "button-product" ||
+      e.target.id === "button-about" ||
+      e.target.tagName.toLowerCase() === "a"
+        ? true
+        : false;
+    if (isButtonClick) return;
+    if (
+      product.style.display === "flex" ||
+      about.style.display === "flex" ||
+      careers.style.display === "flex"
+    ) {
       product.style.display = "";
       about.style.display = "";
-    });
-
-    aboutButton.addEventListener("click", (e) => {
-      if (about.style.display === "") {
-        about.style.display = "flex";
-        aboutButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
-        productButton.style.borderBottom = "2px solid transparent";
-        careersButton.style.borderBottom = "2px solid transparent";
-      } else if (about.style.display === "flex") {
-        aboutButton.style.borderBottom = "2px solid transparent";
-        about.style.display = "";
-      }
-      product.style.display = "";
       careers.style.display = "";
-    });
-
-    productButton.addEventListener("click", (e) => {
-      if (product.style.display === "") {
-        product.style.display = "flex";
-        productButton.style.borderBottom = "2px solid rgba(31, 135, 232, 1)";
-        aboutButton.style.borderBottom = "2px solid transparent";
-        careersButton.style.borderBottom = "2px solid transparent";
-      } else if (product.style.display === "flex") {
-        productButton.style.borderBottom = "2px solid transparent";
-        product.style.display = "";
-      }
-      about.style.display = "";
-      careers.style.display = "";
-    });
-
-    aboutMobile.addEventListener("click", (e) => {
-      const aboutInfo = document.getElementById("about-row");
-      const caret = document.getElementById("about-caret");
-      if (aboutInfo.style.display === "") {
-        aboutInfo.style.display = "flex";
-        caret.style.transform = "rotate(180deg)";
-      } else if (aboutInfo.style.display === "flex") {
-        aboutInfo.style.display = "";
-        caret.style.transform = "rotate(0deg)";
-      }
-    });
-
-    productMobile.addEventListener("click", (e) => {
-      const productInfo = document.getElementById("product-row");
-      const caret = document.getElementById("product-caret");
-      if (productInfo.style.display === "") {
-        productInfo.style.display = "flex";
-        caret.style.transform = "rotate(180deg)";
-      } else if (productInfo.style.display === "flex") {
-        productInfo.style.display = "";
-        caret.style.transform = "rotate(0deg)";
-      }
-    });
-
-    careersMobile.addEventListener("click", (e) => {
-      const careersInfo = document.getElementById("careers-row");
-      const caret = document.getElementById("careers-caret");
-      if (careersInfo.style.display === "") {
-        careersInfo.style.display = "flex";
-        caret.style.transform = "rotate(180deg)";
-      } else if (careersInfo.style.display === "flex") {
-        careersInfo.style.display = "";
-        caret.style.transform = "rotate(0deg)";
-      }
-    });
-
-    document.addEventListener("click", (e) => {
-      const product = document.getElementById("product-dropdown");
-      const about = document.getElementById("about-dropdown");
-      const careers = document.getElementById("careers-dropdown");
-      const isButtonClick =
-        e.target.id === "button-careers" ||
-        e.target.id === "button-product" ||
-        e.target.id === "button-about" ||
-        e.target.tagName.toLowerCase() === "a"
-          ? true
-          : false;
-      if (isButtonClick) return;
-      if (
-        product.style.display === "flex" ||
-        about.style.display === "flex" ||
-        careers.style.display === "flex"
-      ) {
-        product.style.display = "";
-        about.style.display = "";
-        careers.style.display = "";
-        productButton.style.borderBottom = "2px solid transparent";
-        aboutButton.style.borderBottom = "2px solid transparent";
-        careersButton.style.borderBottom = "2px solid transparent";
-      }
-    });
-
-    // Menu.style.display = "none";
-    function ShowHide(x) {
-      // console.log(x.target.classList.toggle("change"));
-      // x.classList.toggle("change");
-      // const Menu = document.getElementById("Menu");
-      const Modal = document.getElementById("modal");
-      console.log(Modal.style.display === "none" || Modal.style.display === "");
-      if (Modal.style.display === "none" || Modal.style.display === "") {
-        Modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-        //add button styling
-      } else {
-        Modal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
+      productButton.style.borderBottom = "2px solid transparent";
+      aboutButton.style.borderBottom = "2px solid transparent";
+      careersButton.style.borderBottom = "2px solid transparent";
     }
-    console.log(document.getElementById("bar-container"));
-    document
-      .getElementById("bar-container")
-      .addEventListener("click", (e) => ShowHide(e));
-    document
-      .getElementById("close-icon")
-      .addEventListener("click", (e) => ShowHide(e));
-  </script>
-</nav>
+  });
+
+  // Menu.style.display = "none";
+  function ShowHide(x) {
+    // console.log(x.target.classList.toggle("change"));
+    // x.classList.toggle("change");
+    // const Menu = document.getElementById("Menu");
+    const Modal = document.getElementById("modal");
+    console.log(Modal.style.display === "none" || Modal.style.display === "");
+    if (Modal.style.display === "none" || Modal.style.display === "") {
+      Modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+      //add button styling
+    } else {
+      Modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+  // console.log(document.getElementById("bar-container"));
+  document
+    .getElementById("bar-container")
+    .addEventListener("click", (e) => ShowHide(e));
+  document
+    .getElementById("close-icon")
+    .addEventListener("click", (e) => ShowHide(e));
+
+</script>
