@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header.astro";
+import HeaderSpacer from "../components/HeaderSpacer.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SectionMeta from "../components/SectionMeta.astro";
 import Spacer from "../components/spacer.astro";
@@ -9,6 +10,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About">
+  <HeaderSpacer />
   <Header />
   <PageHeader
     url="/scientist-crop.jpg"
@@ -16,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
     title="What Are Generic Medicines?"
     subHeader="The backbone of affordable medicine"
   />
-  <img id='mobile-image' src="/pills2-c.jpg" />
+  <img id="mobile-image" src="/pills2-c.jpg" />
   <CenteredMainLayout>
     <div class="main-column">
       <img id="normal-image" src="/pills2-c.jpg" />
@@ -78,17 +80,17 @@ import Layout from "../layouts/Layout.astro";
   p {
     font-size: 20px;
   }
-  #mobile-image{
+  #mobile-image {
     display: none;
   }
   @media screen and (max-width: 1000px) {
-    #mobile-image{
+    #mobile-image {
       display: block;
       height: 250px;
       object-fit: cover;
       object-position: center;
     }
-    #normal-image{
+    #normal-image {
       display: none;
     }
     #main-about {

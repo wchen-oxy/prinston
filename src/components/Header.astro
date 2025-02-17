@@ -37,7 +37,7 @@ const careersLinks: { label: string; url: string }[] = [
 ];
 ---
 
-<nav id="spacing-nav">
+<nav>
   <div id="nav">
     <div class="nav-left">
       <a href="/">
@@ -204,17 +204,23 @@ const careersLinks: { label: string; url: string }[] = [
 <style>
   nav {
     background-color: white;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    height: 100px;
     /* width: 100%; */
     /* height: 80px; */
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
   }
 
   .prinston-logo {
+    display: block;
     height: 80px;
     margin-left: -5px;
   }
 
   .solco-logo {
+    display: block;
     height: 40px;
     margin-left: 5px;
   }
@@ -223,6 +229,9 @@ const careersLinks: { label: string; url: string }[] = [
     text-decoration: none;
     color: black;
     font-size: 18px;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
   }
 
   button {
@@ -335,6 +344,7 @@ const careersLinks: { label: string; url: string }[] = [
     margin: auto;
     justify-content: space-between;
     max-width: calc(100% - 40px);
+    height: 100%;
   }
 
   #modal {
@@ -422,7 +432,7 @@ const careersLinks: { label: string; url: string }[] = [
     }
     #bar-container {
       display: block;
-      padding-top: 10px;
+      margin: auto 20px auto auto;
     }
   }
   @media screen and (max-width: 679px) {
@@ -432,6 +442,9 @@ const careersLinks: { label: string; url: string }[] = [
     }
     .prinston-logo {
       height: 50px;
+    }
+    nav {
+      height: 80px;
     }
   }
 
@@ -448,7 +461,7 @@ const careersLinks: { label: string; url: string }[] = [
     }
     #bar-container {
       display: block;
-      padding-top: 10px;
+      margin: auto;
     }
   }
 
@@ -585,7 +598,7 @@ const careersLinks: { label: string; url: string }[] = [
     const Modal = document.getElementById("modal");
     console.log(Modal.style.display === "none" || Modal.style.display === "");
     if (Modal.style.display === "none" || Modal.style.display === "") {
-      Modal.style.display = "block";
+      Modal.style.display = "inline-table";
       document.body.style.overflow = "hidden";
       //add button styling
     } else {
@@ -600,5 +613,4 @@ const careersLinks: { label: string; url: string }[] = [
   document
     .getElementById("close-icon")
     .addEventListener("click", (e) => ShowHide(e));
-
 </script>

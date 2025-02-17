@@ -1,6 +1,7 @@
 ---
 import Footer from "../../components/Footer/Footer.astro";
 import Header from "../../components/Header.astro";
+import HeaderSpacer from "../../components/HeaderSpacer.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Spacer from "../../components/spacer.astro";
 import CenteredMainLayout from "../../layouts/CenteredMainLayout.astro";
@@ -8,6 +9,7 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Paralegal">
+  <HeaderSpacer />
   <Header />
   <PageHeader section="Job Openings" title="Legal Department Opening" />
   <Spacer />
@@ -82,7 +84,7 @@ import Layout from "../../layouts/Layout.astro";
         <li>Vision insurance</li>
       </ul>
     </div>
-    <Spacer/>
+    <Spacer />
     <div>
       <h4>
         Please send your resume to jobs@prinstonpharm.com, with the job title in
@@ -94,9 +96,15 @@ import Layout from "../../layouts/Layout.astro";
   <Footer />
 </Layout>
 
-
 <style>
-  p{
-    font-size: 18px;
-  }
+  h4 {
+      margin-bottom: 0px;
+    }
+    p {
+      margin-top: 0px;
+      font-size: 18px;
+    }
+    ul{
+        margin-top: 0px;
+    }
 </style>

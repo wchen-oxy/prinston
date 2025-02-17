@@ -6,6 +6,7 @@ import Spacer from "../components/spacer.astro";
 import CenteredMainLayout from "../layouts/CenteredMainLayout.astro";
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer/Footer.astro";
+import HeaderSpacer from "../components/HeaderSpacer.astro";
 
 const qualityImage = "/global-supply.png";
 const americanImage = "/prinston-labs.png";
@@ -77,6 +78,7 @@ const data = [
 ---
 
 <Layout title="Manufacturing">
+  <HeaderSpacer />
   <Header />
   <PageHeader
     section="Manufacturing"

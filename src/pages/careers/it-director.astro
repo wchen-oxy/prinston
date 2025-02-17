@@ -1,6 +1,7 @@
 ---
 import Footer from "../../components/Footer/Footer.astro";
 import Header from "../../components/Header.astro";
+import HeaderSpacer from "../../components/HeaderSpacer.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Spacer from "../../components/spacer.astro";
 import CenteredMainLayout from "../../layouts/CenteredMainLayout.astro";
@@ -8,10 +9,11 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="IT Director">
+  <HeaderSpacer />
   <Header />
   <PageHeader section="Job Openings" title="Legal Department Opening" />
   <Spacer />
-  <CenteredMainLayout />
+  <CenteredMainLayout >
   <h4>About the Company</h4>
   <p>
     Huahai US, together with its subsidiaries such as Prinston Pharmaceutical,
@@ -158,6 +160,8 @@ import Layout from "../../layouts/Layout.astro";
       and governance frameworks.
     </li>
   </ul>
+  <CenteredMainLayout >
+
 </Layout>
 <Spacer />
 <Footer />

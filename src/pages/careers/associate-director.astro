@@ -1,6 +1,7 @@
 ---
 import Footer from "../../components/Footer/Footer.astro";
 import Header from "../../components/Header.astro";
+import HeaderSpacer from "../../components/HeaderSpacer.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Spacer from "../../components/spacer.astro";
 import CenteredMainLayout from "../../layouts/CenteredMainLayout.astro";
@@ -8,9 +9,10 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Associate Director">
+  <HeaderSpacer />
   <Header />
   <PageHeader section="Job Openings" title="Business Developmnent" />
-  <Spacer/>
+  <Spacer />
   <CenteredMainLayout>
     <div>
       <h2>Manager/Associate Director, Portfolio/Project Management</h2>
@@ -106,7 +108,7 @@ import Layout from "../../layouts/Layout.astro";
         <li>Vision insurance</li>
       </ul>
     </div>
-    <Spacer/>
+    <Spacer />
 
     <div>
       <h4>
@@ -115,13 +117,12 @@ import Layout from "../../layouts/Layout.astro";
       </h4>
     </div>
   </CenteredMainLayout>
-  <Spacer/>
+  <Spacer />
   <Footer />
 </Layout>
 
-
 <style>
-  p{
+  p {
     font-size: 18px;
   }
 </style>
