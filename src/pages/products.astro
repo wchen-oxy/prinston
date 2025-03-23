@@ -23,12 +23,14 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
   />
   <Spacer />
   <CenteredMainLayout>
+    <div id='search'>
     <label for="product-name">Product Name</label>
     <input id="searchbar" type="text" placeholder="Type Here" />
+    </div>
     <div id="filter">
       <div>
         <label for="therapeutic-category">Therapeutic Category</label>
-        <div>
+        <div class='select-container'>
           <select id="select-therapy" name="therapeutic-category">
             {therapies.map((item) => <option value={item}>{item}</option>)}
           </select>
@@ -37,7 +39,7 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
       </div>
       <div id="brand-container">
         <label for="brand-name">Brand Name</label>
-        <div>
+        <div class='select-container'>
           <select id="select-brand" name="brand-name">
             {brands.map((item) => <option value={item}>{item}</option>)}
           </select>
@@ -45,44 +47,63 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
         </div>
       </div>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th class="name">Product Name</th>
-          <th class="details">Product Details</th>
-          <th class="category">Therapeutic Category</th>
-          <th class="form">Dosage Form</th>
-          <th class="brand">Brand Name</th>
-        </tr>
-      </thead>
-      <tbody id="table-body">
-        {
-          list.map((drug) => (
-            <tr id={drug.description}>
-              <td>{drug.description}</td>
-              <td>
-                <div class="detail-row">
+    <table id="desktop-products">
+      <colgroup>
+        <col id="name-col" />
+        <col id="detail-col" />
+        <col id="category-col" />
+        <col id="dosage-col" />
+        <col id="brand-col" />
+      </colgroup>
+      <tr>
+        <th class="name">Product Name</th>
+        <th class="details">Product Details</th>
+        <th class="category">Therapeutic Category</th>
+        <th class="form">Dosage Form</th>
+        <th class="brand">Brand Name</th>
+      </tr>
+      {
+        list.map((drug, index) => (
+          <tr
+            class={(index + 1) % 2 === 0 ? "grey" : "white"}
+            id={drug.description}
+          >
+            <td>{drug.description}</td>
+            <td>
+              <div class="detail-row">
+                <div class="desktop-mini-column-left">
                   <h6>NDC:</h6>
+                </div>
+                <div class="desktop-mini-column-right">
                   <p>{drug.NDC}</p>
                 </div>
-                <div class="detail-row">
+              </div>
+              <div class="detail-row">
+                <div class="desktop-mini-column-left">
                   <h6>Quantity:</h6>
-                  <p>{drug.quantity}</p>
                 </div>
-                <div class="detail-row">
+                <div class="desktop-mini-column-right">
+                <p>{drug.quantity}</p>
+              </div>
+              </div>
+              <div class="detail-row">
+                <div class="desktop-mini-column-left">
                   <h6>Label:</h6>
-                  <a target="_blank" rel="noopener noreferrer" href={drug.url}>
-                    Link
-                  </a>
-                </div>
-              </td>
-              <td>{drug.category}</td>
-              <td>{drug.form}</td>
-              <td>{drug.brand}</td>
-            </tr>
-          ))
-        }
-        <!-- <tr id={"AMPHETAMINE SUFATE 5MG 100"}>
+                </div>  
+                <div class="desktop-mini-column-right">
+                <a target="_blank" rel="noopener noreferrer" href={drug.url}>
+                  Link
+                </a>
+              </div>
+              </div>
+            </td>
+            <td>{drug.category}</td>
+            <td>{drug.form}</td>
+            <td>{drug.brand}</td>
+          </tr>
+        ))
+      }
+      <!-- <tr id={"AMPHETAMINE SUFATE 5MG 100"}>
           <td>AMPHETAMINE SUFATE 5MG 100</td>
           <td>
             <div class="detail-row"><h6>NDC</h6><p>43547-0457-10</p></div>
@@ -117,9 +138,74 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
           <td>Tablet</td>
           <td>Lotensin</td>
         </tr> -->
-        <!-- Add more rows as needed -->
-      </tbody>
+      <!-- Add more rows as needed -->
     </table>
+    <div id="mobile-products">
+      {
+        list.map((drug, index) => (
+          <div
+            class={(index + 1) % 2 === 0 ? "grey mobile-row" : "white mobile-row"}
+            id={drug.description} 
+          >
+            <div class="mini-detail-title">
+              <h4>{drug.description}</h4>
+            </div>
+            <div class="mini-detail-container">
+              <div class="mini-detail-row">
+                <div class="mini-detail-column-left">
+                  <h6 class="mobile">Description</h6>
+                </div>
+                <div class="mini-detail-column-right">
+                  <h6 class='mobile-category'>{drug.category}</h6>
+                </div>
+              </div>
+              <div class="mini-detail-row">
+                <div class="mini-detail-column-left">
+                  <h6>NDC</h6>
+                </div>
+                <div class="mini-detail-column-right">
+                  <h6 class="mobile-ndc">{drug.NDC}</h6>
+                </div>
+              </div>
+              <div class="mini-detail-row">
+                <div class="mini-detail-column-left">
+                  <h6>Quantity</h6>
+                </div>
+                <div class="mini-detail-column-right">
+                  <h6 class="mobile-quantity">{drug.quantity}</h6>
+                </div>
+              </div>
+              <div class="mini-detail-row">
+                <div class="mini-detail-column-left">
+                  <h6>Dosage Form</h6>
+                </div>
+                <div class="mini-detail-column-right">
+                  <h6 class="mobile-form">{drug.form}</h6>
+                </div>
+              </div>
+              <div class="mini-detail-row">
+                <div class="mini-detail-column-left">
+                  <h6>Brand Name</h6>
+                </div>
+                <div class="mini-detail-column-right">
+                  <h6 class="mobile-brand">{drug.brand}</h6>
+                </div>
+              </div>
+              <div class="mini-detail-row">
+                <div class="mini-detail-column-left">
+                  <h6>Label</h6>
+                </div>
+                <div class="mini-detail-column-right">
+                  <a target="_blank" rel="noopener noreferrer" href={drug.url}>
+                    Link
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
   </CenteredMainLayout>
   <Spacer />
   <Footer />
@@ -130,9 +216,22 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     padding: 1rem;
     width: 70%;
     /* max-width: calc(100% - 2rem); */
+  } 
+
+  #filter{
+     margin-bottom: 60px;
   }
-  #select-therapy {
+
+  #select-therapy, #select-brand {
     width: 100%;
+  }
+  
+  .select-container{
+    display: flex; 
+    button{
+      width: fit-content;
+      margin:  0 0 0 4px;
+    }
   }
 
   @media only screen and (min-width: 1440px) {
@@ -141,9 +240,87 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     }
   }
 
+  @media only screen and (min-width: 981px) {
+    #mobile-products {
+      display: none;
+    }
+    #desktop-products {
+      display: block;
+    }
+    .desktop-mini-column-left{
+      min-width: 66px;
+      white-space: nowrap;
+    }
+    .desktop-mini-column-right{
+      p{
+        text-wrap: nowrap;
+      }
+    }
+  }
+  @media only screen and (max-width: 980px) {
+    #mobile-products {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    #desktop-products {
+      display: none;
+    }
+    #search{
+      padding: 0 28px;
+    }
+    #filter{
+      padding: 0 28px;
+    }
+    .mobile-row {
+      display: flex;
+      flex-direction: column;
+      padding: 2px 20px 12px 20px; 
+    }
+    .mini-detail-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .mini-detail-row {
+      display: flex;
+    }
+    .mini-detail-title {
+      padding-left: 8px;
+    }
+    .mini-detail-column-left {
+      display: flex;
+      flex-direction: column;
+      width: 20%;
+      min-width: 100px;
+      max-width: 145px;
+      
+      h6 {
+        color: rgb(122, 122, 122);
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0 0 8px 0;
+        padding-left: 8px; 
+      }
+     
+    }
+    .mini-detail-column-right {
+      display: flex;
+      flex-direction: column;
+      width: 79%;
+      h6,
+      a {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 12px 0;
+        padding-left: 8px;
+      }
+    }
+  }
+
   table {
-    display: block;
+    table-layout: fixed;
     overflow-x: auto;
+    border-spacing: 0;
     width: 100%;
 
     h6 {
@@ -156,24 +333,18 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
       margin: 0;
     }
   }
+  col {
+    width: 20%;
+  }
   th {
     padding: 0;
     text-align: left;
-  }
-  th.name {
-    width: 20%;
-  }
-  th.details {
-    width: 20%;
-  }
-  th.category {
-    width: 12%;
-  }
-  th.form {
-    width: 15%;
+    word-wrap: break-word;
   }
   td {
     vertical-align: top;
+    word-wrap: break-word;
+    padding: 16px;
   }
   td.detail-row {
     padding-right: 1rem;
@@ -182,18 +353,27 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     font-size: 14px;
   }
   tr {
-    height: 100px;
+    height: 0;
   }
   .detail-row {
     display: flex;
+    margin-bottom: 4px; 
+  }
+
+  .grey {
+    background-color: #eee;
+  }
+  .white {
+    background-color: #fff;
   }
   #searchbar {
     width: 100%;
     height: 28px;
     /* margin-top: 100px; */
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(255, 255, 255);
     border-width: 1px;
     margin-bottom: 12px;
+    box-sizing: border-box;
   }
   #brand-container {
     margin-top: 12px;
@@ -220,19 +400,13 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
   const selectBrand = document.getElementById("select-brand");
   const clearTherapy = document.getElementById("clear-therapy");
   const clearBrand = document.getElementById("clear-brand");
-  const tableBody = document.getElementById("table-body");
   const tableRows = document.getElementsByTagName("tr");
+  const table = document.getElementById("desktop-products");
+  const mobileRows = document.querySelectorAll(".mobile-row");
 
   searchbar.addEventListener("input", (e) => {
     console.log("click!");
   });
-
-  //   selectTherapy.addEventListener("change", (e) => {
-  //     // console.log(e.target.value);
-  //   });
-  //   selectBrand.addEventListener("change", (e) => {
-  //     // console.log(e.target.value);
-  //   });
 
   clearTherapy.addEventListener("click", (e) => {
     const select = document.getElementById("select-therapy");
@@ -244,39 +418,52 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     select.value = null;
     onFilterHandler(e);
   });
-  const onFilterHandler = (e) => {
-    for (let i = 1; i < tableRows.length; i++) {
-      const row = tableRows[i];
-      const text = row.id;
-      const category = row.cells[2].innerText;
-      const brand = row.cells[4].innerText;
-      const categoryBoolean =
-        selectTherapy.value === "" ? true : category === selectTherapy.value;
-      const brandBoolean =
-        selectBrand.value === "" ? true : brand === selectBrand.value;
-      const categoryFilter = categoryBoolean && brandBoolean;
-      const textMatched = text
-        .toUpperCase()
-        .indexOf(searchbar.value.toUpperCase());
-      if (textMatched > -1 && categoryFilter) {
-        row.style.display = "table-row";
-      } else {
-        row.style.display = "none";
+  const onFilterHandler = (e) => { 
+    if ( window.getComputedStyle(table).display === 'none') {
+      for (let i = 0; i < mobileRows.length; i++){
+        const row = mobileRows[i];
+        const text = row.id;
+        const category = row.querySelector(".mobile-category").innerText;
+        const brand = row.querySelector(".mobile-brand").innerText;
+        const categoryBoolean =
+          selectTherapy.value === "" ? true : category === selectTherapy.value;
+        const brandBoolean =
+          selectBrand.value === "" ? true : brand === selectBrand.value;
+        const categoryFilter = categoryBoolean && brandBoolean;
+        const textMatched = text
+          .toUpperCase()
+          .indexOf(searchbar.value.toUpperCase());
+        if (textMatched > -1 && categoryFilter) {
+          row.style.display = "flex";
+        } else {
+          row.style.display = "none";
+        } 
       }
-      console.log(selectTherapy.value, categoryFilter);
+    }
+    else{
+      for (let i = 1; i < tableRows.length; i++) {
+        const row = tableRows[i];
+        const text = row.id;
+        const category = row.cells[2].innerText;
+        const brand = row.cells[4].innerText;
+        const categoryBoolean =
+          selectTherapy.value === "" ? true : category === selectTherapy.value;
+        const brandBoolean =
+          selectBrand.value === "" ? true : brand === selectBrand.value;
+        const categoryFilter = categoryBoolean && brandBoolean;
+        const textMatched = text
+          .toUpperCase()
+          .indexOf(searchbar.value.toUpperCase());
+        if (textMatched > -1 && categoryFilter) {
+          row.style.display = "table-row";
+        } else {
+          row.style.display = "none";
+        }
+      }
     }
   };
   searchbar.addEventListener("input", onFilterHandler);
   selectTherapy.addEventListener("change", onFilterHandler);
   selectBrand.addEventListener("change", onFilterHandler);
 
-  //   for (const row of tableRows) {
-  //     const text = row.id;
-  //     if (text.toUpperCase().indexOf(searchbar.value) > -1) {
-  //       row.style.display = "table-row";
-  //     } else {
-  //       row.style.display = "none";
-  //     }
-  //     console.log(row.id);
-  //   }
 </script>
