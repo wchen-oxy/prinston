@@ -23,14 +23,14 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
   />
   <Spacer />
   <CenteredMainLayout>
-    <div id='search'>
-    <label for="product-name">Product Name</label>
-    <input id="searchbar" type="text" placeholder="Type Here" />
+    <div id="search">
+      <label for="product-name">Product Name</label>
+      <input id="searchbar" type="text" placeholder="Type Here" />
     </div>
     <div id="filter">
       <div>
         <label for="therapeutic-category">Therapeutic Category</label>
-        <div class='select-container'>
+        <div class="select-container">
           <select id="select-therapy" name="therapeutic-category">
             {therapies.map((item) => <option value={item}>{item}</option>)}
           </select>
@@ -39,7 +39,7 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
       </div>
       <div id="brand-container">
         <label for="brand-name">Brand Name</label>
-        <div class='select-container'>
+        <div class="select-container">
           <select id="select-brand" name="brand-name">
             {brands.map((item) => <option value={item}>{item}</option>)}
           </select>
@@ -83,18 +83,18 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
                   <h6>Quantity:</h6>
                 </div>
                 <div class="desktop-mini-column-right">
-                <p>{drug.quantity}</p>
-              </div>
+                  <p>{drug.quantity}</p>
+                </div>
               </div>
               <div class="detail-row">
                 <div class="desktop-mini-column-left">
                   <h6>Label:</h6>
-                </div>  
+                </div>
                 <div class="desktop-mini-column-right">
-                <a target="_blank" rel="noopener noreferrer" href={drug.url}>
-                  Link
-                </a>
-              </div>
+                  <a target="_blank" rel="noopener noreferrer" href={drug.url}>
+                    Link
+                  </a>
+                </div>
               </div>
             </td>
             <td>{drug.category}</td>
@@ -144,8 +144,10 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
       {
         list.map((drug, index) => (
           <div
-            class={(index + 1) % 2 === 0 ? "grey mobile-row" : "white mobile-row"}
-            id={drug.description} 
+            class={
+              (index + 1) % 2 === 0 ? "grey mobile-row" : "white mobile-row"
+            }
+            id={drug.description}
           >
             <div class="mini-detail-title">
               <h4>{drug.description}</h4>
@@ -156,7 +158,7 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
                   <h6 class="mobile">Description</h6>
                 </div>
                 <div class="mini-detail-column-right">
-                  <h6 class='mobile-category'>{drug.category}</h6>
+                  <h6 class="mobile-category">{drug.category}</h6>
                 </div>
               </div>
               <div class="mini-detail-row">
@@ -216,21 +218,22 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     padding: 1rem;
     width: 70%;
     /* max-width: calc(100% - 2rem); */
-  } 
-
-  #filter{
-     margin-bottom: 60px;
   }
 
-  #select-therapy, #select-brand {
+  #filter {
+    margin-bottom: 60px;
+  }
+
+  #select-therapy,
+  #select-brand {
     width: 100%;
   }
-  
-  .select-container{
-    display: flex; 
-    button{
+
+  .select-container {
+    display: flex;
+    button {
       width: fit-content;
-      margin:  0 0 0 4px;
+      margin: 0 0 0 4px;
     }
   }
 
@@ -247,12 +250,12 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     #desktop-products {
       display: block;
     }
-    .desktop-mini-column-left{
+    .desktop-mini-column-left {
       min-width: 66px;
       white-space: nowrap;
     }
-    .desktop-mini-column-right{
-      p{
+    .desktop-mini-column-right {
+      p {
         text-wrap: nowrap;
       }
     }
@@ -266,16 +269,16 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     #desktop-products {
       display: none;
     }
-    #search{
+    #search {
       padding: 0 28px;
     }
-    #filter{
+    #filter {
       padding: 0 28px;
     }
     .mobile-row {
       display: flex;
       flex-direction: column;
-      padding: 2px 20px 12px 20px; 
+      margin: 2px 20px 12px 20px;
     }
     .mini-detail-container {
       display: flex;
@@ -293,27 +296,32 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
       width: 20%;
       min-width: 100px;
       max-width: 145px;
-      
+
       h6 {
         color: rgb(122, 122, 122);
         font-size: 16px;
         font-weight: 400;
         margin: 0 0 8px 0;
-        padding-left: 8px; 
+        padding-left: 8px;
       }
-     
     }
     .mini-detail-column-right {
       display: flex;
       flex-direction: column;
-      width: 79%;
+
       h6,
       a {
         font-size: 18px;
         font-weight: 400;
         margin: 0 0 12px 0;
         padding-left: 8px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
       }
+    }
+    .mobile-category {
+      word-wrap: break-word;
     }
   }
 
@@ -357,7 +365,7 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
   }
   .detail-row {
     display: flex;
-    margin-bottom: 4px; 
+    margin-bottom: 4px;
   }
 
   .grey {
@@ -418,9 +426,9 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
     select.value = null;
     onFilterHandler(e);
   });
-  const onFilterHandler = (e) => { 
-    if ( window.getComputedStyle(table).display === 'none') {
-      for (let i = 0; i < mobileRows.length; i++){
+  const onFilterHandler = (e) => {
+    if (window.getComputedStyle(table).display === "none") {
+      for (let i = 0; i < mobileRows.length; i++) {
         const row = mobileRows[i];
         const text = row.id;
         const category = row.querySelector(".mobile-category").innerText;
@@ -437,10 +445,9 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
           row.style.display = "flex";
         } else {
           row.style.display = "none";
-        } 
+        }
       }
-    }
-    else{
+    } else {
       for (let i = 1; i < tableRows.length; i++) {
         const row = tableRows[i];
         const text = row.id;
@@ -465,5 +472,4 @@ import HeaderSpacer from "../components/HeaderSpacer.astro";
   searchbar.addEventListener("input", onFilterHandler);
   selectTherapy.addEventListener("change", onFilterHandler);
   selectBrand.addEventListener("change", onFilterHandler);
-
 </script>
